@@ -3,21 +3,21 @@
   <!-- 3 automations ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
   <record id="automation_191_project_update_project_gross_margin_report_auto_generate" model="base.automation">
     <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;Project Update&apos;)]"/>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.update&apos;)]"/>
     <field name="trigger">on_create_or_write</field>
     <field name="active" eval="True"/>
     <!-- TODO: wire action_server_ids to actual server_action xmlids: [2131] -->
   </record>
   <record id="automation_194_proj_project_update_validations" model="base.automation">
     <field name="name">PROJ - Project Update - Validations</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;Project Update&apos;)]"/>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.update&apos;)]"/>
     <field name="trigger">on_create_or_write</field>
     <field name="active" eval="True"/>
     <!-- TODO: wire action_server_ids to actual server_action xmlids: [2145] -->
   </record>
   <record id="automation_195_proj_project_update_notify_pm" model="base.automation">
     <field name="name">PROJ - Project Update - Notify PM</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;Project Update&apos;)]"/>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.update&apos;)]"/>
     <field name="trigger">on_create_or_write</field>
     <field name="active" eval="True"/>
     <!-- TODO: wire action_server_ids to actual server_action xmlids: [2146] -->
