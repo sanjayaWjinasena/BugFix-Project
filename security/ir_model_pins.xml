@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record id="model_x_departments" model="ir.model"><field name="name">x_departments</field><field name="model">x_departments</field></record>
+  <record id="model_x_project_category" model="ir.model"><field name="name">x_project_category</field><field name="model">x_project_category</field></record>
+  <record id="model_x_project_groups" model="ir.model"><field name="name">x_project_groups</field><field name="model">x_project_groups</field></record>
+</odoo>

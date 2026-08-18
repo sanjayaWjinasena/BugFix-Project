@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- TODO: 5 server_actions records need hand-porting. -->
+  <!-- Clear-DB id=2003: RR - Auto Update Helpdesk Pipeline Status - 1 -->
+  <!-- Clear-DB id=2316: RR - End Quick Repair -->
+  <!-- Clear-DB id=2224: RR - Repair Diagnosis Validation -->
+  <!-- Clear-DB id=2242: RR - Repair Image Validation -->
+  <!-- Clear-DB id=2219: RR - Validate Diagnosis Lines -->
+</odoo>

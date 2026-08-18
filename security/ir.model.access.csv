@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_x_departments_user,x_departments user access,model_x_departments,base.group_user,1,1,1,1
+access_x_project_category_user,x_project_category user access,model_x_project_category,base.group_user,1,1,1,1
+access_x_project_groups_user,x_project_groups user access,model_x_project_groups,base.group_user,1,1,1,1

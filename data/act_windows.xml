@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- TODO: 11 act_windows records need hand-porting. -->
+  <!-- Clear-DB id=784: Departments -->
+  <!-- Clear-DB id=2026: Project Category -->
+  <!-- Clear-DB id=2879: Project Category (x_project_category) -->
+  <!-- Clear-DB id=2027: Project Groups -->
+  <!-- Clear-DB id=2805: project.milestone -->
+  <!-- Clear-DB id=2619: project.project -->
+  <!-- Clear-DB id=2806: project.sale.line.employee.map -->
+  <!-- Clear-DB id=2878: Project Stage (project.project.stage) -->
+  <!-- Clear-DB id=2802: project.task -->
+  <!-- Clear-DB id=2803: project.update -->
+  <!-- Clear-DB id=2877: Projects (project.project) -->
+</odoo>

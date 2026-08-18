@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- TODO: 3 automations records need hand-porting. -->
+  <!-- Clear-DB id=191: Project Update - Project Gross Margin Report Auto Generate -->
+  <!-- Clear-DB id=194: PROJ - Project Update - Validations -->
+  <!-- Clear-DB id=195: PROJ - Project Update - Notify PM -->
+</odoo>
