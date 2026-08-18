@@ -20,7 +20,7 @@ class ProjectTask(models.Model):
     x_studio_repair_completed_stage_updated = fields.Boolean(string='Repair Completed Stage Updated', readonly=True)
     x_studio_repair_image_01 = fields.Binary(string='Repair Image 01')
     x_studio_repair_image_02 = fields.Binary(string='Repair Image 02')
-    x_studio_repair_reason = fields.Many2many('x_repair_reason', string='Repair Reason')
+    x_studio_repair_reason = fields.Many2many('x_repair_reason', 'project_task_x_studio_repair_reason_rel', 'project_id', 'x_repair_reason_id', string='Repair Reason')
     x_studio_starting_date = fields.Datetime(string='Starting Date')
     x_studio_valid_confirm2_so = fields.Boolean(string='Valid Confirm2 SO', readonly=True, store=False)
     x_studio_valid_confirm_so = fields.Boolean(string='Valid Confirm SO', readonly=True, store=False)
