@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- TODO: 11 act_windows records need hand-porting. -->
-  <!-- Clear-DB id=784: Departments -->
-  <!-- Clear-DB id=2026: Project Category -->
-  <!-- Clear-DB id=2879: Project Category (x_project_category) -->
-  <!-- Clear-DB id=2027: Project Groups -->
-  <!-- Clear-DB id=2805: project.milestone -->
-  <!-- Clear-DB id=2619: project.project -->
-  <!-- Clear-DB id=2806: project.sale.line.employee.map -->
-  <!-- Clear-DB id=2878: Project Stage (project.project.stage) -->
-  <!-- Clear-DB id=2802: project.task -->
-  <!-- Clear-DB id=2803: project.update -->
-  <!-- Clear-DB id=2877: Projects (project.project) -->
+  <!-- 11 act_windows ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
+  <record id="action_784_departments" model="ir.actions.act_window">
+    <field name="name">Departments</field>
+    <field name="res_model">x_departments</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2026_project_category" model="ir.actions.act_window">
+    <field name="name">Project Category</field>
+    <field name="res_model">x_project_category</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2879_project_category_x_project_category" model="ir.actions.act_window">
+    <field name="name">Project Category (x_project_category)</field>
+    <field name="res_model">x_project_category</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2027_project_groups" model="ir.actions.act_window">
+    <field name="name">Project Groups</field>
+    <field name="res_model">x_project_groups</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2805_project_milestone" model="ir.actions.act_window">
+    <field name="name">project.milestone</field>
+    <field name="res_model">project.milestone</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2619_project_project" model="ir.actions.act_window">
+    <field name="name">project.project</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
+  <record id="action_2806_project_sale_line_employee_map" model="ir.actions.act_window">
+    <field name="name">project.sale.line.employee.map</field>
+    <field name="res_model">project.sale.line.employee.map</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2878_project_stage_project_project_stage" model="ir.actions.act_window">
+    <field name="name">Project Stage (project.project.stage)</field>
+    <field name="res_model">project.project.stage</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="action_2802_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+  <record id="action_2803_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="action_2877_projects_project_project" model="ir.actions.act_window">
+    <field name="name">Projects (project.project)</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
 </odoo>

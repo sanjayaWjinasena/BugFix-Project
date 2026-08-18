@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- TODO: 5 server_actions records need hand-porting. -->
-  <!-- Clear-DB id=2003: RR - Auto Update Helpdesk Pipeline Status - 1 -->
-  <!-- Clear-DB id=2316: RR - End Quick Repair -->
-  <!-- Clear-DB id=2224: RR - Repair Diagnosis Validation -->
-  <!-- Clear-DB id=2242: RR - Repair Image Validation -->
-  <!-- Clear-DB id=2219: RR - Validate Diagnosis Lines -->
+  <!-- 5 server_actions ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
+  <record id="server_action_2003_rr_auto_update_helpdesk_pipeline_status_1" model="ir.actions.server">
+    <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="state">code</field>
+    <field name="code"><![CDATA[# fix_repair:idempotent-v1
+record._repair_auto_update_helpdesk_pipeline_status_1()
+]]></field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="server_action_2316_rr_end_quick_repair" model="ir.actions.server">
+    <field name="name">RR - End Quick Repair</field>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="state">code</field>
+    <field name="code"><![CDATA[# fix_repair:idempotent-v1
+record._repair_studio_end_quick_repair()
+]]></field>
+    <field name="usage">ir_actions_server</field>
+  </record>
+  <record id="server_action_2224_rr_repair_diagnosis_validation" model="ir.actions.server">
+    <field name="name">RR - Repair Diagnosis Validation</field>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="state">code</field>
+    <field name="code"><![CDATA[# fix_repair:idempotent-v1
+record._repair_studio_diagnosis_validation()
+]]></field>
+    <field name="usage">ir_actions_server</field>
+  </record>
+  <record id="server_action_2242_rr_repair_image_validation" model="ir.actions.server">
+    <field name="name">RR - Repair Image Validation</field>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="state">code</field>
+    <field name="code"><![CDATA[# fix_repair:idempotent-v1
+record._repair_studio_image_validation()
+]]></field>
+    <field name="usage">ir_actions_server</field>
+  </record>
+  <record id="server_action_2219_rr_validate_diagnosis_lines" model="ir.actions.server">
+    <field name="name">RR - Validate Diagnosis Lines</field>
+    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="state">code</field>
+    <field name="code"><![CDATA[# fix_repair:idempotent-v1
+record._repair_studio_validate_diagnosis_lines()
+]]></field>
+    <field name="usage">base_automation</field>
+  </record>
 </odoo>
