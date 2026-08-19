@@ -61,21 +61,13 @@
     <field name="inherit_id" ref="project.edit_project"/>
     <field name="arch" type="xml">
       <data>
-          <xpath expr="//header/button[@name='1913'][2]" position="after">
-            
-          </xpath>
           
-          <xpath expr="//header/button[@name='2119']" position="after">
-            
-          </xpath>
           
-          <xpath expr="//header/button[@name='2731']" position="after">
-            
-          </xpath>
           
-          <xpath expr="//header/button[@name='2732']" position="after">
-            
-          </xpath>
+          
+          
+          
+          
           
         </data>
     </field>

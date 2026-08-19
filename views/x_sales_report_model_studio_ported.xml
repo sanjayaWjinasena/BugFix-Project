@@ -39,9 +39,7 @@
     <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_d583be6a_921f_4205_94a7_603a2375ce6e"/>
     <field name="arch" type="xml">
       <data>
-        <xpath expr="//button[@name='1676']" position="after">
-          <field widget="statusbar" options="{}" name="x_studio_selection_field_Fbw0x"/>
-        </xpath>
+        
         <xpath expr="//field[@name='x_name']" position="attributes">
           <attribute name="force_save">True</attribute>
           <attribute name="readonly">1</attribute><attribute name="required"/></xpath>
