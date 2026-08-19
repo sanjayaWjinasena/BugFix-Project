@@ -21,25 +21,10 @@
     <field name="res_model">x_project_groups</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <record id="action_2805_project_milestone" model="ir.actions.act_window">
-    <field name="name">project.milestone</field>
-    <field name="res_model">project.milestone</field>
-    <field name="view_mode">tree,form</field>
-  </record>
   <record id="action_2619_project_project" model="ir.actions.act_window">
     <field name="name">project.project</field>
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
-  </record>
-  <record id="action_2806_project_sale_line_employee_map" model="ir.actions.act_window">
-    <field name="name">project.sale.line.employee.map</field>
-    <field name="res_model">project.sale.line.employee.map</field>
-    <field name="view_mode">tree,form</field>
-  </record>
-  <record id="action_2878_project_stage_project_project_stage" model="ir.actions.act_window">
-    <field name="name">Project Stage (project.project.stage)</field>
-    <field name="res_model">project.project.stage</field>
-    <field name="view_mode">kanban,tree,form</field>
   </record>
   <record id="action_2802_project_task" model="ir.actions.act_window">
     <field name="name">project.task</field>
