@@ -100,9 +100,7 @@
         <xpath expr="//group[@name='studio_group_1eb3ec']" position="after">
           <notebook name="studio_notebook_mDNdN">
             
-            <page string="SO Lines - All" name="studio_page_ysFdl" invisible="1">
-              <field name="x_studio_related_field_DqBBB"/>
-            </page>
+            
             <page string="MO - WIP" name="studio_page_OErnS" invisible="1">
               <field name="x_studio_related_field_oeTJK">
                 <tree string="Manufacturing Orders" default_order="priority desc, date_planned_start desc" multi_edit="1" sample="1">
