@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.update.view.form customization</field>
+    <field name="model">project.update</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="project.project_update_view_form"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]" position="before">
+          <header>
+            
+            <field widget="statusbar" name="x_studio_selection_field_0zgmv" string="Project Update Status" force_save="True" readonly="1"/>
+          </header>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]" position="before">
+          <div name="button_box" class="oe_button_box"/>
+        </xpath>
+        <xpath expr="//field[@name='progress']" position="attributes">
+          <attribute name="help">Progress of the project.</attribute>
+          <attribute name="required">1</attribute></xpath>
+        <xpath expr="//field[@name='date']" position="after">
+          <field name="x_studio_gross_margin_report" string="Gross Margin Report" widget="product_configurator" force_save="True" readonly="1"/>
+          <field name="x_studio_financial_progress" string="Financial Project Progress" force_save="True" readonly="1" widget="progressbar" help="Percentage of the consumption out of the budgeted amount."/>
+          <field name="x_studio_estimated_gp" string="Estimated GP" widget="progressbar" help="Gross profit when the project was started."/>
+          <field name="x_studio_actual_gp" string="Actual GP" widget="progressbar" help="Current gross profit."/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='description']/field[@name='description']" position="attributes">
+          <attribute name="force_save">True</attribute>
+          <attribute name="required">1</attribute></xpath>
+      </data>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_project__6b12d727_bd5b_4b23_ac59_336b5a59ca14" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.update.view.form_button</field>
+    <field name="model">project.update</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="active" eval="False"/>
+    <field name="inherit_id" ref="project.project_update_view_form"/>
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
+            
+          </xpath>
+        </data>
+    </field>
+  </record>
+</odoo>

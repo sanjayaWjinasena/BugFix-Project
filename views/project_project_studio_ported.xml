@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="ported_odoo_studio_project__b9aa6b0f_86f8_4ea0_983f_9d786f80db99" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.project.form customization</field>
+    <field name="model">project.project</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//button[@name='action_view_tasks']" position="after">
+          
+          
+          
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.cash_advance_bills_ede337ef-cba8-47a0-bfda-215f9487ebb3">
+            
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.issued_cash_advances_9a201d06-6a75-465b-8c61-d6b9ef0a5e66">
+            
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.settled_cash_advance_b5700826-59c1-42b3-aca0-7ff303a38afb">
+            
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.all_journal_items_0de818f4-cc57-49cc-87c0-cec91c340b75">
+            
+          </button>
+        </xpath>
+        <xpath expr="//field[@name='allocated_hours']" position="after">
+          <field name="activity_user_id"/>
+          <field name="x_studio_project_group" string="Project Group"/>
+          <field name="x_studio_quotation_type" string="Quotation Type"/>
+          <field name="x_studio_valid_gm" string="Valid GM" force_save="True" readonly="1" invisible="1"/>
+          <field name="x_studio_repair_project"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Project Related Documents" name="studio_page_Q8cy1">
+            <group name="studio_group_Q8cy1">
+              <group name="studio_group_Q8cy1_left" string="Documents">
+                <field widget="binary" name="x_studio_document_1" string="Document 1"/>
+                <field widget="binary" name="x_studio_document_2" string="Document 2"/>
+                <field widget="binary" name="x_studio_document_3" string="Document 3"/>
+              </group>
+              <group name="studio_group_Q8cy1_right" string="Images">
+                <field widget="tablet_image" name="x_studio_image_1" string="Image 1"/>
+                <field widget="tablet_image" name="x_studio_image_2" string="Image 2"/>
+                <field widget="tablet_image" name="x_studio_image_3" string="Image 3"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </data>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_project__348e22ee_79c9_4376_9021_0315a195a69f" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.project.form-button</field>
+    <field name="model">project.project</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="//header/button[@name='1913'][2]" position="after">
+            
+          </xpath>
+          
+          <xpath expr="//header/button[@name='2119']" position="after">
+            
+          </xpath>
+          
+          <xpath expr="//header/button[@name='2731']" position="after">
+            
+          </xpath>
+          
+          <xpath expr="//header/button[@name='2732']" position="after">
+            
+          </xpath>
+          
+        </data>
+    </field>
+  </record>
+</odoo>

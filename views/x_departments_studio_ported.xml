@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3" model="ir.ui.view">
+    <field name="name">Default form view for x_departments</field>
+    <field name="model">x_departments</field>
+    <field name="type">form</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Departments">
+          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="x_active == True"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+                      <h1>
+                          <field name="x_name" required="1" placeholder="Name..."/>
+                      </h1>
+                  </div>
+          <group name="studio_group_63a97d">
+            <group name="studio_group_63a97d_left">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+            <group name="studio_group_63a97d_right"/>
+          </group>
+        </sheet>
+        <div class="oe_chatter" name="oe_chatter">
+          <field name="message_follower_ids"/>
+          <field name="message_ids"/>
+          <field name="activity_ids"/>
+        </div>
+      </form>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_default__a01f90fc_6544_42ad_bfb0_203ecf107340" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for x_departments customization</field>
+    <field name="model">x_departments</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="before">
+          <field name="x_studio_code" string="Code"/>
+          <field name="x_studio_description" string="Description"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+</odoo>
