@@ -38,23 +38,7 @@
             </group>
           </page>
           <page string="Repair Diagnosis" name="studio_page_M5qFQ" invisible="helpdesk_ticket_id == False">
-            <field name="x_studio_diagnosis_ids" force_save="True" required="helpdesk_ticket_id != False">
-              <tree editable="bottom">
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-              </tree>
-            </field>
+            
           </page>
         </xpath>
       </data>
