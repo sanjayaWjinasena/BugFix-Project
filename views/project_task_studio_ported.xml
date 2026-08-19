@@ -10,7 +10,6 @@
     <field name="inherit_id" ref="project.view_task_form2"/>
     <field name="arch" type="xml">
       <data>
-      <field name="helpdesk_ticket_id" invisible="1"/>
         <!-- fix_repair:sanitized-v190 -->
         
         
@@ -59,42 +58,6 @@
           </page>
         </xpath>
       </data>
-    </field>
-  </record>
-  <record id="ported_view_project_task_form_4730" model="ir.ui.view">
-    <field name="name">Odoo Studio: task.form.inherit</field>
-    <field name="model">project.task</field>
-    <field name="key">Fix-repair.view_project_task_form_4730</field>
-    <field name="type">form</field>
-    <field name="priority">99</field>
-    <field name="mode">extension</field>
-    <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
-    <field name="arch" type="xml">
-      <data>
-          
-          
-          
-        </data>
-    </field>
-  </record>
-  <record id="ported_view_project_task_form_4620" model="ir.ui.view">
-    <field name="name">Odoo Studio: view.task.form2.inherit</field>
-    <field name="model">project.task</field>
-    <field name="key">Fix-repair.view_project_task_form_4620</field>
-    <field name="type">form</field>
-    <field name="priority">99</field>
-    <field name="mode">extension</field>
-    <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
-    <field name="arch" type="xml">
-      <data>
-          
-          
-          <!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-            <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
-          </xpath-->
-          
-          
-        </data>
     </field>
   </record>
 </odoo>

@@ -29,18 +29,4 @@
       </form>
     </field>
   </record>
-  <record id="ported_odoo_studio_default__a01f90fc_6544_42ad_bfb0_203ecf107340" model="ir.ui.view">
-    <field name="name">Odoo Studio: Default form view for x_departments customization</field>
-    <field name="model">x_departments</field>
-    <field name="key">studio_customization.odoo_studio_default__a01f90fc-6544-42ad-bfb0-203ecf107340</field>
-    <field name="type">form</field>
-    <field name="priority">99</field>
-    <field name="mode">extension</field>
-    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
-    <field name="arch" type="xml">
-      <data>
-        
-      </data>
-    </field>
-  </record>
 </odoo>

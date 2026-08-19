@@ -25,19 +25,4 @@
       </data>
     </field>
   </record>
-  <record id="ported_odoo_studio_project__6b12d727_bd5b_4b23_ac59_336b5a59ca14" model="ir.ui.view">
-    <field name="name">Odoo Studio: project.update.view.form_button</field>
-    <field name="model">project.update</field>
-    <field name="key">studio_customization.odoo_studio_project__6b12d727-bd5b-4b23-ac59-336b5a59ca14</field>
-    <field name="type">form</field>
-    <field name="priority">99</field>
-    <field name="mode">extension</field>
-    <field name="active" eval="False"/>
-    <field name="inherit_id" ref="project.project_update_view_form"/>
-    <field name="arch" type="xml">
-      <data>
-          
-        </data>
-    </field>
-  </record>
 </odoo>
