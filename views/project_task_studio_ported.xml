@@ -54,19 +54,19 @@
           <page string="Repair Diagnosis" name="studio_page_M5qFQ" invisible="helpdesk_ticket_id == False">
             <field name="x_studio_diagnosis_ids" force_save="True" required="helpdesk_ticket_id != False">
               <tree editable="bottom">
-                <field name="x_studio_sequence" widget="handle"/>
-                <field name="x_name" column_invisible="True"/>
-                <field name="x_studio_condition" optional="show" column_invisible="True"/>
-                <field name="x_studio_symptom_area" optional="show" column_invisible="True"/>
-                <field name="x_studio_symptom_code" optional="show" column_invisible="True"/>
-                <field name="x_studio_description" optional="show"/>
-                <field name="x_studio_diagnosis_area" optional="show" required="1"/>
-                <field name="x_studio_diagnosis_code" optional="show" required="1" domain="[[&quot;x_studio_diagnosis_area_1&quot;,&quot;=&quot;,x_studio_diagnosis_area]]"/>
-                <field name="x_studio_reason" optional="show" required="1"/>
-                <field name="x_studio_sub_reason" optional="show" required="1" domain="[[&quot;x_studio_reason_code&quot;,&quot;=&quot;,x_studio_reason]]"/>
-                <field name="x_studio_resolution" optional="show" required="1"/>
-                <field name="x_studio_repair_stage" optional="show" required="1"/>
-                <field optional="show" name="x_studio_task_id" string="Task Id" invisible="1" column_invisible="True"/>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
               </tree>
             </field>
           </page>
