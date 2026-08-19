@@ -3,6 +3,7 @@
   <record id="ported_default_form_view_fo_3f299c76_71ec_4033_87c7_58900e29e002" model="ir.ui.view">
     <field name="name">Default form view for x_project_groups</field>
     <field name="model">x_project_groups</field>
+    <field name="key">studio_customization.default_form_view_fo_3f299c76-71ec-4033-87c7-58900e29e002</field>
     <field name="type">form</field>
     <field name="priority">16</field>
     <field name="mode">primary</field>

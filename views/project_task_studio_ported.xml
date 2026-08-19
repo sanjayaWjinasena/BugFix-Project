@@ -3,6 +3,7 @@
   <record id="ported_view_project_task_form_3019" model="ir.ui.view">
     <field name="name">Odoo Studio: project.task.form customization</field>
     <field name="model">project.task</field>
+    <field name="key">Fix-repair.view_project_task_form_3019</field>
     <field name="type">form</field>
     <field name="priority">99</field>
     <field name="mode">extension</field>
@@ -77,33 +78,30 @@
   <record id="ported_view_project_task_form_4730" model="ir.ui.view">
     <field name="name">Odoo Studio: task.form.inherit</field>
     <field name="model">project.task</field>
+    <field name="key">Fix-repair.view_project_task_form_4730</field>
     <field name="type">form</field>
     <field name="priority">99</field>
     <field name="mode">extension</field>
     <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
     <field name="arch" type="xml">
       <data>
-          <xpath expr="//button[@name='action_preview_worksheet'][2]" position="attributes">
-            <!--attribute name="attrs">{'invisible': True}</attribute> -->
-            <!--attribute name="states" />-->
-            <attribute name="invisible">1</attribute></xpath>
           
-          <xpath expr="//button[@name='action_send_report'][2]" position="attributes">
-            <attribute name="invisible">1</attribute></xpath>
+          
+          
         </data>
     </field>
   </record>
   <record id="ported_view_project_task_form_4620" model="ir.ui.view">
     <field name="name">Odoo Studio: view.task.form2.inherit</field>
     <field name="model">project.task</field>
+    <field name="key">Fix-repair.view_project_task_form_4620</field>
     <field name="type">form</field>
     <field name="priority">99</field>
     <field name="mode">extension</field>
     <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
     <field name="arch" type="xml">
       <data>
-          <xpath expr="//button[@name='action_timer_start']" position="attributes">
-            <attribute name="invisible">1</attribute></xpath>
+          
           
           <!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
             <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
@@ -119,8 +117,7 @@
                           <field name="x_studio_valid_diagnosis" invisible="1"/>
                           <field name="x_studio_repair_image_01" invisible="1"/>
                           <field name="helpdesk_ticket_id" invisible="1"/>
-                      </xpath><xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-            <attribute name="invisible">(not display_mark_as_done_secondary) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == False) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == True) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or ((x_studio_incomplete_delivery_available == True) or ((x_studio_valid_invoiced_so == False) or (display_mark_as_done_secondary == False)))))</attribute></xpath>
+                      </xpath>
         </data>
     </field>
   </record>

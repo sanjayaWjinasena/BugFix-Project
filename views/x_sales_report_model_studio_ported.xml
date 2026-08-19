@@ -3,6 +3,7 @@
   <record id="ported_default_form_view_fo_d583be6a_921f_4205_94a7_603a2375ce6e" model="ir.ui.view">
     <field name="name">Default form view for x_sales_report_model</field>
     <field name="model">x_sales_report_model</field>
+    <field name="key">studio_customization.default_form_view_fo_d583be6a-921f-4205-94a7-603a2375ce6e</field>
     <field name="type">form</field>
     <field name="priority">16</field>
     <field name="mode">primary</field>
@@ -28,6 +29,28 @@
         </sheet>
         
       </form>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_default__ff0f5f4b_41b6_49a0_9acc_cb410e663b5b" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for x_sales_report_model customization</field>
+    <field name="model">x_sales_report_model</field>
+    <field name="key">studio_customization.odoo_studio_default__ff0f5f4b-41b6-49a0-9acc-cb410e663b5b</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_d583be6a_921f_4205_94a7_603a2375ce6e"/>
+    <field name="arch" type="xml">
+      <data>
+        
+        <xpath expr="//field[@name='x_name']" position="attributes">
+          <attribute name="force_save">True</attribute>
+          <attribute name="readonly">1</attribute><attribute name="required"/></xpath>
+        
+        
+        
+        
+        
+      </data>
     </field>
   </record>
 </odoo>

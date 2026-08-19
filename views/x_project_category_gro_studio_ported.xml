@@ -3,6 +3,7 @@
   <record id="ported_default_form_view_fo_4c47b759_0437_4a50_8bde_31e224e98d73" model="ir.ui.view">
     <field name="name">Default form view for x_project_category_gro</field>
     <field name="model">x_project_category_gro</field>
+    <field name="key">studio_customization.default_form_view_fo_4c47b759-0437-4a50-8bde-31e224e98d73</field>
     <field name="type">form</field>
     <field name="priority">16</field>
     <field name="mode">primary</field>

@@ -3,29 +3,14 @@
   <record id="ported_odoo_studio_project__b9aa6b0f_86f8_4ea0_983f_9d786f80db99" model="ir.ui.view">
     <field name="name">Odoo Studio: project.project.form customization</field>
     <field name="model">project.project</field>
+    <field name="key">studio_customization.odoo_studio_project__b9aa6b0f-86f8-4ea0-983f-9d786f80db99</field>
     <field name="type">form</field>
     <field name="priority">99</field>
     <field name="mode">extension</field>
     <field name="inherit_id" ref="project.edit_project"/>
     <field name="arch" type="xml">
       <data>
-        <xpath expr="//button[@name='action_view_tasks']" position="after">
-          
-          
-          
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.cash_advance_bills_ede337ef-cba8-47a0-bfda-215f9487ebb3">
-            
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.issued_cash_advances_9a201d06-6a75-465b-8c61-d6b9ef0a5e66">
-            
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.settled_cash_advance_b5700826-59c1-42b3-aca0-7ff303a38afb">
-            
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.all_journal_items_0de818f4-cc57-49cc-87c0-cec91c340b75">
-            
-          </button>
-        </xpath>
+        
         <xpath expr="//field[@name='allocated_hours']" position="after">
           <field name="activity_user_id"/>
           <field name="x_studio_project_group" string="Project Group"/>
@@ -55,6 +40,7 @@
   <record id="ported_odoo_studio_project__348e22ee_79c9_4376_9021_0315a195a69f" model="ir.ui.view">
     <field name="name">Odoo Studio: project.project.form-button</field>
     <field name="model">project.project</field>
+    <field name="key">studio_customization.odoo_studio_project__348e22ee-79c9-4376-9021-0315a195a69f</field>
     <field name="type">form</field>
     <field name="priority">99</field>
     <field name="mode">extension</field>
