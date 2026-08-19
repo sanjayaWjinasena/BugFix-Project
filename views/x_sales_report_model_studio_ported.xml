@@ -42,9 +42,7 @@
     <field name="arch" type="xml">
       <data>
         
-        <xpath expr="//field[@name='x_name']" position="attributes">
-          <attribute name="force_save">True</attribute>
-          <attribute name="readonly">1</attribute><attribute name="required"/></xpath>
+        
         
         
         

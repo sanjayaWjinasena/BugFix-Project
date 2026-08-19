@@ -19,15 +19,8 @@
         <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]" position="before">
           <div name="button_box" class="oe_button_box"/>
         </xpath>
-        <xpath expr="//field[@name='progress']" position="attributes">
-          <attribute name="help">Progress of the project.</attribute>
-          <attribute name="required">1</attribute></xpath>
-        <xpath expr="//field[@name='date']" position="after">
-          <field name="x_studio_gross_margin_report" string="Gross Margin Report" widget="product_configurator" force_save="True" readonly="1"/>
-          <field name="x_studio_financial_progress" string="Financial Project Progress" force_save="True" readonly="1" widget="progressbar" help="Percentage of the consumption out of the budgeted amount."/>
-          <field name="x_studio_estimated_gp" string="Estimated GP" widget="progressbar" help="Gross profit when the project was started."/>
-          <field name="x_studio_actual_gp" string="Actual GP" widget="progressbar" help="Current gross profit."/>
-        </xpath>
+        
+        
         
       </data>
     </field>
@@ -43,9 +36,7 @@
     <field name="inherit_id" ref="project.project_update_view_form"/>
     <field name="arch" type="xml">
       <data>
-          <xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
-            
-          </xpath>
+          
         </data>
     </field>
   </record>

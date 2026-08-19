@@ -10,27 +10,13 @@
     <field name="inherit_id" ref="project.view_task_form2"/>
     <field name="arch" type="xml">
       <data>
+      <field name="helpdesk_ticket_id" invisible="1"/>
         <!-- fix_repair:sanitized-v190 -->
-        <xpath expr="//field[@name='personal_stage_type_id']" position="after">
-          
-        </xpath>
-        <xpath expr="//field[@name='user_ids']" position="attributes">
-          <attribute name="string">Assignees</attribute>
-        </xpath>
-        <xpath expr="//field[@name='user_ids']" position="after">
-          <field name="helpdesk_ticket_id" string="Help Desk Ticket"/>
-          <field name="x_studio_created_date"/>
-          <field name="x_studio_repair_reason" invisible="True"/>
-        </xpath>
-        <xpath expr="//field[@name='sale_order_id']" position="attributes">
-          <attribute name="invisible">False</attribute>
-          <attribute name="string">Sales Orderr</attribute>
-        </xpath>
-        <xpath expr="//field[@name='sale_order_id']" position="after">
-          <field name="x_studio_priority"/>
-          <field name="x_studio_quotation_type"/>
-          <field name="x_studio_material_availability"/>
-        </xpath>
+        
+        
+        
+        
+        
         <xpath expr="//notebook" position="inside">
           <page string="Repair Image" name="studio_page_8ci_1ik1qk8tm">
             <group name="studio_group_8ci">
@@ -107,17 +93,7 @@
             <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
           </xpath-->
           
-          <xpath expr="//field[@name='fsm_done']" position="after">
-                          <field name="x_studio_payment_type" invisible="1"/>
-                          <field name="x_studio_quotation_type" invisible="1"/>
-                          <field name="x_studio_valid_invoiced_so" invisible="1"/>
-                          <field name="x_studio_incomplete_delivery_available" invisible="1"/>
-                          <field name="x_studio_cancelled" invisible="1"/>
-                          <field name="x_studio_end_quick_repair" invisible="1"/>
-                          <field name="x_studio_valid_diagnosis" invisible="1"/>
-                          <field name="x_studio_repair_image_01" invisible="1"/>
-                          <field name="helpdesk_ticket_id" invisible="1"/>
-                      </xpath>
+          
         </data>
     </field>
   </record>

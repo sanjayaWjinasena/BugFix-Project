@@ -39,10 +39,7 @@
     <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
     <field name="arch" type="xml">
       <data>
-        <xpath expr="//field[@name='x_studio_user_id']" position="before">
-          <field name="x_studio_code" string="Code"/>
-          <field name="x_studio_description" string="Description"/>
-        </xpath>
+        
       </data>
     </field>
   </record>
