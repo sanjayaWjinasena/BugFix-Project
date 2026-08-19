@@ -31,4 +31,53 @@
       </form>
     </field>
   </record>
+  <record id="ported_default_list_view_fo_8853c5be_dc14_48d4_82c4_f209d820d16a" model="ir.ui.view">
+    <field name="name">Default list view for x_sales_report_model</field>
+    <field name="model">x_sales_report_model</field>
+    <field name="key">studio_customization.default_list_view_fo_8853c5be-dc14-48d4-82c4-f209d820d16a</field>
+    <field name="type">tree</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </tree>
+    </field>
+  </record>
+  <record id="ported_default_search_view__36b50122_6852_4842_9718_7d6fbf0c90e3" model="ir.ui.view">
+    <field name="name">Default search view for x_sales_report_model</field>
+    <field name="model">x_sales_report_model</field>
+    <field name="key">studio_customization.default_search_view__36b50122-6852-4842-9718-7d6fbf0c90e3</field>
+    <field name="type">search</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_sales_report_model" domain="[['x_active', '=', False]]"/>
+        <separator/>
+      </search>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_default__25244692_8d9f_4fba_9286_7f16ca6d45f1" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default list view for x_sales_report_model customization</field>
+    <field name="model">x_sales_report_model</field>
+    <field name="key">studio_customization.odoo_studio_default__25244692-8d9f-4fba-9286-7f16ca6d45f1</field>
+    <field name="type">tree</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_list_view_fo_8853c5be_dc14_48d4_82c4_f209d820d16a"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//tree[1]" position="attributes">
+          <attribute name="default_order">x_name desc</attribute>
+        </xpath>
+        
+        
+        
+      </data>
+    </field>
+  </record>
 </odoo>

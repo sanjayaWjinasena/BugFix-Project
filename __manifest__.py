@@ -23,6 +23,8 @@
         'views/project_project_studio_ported.xml',
         'views/project_task_studio_ported.xml',
         'views/project_update_studio_ported.xml',
+        'views/project_project_stage_studio_ported.xml',
+        'views/project_sale_line_employee_map_studio_ported.xml',
     ],
     'installable': True,
     'auto_install': False,

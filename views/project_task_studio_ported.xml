@@ -37,9 +37,7 @@
               </group>
             </group>
           </page>
-          <page string="Repair Diagnosis" name="studio_page_M5qFQ" >
-            
-          </page>
+          
         </xpath>
       </data>
     </field>

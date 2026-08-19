@@ -27,4 +27,53 @@
       </form>
     </field>
   </record>
+  <record id="ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140" model="ir.ui.view">
+    <field name="name">Default list view for x_project_groups</field>
+    <field name="model">x_project_groups</field>
+    <field name="key">studio_customization.default_list_view_fo_289ae9dd-5621-40c9-a6c8-caffa4299140</field>
+    <field name="type">tree</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </tree>
+    </field>
+  </record>
+  <record id="ported_default_search_view__1ba8dab6_4af4_45b5_ac3e_42e6825cdd43" model="ir.ui.view">
+    <field name="name">Default search view for x_project_groups</field>
+    <field name="model">x_project_groups</field>
+    <field name="key">studio_customization.default_search_view__1ba8dab6-4af4-45b5-ac3e-42e6825cdd43</field>
+    <field name="type">search</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_project_groups" domain="[['x_active', '=', False]]"/>
+        <separator/>
+      </search>
+    </field>
+  </record>
+  <record id="ported_odoo_studio_default__c9cffa3c_2353_4dba_bc25_27f33202c35e" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default list view for x_project_groups customization</field>
+    <field name="model">x_project_groups</field>
+    <field name="key">studio_customization.odoo_studio_default__c9cffa3c-2353-4dba-bc25-27f33202c35e</field>
+    <field name="type">tree</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//tree[1]" position="attributes">
+          <attribute name="editable">bottom</attribute>
+        </xpath>
+        
+        
+        
+      </data>
+    </field>
+  </record>
 </odoo>

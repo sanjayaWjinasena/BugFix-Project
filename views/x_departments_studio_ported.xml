@@ -29,4 +29,38 @@
       </form>
     </field>
   </record>
+  <record id="ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549" model="ir.ui.view">
+    <field name="name">Default list view for x_departments</field>
+    <field name="model">x_departments</field>
+    <field name="key">studio_customization.default_list_view_fo_a3146a55-ec15-4748-b6e8-4e6005b08549</field>
+    <field name="type">tree</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </tree>
+    </field>
+  </record>
+  <record id="ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47" model="ir.ui.view">
+    <field name="name">Default search view for x_departments</field>
+    <field name="model">x_departments</field>
+    <field name="key">studio_customization.default_search_view__8ffb2001-1b7c-4a47-a326-117b4137bb47</field>
+    <field name="type">search</field>
+    <field name="priority">16</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Departments" name="my_x_departments" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_departments" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+  </record>
 </odoo>
