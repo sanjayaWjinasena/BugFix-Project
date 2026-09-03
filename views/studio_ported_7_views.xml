@@ -55,24 +55,6 @@
     </field>
   </record>
 
-  <record id="ported_view_4730_odoo_studio_task_form_inherit" model="ir.ui.view">
-    <field name="name">Odoo Studio: task.form.inherit</field>
-    <field name="model">project.task</field>
-    <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
-    <field name="priority">99</field>
-    <field name="arch" type="xml">
-      <data>
-          <xpath expr="//button[@name='action_preview_worksheet'][2]" position="attributes">
-            <!--attribute name="attrs">{'invisible': True}</attribute> -->
-            <!--attribute name="states" />-->
-            <attribute name="invisible">1</attribute></xpath>
-
-          <xpath expr="//button[@name='action_send_report'][2]" position="attributes">
-            <attribute name="invisible">1</attribute></xpath>
-        </data>
-    </field>
-  </record>
-
   <record id="ported_view_4620_odoo_studio_view_task_form2_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: view.task.form2.inherit</field>
     <field name="model">project.task</field>

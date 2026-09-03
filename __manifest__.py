@@ -1,13 +1,27 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.14',
+    'version': '17.0.0.0.15',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
     'license': 'LGPL-3',
     # Do NOT depend on studio_customization -- Odoo SH does not ship
     # a manifest for it, listing it causes install skip.
+    # v0.0.15: hotfix v0.0.14 - skip view 4730 permanently.
+    # v0.0.14 crashed with:
+    #   action_preview_worksheet is not a valid action on project.task
+    # View 4730 is an inherit of industry_fsm_report.view_task_form2_inherit
+    # that only hides 2 buttons (action_preview_worksheet + action_send_report)
+    # via <xpath position="attributes"><attribute name="invisible">1</attribute>.
+    # Both buttons EXIST in the parent view arch, but Odoo re-runs
+    # button-method validation after applying the inheritance and
+    # rejects it. Root cause unclear (both methods should be present
+    # via industry_fsm_report + industry_fsm addons on target).
+    # Losing 2 button hides is acceptable vs blocking install; the
+    # buttons will remain visible but that's a UX-only degradation.
+    # Ships 4 views: project.project form/tree customizations,
+    # project.task form (sale_timesheet inherit), x_departments form.
     # v0.0.14: hotfix v0.0.13 - cross-module xmlid refs stripped.
     # v0.0.13 view 4748 arch had 7 stat-buttons targeting actions
     # pinned to modules that DEPEND ON Project (BugFix-Accounting,
