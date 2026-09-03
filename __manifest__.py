@@ -1,13 +1,32 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.13',
+    'version': '17.0.0.0.14',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
     'license': 'LGPL-3',
     # Do NOT depend on studio_customization -- Odoo SH does not ship
     # a manifest for it, listing it causes install skip.
+    # v0.0.14: hotfix v0.0.13 - cross-module xmlid refs stripped.
+    # v0.0.13 view 4748 arch had 7 stat-buttons targeting actions
+    # pinned to modules that DEPEND ON Project (BugFix-Accounting,
+    # BugFix-Sales) or don't exist (studio_customization). Odoo
+    # rejected them at load-time:
+    #   Invalid xmlid studio_customization.cash_advance_bills_...
+    # Root cause: BugFix-Accounting depends on BugFix-Project,
+    # so Accounting's xmlids aren't in the registry when Project
+    # loads. BugFix-Sales is a peer (no dep either way) so its
+    # xmlids also unreliable at Project load-time.
+    # Fix: generator's action-ref converter now checks that the
+    # resolved xmlid's module is in Project's own transitive
+    # depends chain (BugFix-Project + Jinasena_Masterdata_Reporting +
+    # standard Odoo). References to any other module get STRIPPED
+    # with an explanatory comment inline.
+    # Net: 7 stat-buttons removed from project.project form
+    # customization inherit (2115 Gross Margin / 2120 Month End /
+    # 2195 Line Items + 4 cash-advance workflow shortcuts).
+    # Standard project.project form buttons remain intact.
     # v0.0.13: close remaining Project migration gaps.
     #   Fields (8 gap -> 0):
     #     Added _inherit = ['mail.thread', 'mail.activity.mixin'] to

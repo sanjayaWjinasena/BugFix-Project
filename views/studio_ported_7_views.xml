@@ -13,28 +13,7 @@
     <field name="arch" type="xml">
       <data>
         <xpath expr="//button[@name='action_view_tasks']" position="after">
-          <button class="oe_stat_button" icon="fa-file-o" type="action" name="%(BugFix-Accounting.action_2115_gross_margin_reports)d">
-            <field widget="statinfo" name="x_x_studio_project_no_x_sales_report_model_count" string="Gross Margin Reports"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-folder-open" type="action" name="%(BugFix-Accounting.action_2120_month_end_entries)d">
-            <field widget="statinfo" name="x_x_studio_created_from_project_no_account_move_count" string="Month End Entries"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-spinner" type="action" name="%(BugFix-Sales.act_window_2195_line_items)d">
-            <field widget="statinfo" name="x_x_studio_main_project_2_sale_order_line_count" string="Line Items"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.cash_advance_bills_ede337ef-cba8-47a0-bfda-215f9487ebb3">
-            <field widget="statinfo" name="x_x_studio_project_no_bill_account_move_count" string="Cash Advance Bills"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.issued_cash_advances_9a201d06-6a75-465b-8c61-d6b9ef0a5e66">
-            <field widget="statinfo" name="x_x_studio_project_no_issue_account_move_count" string="Issued Cash Advances"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.settled_cash_advance_b5700826-59c1-42b3-aca0-7ff303a38afb">
-            <field widget="statinfo" name="x_x_studio_project_no_settle_account_move_count" string="Settled Cash Advances"/>
-          </button>
-          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.all_journal_items_0de818f4-cc57-49cc-87c0-cec91c340b75">
-            <field widget="statinfo" name="x_x_studio_project_no_account_move_line_count" string="All Journal Items"/>
-          </button>
-        </xpath>
+          <!-- STRIPPED unresolved action 2115 --><!-- STRIPPED unresolved action 2120 --><!-- STRIPPED unresolved action 2195 --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.cash_advance_bills_ede337ef-cba8-47a0-b --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.issued_cash_advances_9a201d06-6a75-465b --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.settled_cash_advance_b5700826-59c1-42b3 --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.all_journal_items_0de818f4-cc57-49cc-87 --></xpath>
         <xpath expr="//field[@name='allocated_hours']" position="after">
           <field name="activity_user_id"/>
           <field name="x_studio_project_group" string="Project Group"/>
