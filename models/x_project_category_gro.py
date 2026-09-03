@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class XProjectCategoryGro(models.Model):
     _name = 'x_project_category_gro'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'X Project Category Gro'
 
     x_active = fields.Boolean(string='Active')

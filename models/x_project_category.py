@@ -5,6 +5,7 @@ from odoo import fields, models
 class XProjectCategory(models.Model):
     """Studio-ported custom model x_project_category."""
     _name = 'x_project_category'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Project Category'
 
     x_active = fields.Boolean(string='Active')

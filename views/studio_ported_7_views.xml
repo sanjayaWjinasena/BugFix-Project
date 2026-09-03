@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project v0.0.13: 7 remaining Studio priority=99 view
+     ports. Full pre-flight: xpath resolution, orphan field
+     strip, modifier sentinel injection, numeric action ref
+     conversion. -->
+<odoo>
+
+  <record id="ported_view_4748_odoo_studio_project_project_form_customi" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.project.form customization</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//button[@name='action_view_tasks']" position="after">
+          <button class="oe_stat_button" icon="fa-file-o" type="action" name="%(BugFix-Accounting.action_2115_gross_margin_reports)d">
+            <field widget="statinfo" name="x_x_studio_project_no_x_sales_report_model_count" string="Gross Margin Reports"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-folder-open" type="action" name="%(BugFix-Accounting.action_2120_month_end_entries)d">
+            <field widget="statinfo" name="x_x_studio_created_from_project_no_account_move_count" string="Month End Entries"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-spinner" type="action" name="%(BugFix-Sales.act_window_2195_line_items)d">
+            <field widget="statinfo" name="x_x_studio_main_project_2_sale_order_line_count" string="Line Items"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.cash_advance_bills_ede337ef-cba8-47a0-bfda-215f9487ebb3">
+            <field widget="statinfo" name="x_x_studio_project_no_bill_account_move_count" string="Cash Advance Bills"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.issued_cash_advances_9a201d06-6a75-465b-8c61-d6b9ef0a5e66">
+            <field widget="statinfo" name="x_x_studio_project_no_issue_account_move_count" string="Issued Cash Advances"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.settled_cash_advance_b5700826-59c1-42b3-aca0-7ff303a38afb">
+            <field widget="statinfo" name="x_x_studio_project_no_settle_account_move_count" string="Settled Cash Advances"/>
+          </button>
+          <button class="oe_stat_button" icon="fa-dollar" type="action" name="studio_customization.all_journal_items_0de818f4-cc57-49cc-87c0-cec91c340b75">
+            <field widget="statinfo" name="x_x_studio_project_no_account_move_line_count" string="All Journal Items"/>
+          </button>
+        </xpath>
+        <xpath expr="//field[@name='allocated_hours']" position="after">
+          <field name="activity_user_id"/>
+          <field name="x_studio_project_group" string="Project Group"/>
+          <field name="x_studio_quotation_type" string="Quotation Type"/>
+          <field name="x_studio_valid_gm" string="Valid GM" force_save="True" readonly="1" invisible="1"/>
+          <field name="x_studio_repair_project"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Project Related Documents" name="studio_page_Q8cy1">
+            <group name="studio_group_Q8cy1">
+              <group name="studio_group_Q8cy1_left" string="Documents">
+                <field widget="binary" name="x_studio_document_1" string="Document 1"/>
+                <field widget="binary" name="x_studio_document_2" string="Document 2"/>
+                <field widget="binary" name="x_studio_document_3" string="Document 3"/>
+              </group>
+              <group name="studio_group_Q8cy1_right" string="Images">
+                <field widget="tablet_image" name="x_studio_image_1" string="Image 1"/>
+                <field widget="tablet_image" name="x_studio_image_2" string="Image 2"/>
+                <field widget="tablet_image" name="x_studio_image_3" string="Image 3"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+  <record id="ported_view_4893_odoo_studio_project_project_tree_customi" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.project.tree customization</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='stage_id']" position="after">
+          <field name="id" optional="show"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+  <record id="ported_view_4730_odoo_studio_task_form_inherit" model="ir.ui.view">
+    <field name="name">Odoo Studio: task.form.inherit</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="//button[@name='action_preview_worksheet'][2]" position="attributes">
+            <!--attribute name="attrs">{'invisible': True}</attribute> -->
+            <!--attribute name="states" />-->
+            <attribute name="invisible">1</attribute></xpath>
+
+          <xpath expr="//button[@name='action_send_report'][2]" position="attributes">
+            <attribute name="invisible">1</attribute></xpath>
+        </data>
+    </field>
+  </record>
+
+  <record id="ported_view_4620_odoo_studio_view_task_form2_inherit" model="ir.ui.view">
+    <field name="name">Odoo Studio: view.task.form2.inherit</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="sale_timesheet.view_task_form2_inherit_sale_timesheet"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="//sheet" position="inside">
+            <field name="display_mark_as_done_secondary" invisible="1"/>
+          </xpath>
+
+          <!-- DROPPED xpath: //button[@name='action_timer_start'] --><!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
+            <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
+          </xpath-->
+
+          <xpath expr="//field[@name='fsm_done']" position="after">
+                          <field name="x_studio_payment_type" invisible="1"/>
+                          <field name="x_studio_quotation_type" invisible="1"/>
+                          <field name="x_studio_valid_invoiced_so" invisible="1"/>
+                          <field name="x_studio_incomplete_delivery_available" invisible="1"/>
+                          <field name="x_studio_cancelled" invisible="1"/>
+                          <field name="x_studio_end_quick_repair" invisible="1"/>
+                          <field name="x_studio_valid_diagnosis" invisible="1"/>
+                          <field name="x_studio_repair_image_01" invisible="1"/>
+                          <field name="helpdesk_ticket_id" invisible="1"/>
+                      </xpath><xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
+            <attribute name="invisible">(not display_mark_as_done_secondary) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == False) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == True) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or ((x_studio_incomplete_delivery_available == True) or ((x_studio_valid_invoiced_so == False) or (display_mark_as_done_secondary == False)))))</attribute></xpath>
+        </data>
+    </field>
+  </record>
+
+  <record id="ported_view_2322_odoo_studio_default_form_view_for_x_depa" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for x_departments customization</field>
+    <field name="model">x_departments</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="before">
+          <field name="x_studio_code" string="Code"/>
+          <field name="x_studio_description" string="Description"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+</odoo>

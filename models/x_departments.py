@@ -5,6 +5,7 @@ from odoo import fields, models
 class XDepartments(models.Model):
     """Studio-ported custom model x_departments."""
     _name = 'x_departments'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Departments'
 
     x_active = fields.Boolean(string='Active')
