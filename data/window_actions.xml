@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project v0.0.10: 4 window actions (3 look-alikes
+     with distinct domains + 1 truly-new). 28 verified TRUE
+     duplicates auto-skipped. -->
+<odoo>
+
+  <record id="act_window_251_tasks" model="ir.actions.act_window">
+    <field name="name">Tasks</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">tree,gantt,kanban,form,calendar,pivot,graph,activity</field>
+    <field name="domain">[('project_id', '=', active_id)]</field>
+    <field name="context">{
+                'pivot_row_groupby': ['user_ids'],
+                'default_project_id': active_id,
+                'show_project_update': True,
+            }</field>
+    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+                    No tasks found. Let's create one!
+                </p><p>
+                    To get things done, use activities and status on tasks.<br/>
+                    Chat in real-time or by email to collaborate efficiently.
+                </p>
+            </field>
+  </record>
+
+  <record id="act_window_266_assigned_tasks" model="ir.actions.act_window">
+    <field name="name">Assigned Tasks</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">tree,form,calendar,graph,pivot</field>
+    <field name="domain">[('project_id', '!=', False)]</field>
+    <field name="context">{'search_default_user_ids': [active_id], 'default_user_ids': [(6, 0, [active_id])]}</field>
+  </record>
+
+  <record id="act_window_1916_project_sharing" model="ir.actions.act_window">
+    <field name="name">Project Sharing</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="domain">[('project_id', '=', active_id), ('display_in_project', '=', True)]</field>
+    <field name="context">{
+            'default_project_id': active_id,
+            'delete': 0,
+            'active_id_chatter': active_id,
+        }</field>
+    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+                No tasks found. Let's create one!
+            </p>
+            <p>
+                Keep track of the progress of your tasks from creation to completion.<br/>
+                Collaborate efficiently by chatting in real-time or via email.
+            </p>
+        </field>
+  </record>
+
+  <record id="act_window_2025_project_category_group" model="ir.actions.act_window">
+    <field name="name">Project Category Group</field>
+    <field name="res_model">x_project_category_gro</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{}</field>
+    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            </field>
+  </record>
+
+</odoo>
