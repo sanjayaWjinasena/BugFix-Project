@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'BugFix - Project',
-    'version': '17.0.0.0.11',
+    'name': 'Jinasena : Module : Project',
+    'version': '17.0.0.0.12',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
     'license': 'LGPL-3',
     # Do NOT depend on studio_customization -- Odoo SH does not ship
     # a manifest for it, listing it causes install skip.
+    # v0.0.12: rename module label to match the other companion
+    # modules ("Jinasena : Module : Project"), add the shared
+    # Jinasena icon at static/description/icon.png (byte-identical
+    # copy from BugFix-Sales / BugFix-Purchase / etc).
     # v0.0.11: close remaining server-action + window-action gap.
     # Deep dedup on cross-module audit:
     #   Server actions: 5 -> 9 shipped (100% effective).
