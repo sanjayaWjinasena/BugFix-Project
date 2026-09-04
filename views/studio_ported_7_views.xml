@@ -59,7 +59,7 @@
     <field name="name">Odoo Studio: view.task.form2.inherit</field>
     <field name="model">project.task</field>
     <field name="inherit_id" ref="sale_timesheet.view_task_form2_inherit_sale_timesheet"/>
-    <field name="priority">99</field>
+    <field name="priority">1000</field>
     <field name="arch" type="xml">
       <data>
           <xpath expr="//sheet" position="inside">

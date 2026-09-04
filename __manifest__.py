@@ -1,13 +1,29 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.15',
+    'version': '17.0.0.0.16',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
     'license': 'LGPL-3',
     # Do NOT depend on studio_customization -- Odoo SH does not ship
     # a manifest for it, listing it causes install skip.
+    # v0.0.16: hotfix v0.0.15 - bump view 4620 priority to 1000.
+    # v0.0.15 crashed with:
+    #   Element '<xpath expr="//field[@name='fsm_done']">' cannot be
+    #   located in parent view
+    # Root cause: our pre-flight used dev.call(model, 'get_view')
+    # which returns the FULLY COMPOSED arch with ALL inherits applied
+    # (including industry_fsm's priority-999 view that adds fsm_done
+    # + action_fsm_validate). Xpath matched cleanly there.
+    # BUT at install time, Odoo applies inherits in PRIORITY ORDER.
+    # Our view 4620 was priority=99, which loads BEFORE industry_fsm's
+    # priority-999 view. So at our application time, fsm_done doesn't
+    # exist yet.
+    # Fix: bump 4620 to priority=1000 so it applies AFTER
+    # industry_fsm's priority-999 inherit. Now the composed arch at
+    # our application time includes fsm_done and the xpath resolves.
+    # Adds per-view priority override support to the generator.
     # v0.0.15: hotfix v0.0.14 - skip view 4730 permanently.
     # v0.0.14 crashed with:
     #   action_preview_worksheet is not a valid action on project.task
