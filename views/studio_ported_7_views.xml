@@ -55,37 +55,6 @@
     </field>
   </record>
 
-  <record id="ported_view_4620_odoo_studio_view_task_form2_inherit" model="ir.ui.view">
-    <field name="name">Odoo Studio: view.task.form2.inherit</field>
-    <field name="model">project.task</field>
-    <field name="inherit_id" ref="sale_timesheet.view_task_form2_inherit_sale_timesheet"/>
-    <field name="priority">1000</field>
-    <field name="arch" type="xml">
-      <data>
-          <xpath expr="//sheet" position="inside">
-            <field name="display_mark_as_done_secondary" invisible="1"/>
-          </xpath>
-
-          <!-- DROPPED xpath: //button[@name='action_timer_start'] --><!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-            <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
-          </xpath-->
-
-          <xpath expr="//field[@name='fsm_done']" position="after">
-                          <field name="x_studio_payment_type" invisible="1"/>
-                          <field name="x_studio_quotation_type" invisible="1"/>
-                          <field name="x_studio_valid_invoiced_so" invisible="1"/>
-                          <field name="x_studio_incomplete_delivery_available" invisible="1"/>
-                          <field name="x_studio_cancelled" invisible="1"/>
-                          <field name="x_studio_end_quick_repair" invisible="1"/>
-                          <field name="x_studio_valid_diagnosis" invisible="1"/>
-                          <field name="x_studio_repair_image_01" invisible="1"/>
-                          <field name="helpdesk_ticket_id" invisible="1"/>
-                      </xpath><xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-            <attribute name="invisible">(not display_mark_as_done_secondary) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == False) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == True) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or ((x_studio_incomplete_delivery_available == True) or ((x_studio_valid_invoiced_so == False) or (display_mark_as_done_secondary == False)))))</attribute></xpath>
-        </data>
-    </field>
-  </record>
-
   <record id="ported_view_2322_odoo_studio_default_form_view_for_x_depa" model="ir.ui.view">
     <field name="name">Odoo Studio: Default form view for x_departments customization</field>
     <field name="model">x_departments</field>

@@ -1,13 +1,26 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.16',
+    'version': '17.0.0.0.17',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
     'license': 'LGPL-3',
     # Do NOT depend on studio_customization -- Odoo SH does not ship
     # a manifest for it, listing it causes install skip.
+    # v0.0.17: hotfix v0.0.16 - permanently skip view 4620.
+    # v0.0.16 raised priority to 1000 but crashed with same error.
+    # Root cause: priority ordering only matters BETWEEN VIEWS
+    # INHERITING THE SAME PARENT. View 4620's parent is 7094
+    # (sale_timesheet), view 5435 (industry_fsm - adds fsm_done)
+    # inherits directly from 2410 (project.task.form). Both 7094 and
+    # 5435 are children of 2410 but on separate inheritance BRANCHES.
+    # Odoo applies inherits depth-first: 7094's whole subtree
+    # (including us) finishes before 5435 applies. So fsm_done never
+    # exists at our application time regardless of our priority.
+    # Only alternative: re-parent to 5435 (semantic change - risky).
+    # Losing conditional FSM validate button visibility is UX-only.
+    # Now ships 3 views: 2 project.project + 1 x_departments.
     # v0.0.16: hotfix v0.0.15 - bump view 4620 priority to 1000.
     # v0.0.15 crashed with:
     #   Element '<xpath expr="//field[@name='fsm_done']">' cannot be
