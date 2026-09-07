@@ -4,3 +4,22 @@ access_x_project_category_user,x_project_category user access,model_x_project_ca
 access_x_project_groups_user,x_project_groups user access,model_x_project_groups,base.group_user,1,1,1,1
 access_x_project_category_gro_user,x_project_category_gro user access,model_x_project_category_gro,base.group_user,1,1,1,1
 access_x_sales_report_model_user,x_sales_report_model user access,model_x_sales_report_model,base.group_user,1,1,1,1
+access_5583_proj__milesstones,Proj. Milesstones,project.model_project_milestone,,1,0,0,0
+access_5579_project_template,Project Template,BugFix-Project.model_project_project,,1,1,1,0
+access_6073_project_project_helpdesk_user,project.project.helpdesk.user,BugFix-Project.model_project_project,,1,0,0,0
+access_6058_project_project_helpdesk_user,project.project.helpdesk.user,BugFix-Project.model_project_project,,1,0,0,0
+access_6144_project_project_helpdesk_user,project.project.helpdesk.user,BugFix-Project.model_project_project,,1,0,0,0
+access_5585_proj__task,Proj. Task,BugFix-Project.model_project_task,,1,0,0,0
+access_6074_project_task_helpdesk_user,project.task.helpdesk.user,BugFix-Project.model_project_task,,1,0,0,0
+access_6059_project_task_helpdesk_user,project.task.helpdesk.user,BugFix-Project.model_project_task,,1,0,0,0
+access_6145_project_task_helpdesk_user,project.task.helpdesk.user,BugFix-Project.model_project_task,,1,0,0,0
+access_5584_proj__update,Proj. Update,BugFix-Project.model_project_update,,1,0,0,0
+access_1699_project_category_group_user,Project Category group_user,BugFix-Project.model_x_project_category,base.group_user,1,0,0,0
+access_5580_proj__category,Proj. Category,BugFix-Project.model_x_project_category,,1,1,0,0
+access_1698_project_category_group_system,Project Category group_system,BugFix-Project.model_x_project_category,base.group_system,1,1,1,1
+access_1697_project_category_group_group_user,Project Category Group group_user,BugFix-Project.model_x_project_category_gro,base.group_user,1,0,0,0
+access_5581_proj__category_group,Proj. Category Group,BugFix-Project.model_x_project_category_gro,,1,0,0,0
+access_1696_project_category_group_group_system,Project Category Group group_system,BugFix-Project.model_x_project_category_gro,base.group_system,1,1,1,1
+access_1701_project_groups_group_user,Project Groups group_user,BugFix-Project.model_x_project_groups,base.group_user,1,0,0,0
+access_5582_proj__groups,Proj. Groups,BugFix-Project.model_x_project_groups,,1,0,0,0
+access_1700_project_groups_group_system,Project Groups group_system,BugFix-Project.model_x_project_groups,base.group_system,1,1,1,1

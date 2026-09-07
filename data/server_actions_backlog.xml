@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project backlog: 7 server actions (0 skipped) -->
+<odoo>
+
+  <record id="server_action_2146_proj_project_update_notify_pm" model="ir.actions.server">
+    <field name="name">PROJ - Project Update - Notify PM</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">next_activity</field>
+    <field name="usage">base_automation</field>
+    <field name="activity_type_id" ref="mail.mail_activity_data_todo"/>
+    <field name="activity_user_type">specific</field>
+    <field name="activity_summary">Update Project Activities</field>
+    <field name="activity_note">&lt;p&gt;&lt;br&gt;&lt;/p&gt;</field>
+  </record>
+
+  <record id="server_action_2150_proj_project_update_completed" model="ir.actions.server">
+    <field name="name">PROJ - Project Update - Completed</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">code</field>
+    <field name="usage">ir_actions_server</field>
+    <field name="code"><![CDATA[record.write({'x_studio_selection_field_0zgmv': 'Completed'}) 
+]]></field>
+  </record>
+
+  <record id="server_action_2145_proj_project_update_validations" model="ir.actions.server">
+    <field name="name">PROJ - Project Update - Validations</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">code</field>
+    <field name="usage">base_automation</field>
+    <field name="code"><![CDATA[if record.progress <= 0:
+  raise UserError('Project Progress should be defined.')
+  
+desc = record.description
+desc_len = len(desc)
+
+if desc_len < 12:
+  raise UserError('Description should be greater than 5 characters.')
+
+
+]]></field>
+  </record>
+
+  <record id="server_action_2130_project_update_project_gross_margin_report_auto_generate" model="ir.actions.server">
+    <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">code</field>
+    <field name="usage">base_automation</field>
+    <field name="code"><![CDATA[report_type = env['x_sales_report_type'].search([('x_studio_report_code', '=', 'Project Gross Margin')])
+if report_type:
+  create_report_model = env['x_sales_report_model'].create({'x_studio_report_type':report_type.id,'x_studio_created_from_project_update': record.id,'x_studio_project_no':record.project_id.id}) 
+  
+  record['x_studio_gross_margin_report'] = create_report_model.id
+  record['x_studio_financial_progress'] = create_report_model.x_studio_financial_progress]]></field>
+  </record>
+
+  <record id="server_action_2131_project_update_project_gross_margin_report_auto_generate" model="ir.actions.server">
+    <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">code</field>
+    <field name="usage">base_automation</field>
+    <field name="code"><![CDATA[report_type = env['x_sales_report_type'].search([('x_studio_report_code', '=', 'Project Gross Margin')])
+if report_type:
+  create_report_model = env['x_sales_report_model'].create({'x_studio_report_type':report_type.id,'x_studio_created_from_project_update': record.id,'x_studio_project_no':record.project_id.id}) 
+  
+  record['x_studio_gross_margin_report'] = create_report_model.id
+  record['x_studio_financial_progress'] = create_report_model.x_studio_financial_progress
+  record['x_studio_estimated_gp'] = create_report_model.x_studio_estimated_gp_
+  record['x_studio_actual_gp'] = create_report_model.x_studio_actual_gp_]]></field>
+  </record>
+
+  <record id="server_action_2147_proj_project_update_completed_final" model="ir.actions.server">
+    <field name="name">PROJ - Project Update - Completed - Final</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">multi</field>
+    <field name="usage">ir_actions_server</field>
+    <field name="child_ids" eval="[(6, 0, [ref('BugFix-Project.server_action_2150_proj_project_update_completed'), ref('BugFix-Project.server_action_2153_proj_project_update_completed_email_to_client')])]"/>
+  </record>
+
+  <record id="server_action_2153_proj_project_update_completed_email_to_client" model="ir.actions.server">
+    <field name="name">PROJ - Project Update - Completed - Email to Client</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="state">mail_post</field>
+    <field name="usage">ir_actions_server</field>
+  </record>
+
+</odoo>
