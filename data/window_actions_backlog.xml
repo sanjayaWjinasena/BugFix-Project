@@ -37,22 +37,4 @@
             </field>
   </record>
 
-  <record id="act_window_2806_project_sale_line_employee_map" model="ir.actions.act_window">
-    <field name="name">project.sale.line.employee.map</field>
-    <field name="res_model">project.sale.line.employee.map</field>
-    <field name="view_mode">tree,form</field>
-    <field name="context">{}</field>
-    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
-                    This is your new action.
-                </p>
-                <p>By default, it contains a list and a form view and possibly
-                    other view types depending on the options you chose for your model.
-                </p>
-                <p>
-                    You can start customizing these screens by clicking on the Studio icon on the
-                    top right corner (you can also customize this help message there).
-                </p>
-            </field>
-  </record>
-
-  <!-- STRIPPED act_window_2014_worksheets: model x_project_task_worksheet_template_1 not on target --></odoo>
+  <!-- STRIPPED act_window_2806_project_sale_line_employee_map: model out-of-deps for BugFix-Project: project.sale.line.employee.map (owned by industry_fsm_sale) --><!-- STRIPPED act_window_2014_worksheets: model x_project_task_worksheet_template_1 not on target --></odoo>
