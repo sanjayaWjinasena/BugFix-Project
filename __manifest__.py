@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.22',
+    'version': '17.0.0.0.23',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -135,6 +135,7 @@
         'data/server_actions_backlog.xml',
         'data/window_actions_backlog.xml',
         'data/menus_from_routing.xml',
+        'data/mail_templates_from_routing.xml',
     ],
     'installable': True,
     'auto_install': False,

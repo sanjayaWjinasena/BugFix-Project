@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Studio mail templates (parity port; may not be functional) -->
+<odoo>
+  <data noupdate="1">
+
+    <record id="mail_template_50_janitharc_gmail_com" model="mail.template">
+      <field name="name">janitharc@gmail.com</field>
+      <field name="model_id" ref="project.model_project_update"/>
+      <field name="subject">Project Progress Status</field>
+      <field name="email_from">rohana.b@jinasena.com.lk</field>
+      <field name="email_to">janitharc@gmail.com</field>
+      <field name="auto_delete" eval="True"/>
+      <field name="body_html" type="html"><p style="margin:0px 0 12px 0;box-sizing:border-box;">Sample Project Progress Status</p></field>
+    </record>
+
+  </data>
+</odoo>
