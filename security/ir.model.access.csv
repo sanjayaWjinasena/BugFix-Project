@@ -23,3 +23,6 @@ access_1696_project_category_group_group_system,Project Category Group group_sys
 access_1701_project_groups_group_user,Project Groups group_user,BugFix-Project.model_x_project_groups,base.group_user,1,0,0,0
 access_5582_proj__groups,Proj. Groups,BugFix-Project.model_x_project_groups,,1,0,0,0
 access_1700_project_groups_group_system,Project Groups group_system,BugFix-Project.model_x_project_groups,base.group_system,1,1,1,1
+access_1121_test_access_rights,test_access_rights,BugFix-Project.model_x_departments,,1,0,0,0
+access_1122_test_access_rights_2,test_access_rights_2,BugFix-Project.model_x_departments,,1,1,1,1
+access_5581_proj_category_group,Proj. Category Group,BugFix-Project.model_x_project_category_gro,,1,0,0,0

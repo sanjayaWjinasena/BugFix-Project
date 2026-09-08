@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: 2 gap automations -->
+<odoo>
+
+
+  <record id="base_automation_179_rr_auto_update_helpdesk_pipeline_status_1" model="base.automation">
+    <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
+    <field name="active" eval="False"/>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+
+  <record id="base_automation_200_rr_validate_diagnosis_lines" model="base.automation">
+    <field name="name">RR - Validate Diagnosis Lines</field>
+    <field name="active" eval="False"/>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="trigger">on_write</field>
+    <field name="filter_domain">[["helpdesk_ticket_id","!=",False]]</field>
+  </record>
+
+</odoo>
