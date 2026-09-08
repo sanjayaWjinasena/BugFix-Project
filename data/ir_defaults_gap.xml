@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- BugFix-Project: 11 ir.default records routed from Phase D2 sweep --><odoo>
+  <data noupdate="1">
+
+    <record id="default_14_x_departments_x_active" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_departments__x_active"/>
+      <field name="json_value">true</field>
+    </record>
+
+    <record id="default_15_x_departments_x_studio_sequence" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_departments__x_studio_sequence"/>
+      <field name="json_value">10</field>
+    </record>
+
+    <record id="default_169_project_task_x_studio_priority" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_task__x_studio_priority"/>
+      <field name="json_value">"Normal"</field>
+    </record>
+
+    <record id="default_302_x_project_category_gro_x_active" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_active"/>
+      <field name="json_value">true</field>
+    </record>
+
+    <record id="default_303_x_project_category_gro_x_studio_sequence" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_studio_sequence"/>
+      <field name="json_value">10</field>
+    </record>
+
+    <record id="default_304_x_project_category_x_active" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_category__x_active"/>
+      <field name="json_value">true</field>
+    </record>
+
+    <record id="default_305_x_project_category_x_studio_sequence" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_sequence"/>
+      <field name="json_value">10</field>
+    </record>
+
+    <record id="default_306_x_project_groups_x_active" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_groups__x_active"/>
+      <field name="json_value">true</field>
+    </record>
+
+    <record id="default_307_x_project_groups_x_studio_sequence" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_groups__x_studio_sequence"/>
+      <field name="json_value">10</field>
+    </record>
+
+    <!-- DROPPED default_316_x_project_category_x_studio_claimability: selection value 'None' not in field allowed set --><!-- DROPPED default_326_project_update_x_studio_selection_field_0zgmv: selection value 'Pending' not in field allowed set --></data>
+</odoo>
