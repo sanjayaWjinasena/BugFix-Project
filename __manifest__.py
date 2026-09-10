@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.43',
+    'version': '17.0.0.0.44',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -114,6 +114,7 @@
     # Converted to _inherit; Jinasena_Masterdata_Reporting added here.
     'depends': ['base_setup', 'project', 'Jinasena_Masterdata_Reporting'],
     'data': [
+        'data/window_actions_f4.xml',
         'data/defaults_f2.xml',
         'security/ir_model_pins.xml',
         'security/ir.model.access.csv',

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase F4 - 4 window actions -->
+<odoo>
+  <record id="aw_f4_project_project_project_project" model="ir.actions.act_window">
+    <field name="name">project.project</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
+  <record id="aw_f4_project_task_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+  <record id="aw_f4_project_update_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="aw_f4_project_project_projects_project_project" model="ir.actions.act_window">
+    <field name="name">Projects (project.project)</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
+</odoo>
