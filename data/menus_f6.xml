@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase F6 - 7 menus -->
+<odoo>
+  <menuitem id="menu_f6_projects_project_project" name="Projects (project.project)" parent="project.menu_projects" action="BugFix-Project.action_2877_projects_project_project" sequence="0"/>
+  <menuitem id="menu_f6_project_task" name="project.task" parent="project.menu_projects" action="BugFix-Project.action_2802_project_task" sequence="2"/>
+  <menuitem id="menu_f6_project_update" name="project.update" parent="project.menu_projects" action="BugFix-Project.act_window_2803_project_update" sequence="3"/>
+  <menuitem id="menu_f6_project_category_group" name="Project Category Group" parent="project.menu_project_config" action="BugFix-Project.act_window_2025_project_category_group" sequence="6"/>
+  <menuitem id="menu_f6_project_category" name="Project Category" parent="project.menu_project_config" action="BugFix-Project.action_2026_project_category" sequence="7"/>
+  <menuitem id="menu_f6_project_groups" name="Project Groups" parent="project.menu_project_config" action="BugFix-Project.action_2027_project_groups" sequence="8"/>
+  <menuitem id="menu_f6_project_project" name="project.project" parent="project.menu_projects" action="BugFix-Project.aw_f4_project_project_project_project" sequence="0"/>
+</odoo>
