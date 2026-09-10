@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase E - 2 views for project.project -->
+<odoo>
+  <data>
+    <record id="view_4895_odoo_studio_project_project_form_button_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.project.form-button</field>
+      <field name="model">project.project</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="project.edit_project"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//header/button[@name='1913'][2]" position="after">
+      <button type="action" name="2119" string="Update Month End Entries" class="btn-primary" invisible="x_studio_valid_gm == False"/>
+    </xpath>
+    
+    <xpath expr="//header/button[@name='2119']" position="after">
+      <button type="action" name="2731" string="Create Cash Advance Bill" class="btn-primary" help="For internal staff in Projects department."/>
+    </xpath>
+    
+    <xpath expr="//header/button[@name='2731']" position="after">
+      <button type="action" name="2732" string="Issue Cash Advance" class="btn-primary" help="For internal staff in Projects department."/>
+    </xpath>
+    
+    <xpath expr="//header/button[@name='2732']" position="after">
+      <button type="action" name="2733" string="Settle Cash Advances" class="btn-primary" help="For internal staff in Projects department."/>
+    </xpath>
+    
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4931_default_gantt_view_for_project_project_e" model="ir.ui.view">
+      <field name="name">Default gantt view for project.project</field>
+      <field name="model">project.project</field>
+      <field name="type">gantt</field>
+      <field name="arch" type="xml">
+        <gantt date_start="create_date" date_stop="create_date" string="Default gantt view for project.project"/>
+      </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.27',
+    'version': '17.0.0.0.28',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -139,6 +139,9 @@
         'data/automations_gap.xml',
         'data/window_actions_gap.xml',
         'data/ir_defaults_gap.xml',
+        'views/project_project_e_views.xml',
+        'views/project_task_e_views.xml',
+        'views/project_update_e_views.xml',
     ],
     'installable': True,
     'auto_install': False,

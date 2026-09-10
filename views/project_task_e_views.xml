@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase E - 6 views for project.task -->
+<odoo>
+  <data>
+    <record id="view_4621_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: view.task.form2.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_fsm_create_quotation']" position="attributes">
+      <attribute name="invisible">(sale_order_id == False) or ((x_studio_quotation_type != 'Project') or (x_studio_cancelled == True))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_fsm_view_material']" position="attributes">
+      <attribute name="invisible">((helpdesk_ticket_id != False) and (x_studio_repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (x_studio_valid_diagnosis == False)) or ((x_studio_cancelled == True) or (x_studio_end_quick_repair == True)))</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4625_odoo_studio_project_task_form_button_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.form_button</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_get_project_forecast_by_user']" position="attributes">
+      <attribute name="invisible">(helpdesk_ticket_id != False) or (allow_forecast == False)</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_create_invoice']" position="before">
+      <button type="action" name="2224" string="View Repair Diagnosis Validation" class="btn-primary" invisible="((x_studio_valid_diagnosis == True) and (helpdesk_ticket_id != False)) or ((helpdesk_ticket_id == False) or ((x_studio_cancelled == True) or (x_studio_end_quick_repair == True)))"/>
+    </xpath>
+    
+    <xpath expr="//button[@name='2224']" position="after">
+      <button type="action" name="2242" string="View Repair Image Validation" class="btn-primary" invisible="((x_studio_repair_image_01 != False) and (helpdesk_ticket_id != False)) or ((helpdesk_ticket_id == False) or ((x_studio_cancelled == True) or (x_studio_end_quick_repair == True)))"/>
+    </xpath>
+    
+    <xpath expr="//button[@name='2242']" position="after">
+      <button type="action" name="2316" string="Tested OK" class="btn-primary" invisible="(x_studio_end_quick_repair == True) or ((helpdesk_ticket_id == False) or ((x_studio_cancelled == True) or (material_line_product_count &gt; 0)))"/>
+    </xpath>
+    
+    <xpath expr="//button[@name='action_fsm_worksheet']" position="attributes">
+      <attribute name="invisible">(worksheet_count != 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or ((partner_id == False) or (helpdesk_ticket_id != False))))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_fsm_worksheet'][2]" position="attributes">
+      <attribute name="invisible">(worksheet_count == 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or (helpdesk_ticket_id != False)))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_create_invoice']" position="replace"/>
+    
+    <!--xpath expr="//field[@name='x_studio_diagnosis_code']" position="attributes">
+     <attribute name="domain">[["x_studio_diagnosis_area_1","=",x_studio_diagnosis_area]]</attribute>
+    </xpath-->
+    
+    <!--xpath expr="//field[@name='x_studio_sub_reason']" position="attributes">
+     <attribute name="domain">[["x_studio_reason_code","=",x_studio_reason]]</attribute>
+    </xpath-->
+    
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4775_odoo_studio_project_task_tree_customization_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.tree customization</field>
+      <field name="model">project.task</field>
+      <field name="type">tree</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="project.view_task_tree2"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+  <xpath expr="//field[@name='effective_hours']" position="after">
+    <field name="x_studio_starting_date" optional="show"/>
+    <field name="date_end" optional="show"/>
+    <field name="planned_date_begin" optional="show"/>
+    </xpath>
+</data>
+      </field>
+    </record>
+
+    <record id="view_5011_odoo_studio_project_task_view_inherit_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.view.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="sale_project.project_sharing_inherit_project_task_view_form"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_view_so']" position="attributes">
+      <attribute name="invisible">(sale_order_id == False) or (x_studio_cancelled == True)</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4730_odoo_studio_task_form_inherit_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: task.form.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_preview_worksheet'][2]" position="attributes">
+      <!--attribute name="attrs">{'invisible': True}</attribute> -->
+      <!--attribute name="states" />-->
+      <attribute name="invisible">1</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_send_report'][2]" position="attributes">
+      <attribute name="invisible">1</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4620_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: view.task.form2.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_timer_start']" position="attributes">
+      <attribute name="invisible">1</attribute></xpath>
+    
+    <!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
+      <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
+    </xpath-->
+    
+    <xpath expr="//field[@name='fsm_done']" position="after">
+                    <field name="x_studio_payment_type" invisible="1"/>
+                    <field name="x_studio_quotation_type" invisible="1"/>
+                    <field name="x_studio_valid_invoiced_so" invisible="1"/>
+                    <field name="x_studio_incomplete_delivery_available" invisible="1"/>
+                    <field name="x_studio_cancelled" invisible="1"/>
+                    <field name="x_studio_end_quick_repair" invisible="1"/>
+                    <field name="x_studio_valid_diagnosis" invisible="1"/>
+                    <field name="x_studio_repair_image_01" invisible="1"/>
+                    <field name="helpdesk_ticket_id" invisible="1"/>
+                </xpath><xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
+      <attribute name="invisible">(not display_mark_as_done_secondary) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == False) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == True) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or ((x_studio_incomplete_delivery_available == True) or ((x_studio_valid_invoiced_so == False) or (display_mark_as_done_secondary == False)))))</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+  </data>
+</odoo>

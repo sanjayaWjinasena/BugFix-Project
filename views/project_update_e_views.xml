@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase E - 3 views for project.update -->
+<odoo>
+  <data>
+    <record id="view_4932_odoo_studio_project_update_view_form_button_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.update.view.form_button</field>
+      <field name="model">project.update</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="project.project_update_view_form"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
+      <button type="action" name="2147" string="Complete Project Update" class="btn-primary" confirm="Are you sure you want to complete the project update?" invisible="x_studio_selection_field_0zgmv == 'Completed'"/>
+    </xpath>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4933_odoo_studio_project_update_view_kanban_customization_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.update.view.kanban customization</field>
+      <field name="model">project.update</field>
+      <field name="type">kanban</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="project.project_update_view_kanban"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_4925_odoo_studio_project_update_view_tree_customization_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.update.view.tree customization</field>
+      <field name="model">project.update</field>
+      <field name="type">tree</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="project.project_update_view_tree"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+  <xpath expr="//field[@name=&quot;date&quot;]" position="after">
+    <field name="x_studio_financial_progress" optional="show" widget="progressbar"/>
+  </xpath>
+</data>
+      </field>
+    </record>
+
+  </data>
+</odoo>
