@@ -70,35 +70,5 @@
       </field>
     </record>
 
-    <!-- STRIPPED view 5011: parent view has broken allow_billable ref --><!-- STRIPPED view_4730_odoo_studio_task_form_inherit_e: action_preview_worksheet not on target project.task --><record id="view_4620_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
-      <field name="name">Odoo Studio: view.task.form2.inherit</field>
-      <field name="model">project.task</field>
-      <field name="type">form</field>
-      <field name="priority">99</field>
-      <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
-      <field name="mode">extension</field>
-      <field name="arch" type="xml">
-        <data>
-    <xpath expr="//button[@name='action_timer_start']" position="attributes">
-      <attribute name="invisible">1</attribute></xpath>
-    
-    <!-- STRIPPED malformed xpath comment block -->
-    
-    <xpath expr="//field[@name='fsm_done']" position="after">
-                    <field name="x_studio_payment_type" invisible="1"/>
-                    <field name="x_studio_quotation_type" invisible="1"/>
-                    <field name="x_studio_valid_invoiced_so" invisible="1"/>
-                    <field name="x_studio_incomplete_delivery_available" invisible="1"/>
-                    <field name="x_studio_cancelled" invisible="1"/>
-                    <field name="x_studio_end_quick_repair" invisible="1"/>
-                    <field name="x_studio_valid_diagnosis" invisible="1"/>
-                    <field name="x_studio_repair_image_01" invisible="1"/>
-                    <field name="helpdesk_ticket_id" invisible="1"/>
-                </xpath><xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-      <attribute name="invisible">(not display_mark_as_done_secondary) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == False) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or (((x_studio_incomplete_delivery_available == True) and ((x_studio_valid_invoiced_so == True) and ((x_studio_payment_type == 'Credit') and (x_studio_quotation_type == 'Repair')))) or ((x_studio_incomplete_delivery_available == True) or ((x_studio_valid_invoiced_so == False) or (display_mark_as_done_secondary == False)))))</attribute></xpath>
-  </data>
-      </field>
-    </record>
-
-  </data>
+    <!-- STRIPPED view 5011: parent view has broken allow_billable ref --><!-- STRIPPED view_4730_odoo_studio_task_form_inherit_e: action_preview_worksheet not on target project.task --><!-- STRIPPED view 4620: helpdesk_ticket_id not on target project.task --></data>
 </odoo>
