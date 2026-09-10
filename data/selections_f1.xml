@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase F1 - 19 selection options -->
+<odoo noupdate="1">
+  <record id="sel_Fix-repair_project_task__x_studio_quotat_sales" model="ir.model.fields.selection">
+    <field name="field_id" ref="Fix-repair.field_project_task__x_studio_quotation_type"/>
+    <field name="value">Sales</field>
+    <field name="name">Sales</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category_gro__x_item" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_studio_transaction_type"/>
+    <field name="value">Item</field>
+    <field name="name">Item</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_item" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_transaction_type"/>
+    <field name="value">Item</field>
+    <field name="name">Item</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_none" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+    <field name="value">None</field>
+    <field name="name">None</field>
+  </record>
+  <record id="sel_BugFix-Project_project_project__x_studio_sales" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_project_project__x_studio_quotation_type"/>
+    <field name="value">Sales</field>
+    <field name="name">Sales</field>
+  </record>
+  <record id="sel_BugFix-Project_project_update__x_studio__pending" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
+    <field name="value">Pending</field>
+    <field name="name">Pending</field>
+  </record>
+  <record id="sel_Fix-repair_project_task__x_studio_quotat_project" model="ir.model.fields.selection">
+    <field name="field_id" ref="Fix-repair.field_project_task__x_studio_quotation_type"/>
+    <field name="value">Project</field>
+    <field name="name">Project</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category_gro__x_expense" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_studio_transaction_type"/>
+    <field name="value">Expense</field>
+    <field name="name">Expense</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_expense" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_transaction_type"/>
+    <field name="value">Expense</field>
+    <field name="name">Expense</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_claimable" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+    <field name="value">Claimable</field>
+    <field name="name">Claimable</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_BugFix-Project_project_project__x_studio_project" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_project_project__x_studio_quotation_type"/>
+    <field name="value">Project</field>
+    <field name="name">Project</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_BugFix-Project_project_update__x_studio__completed" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
+    <field name="value">Completed</field>
+    <field name="name">Completed</field>
+    <field name="sequence">1</field>
+  </record>
+  <record id="sel_Fix-repair_project_task__x_studio_quotat_repair" model="ir.model.fields.selection">
+    <field name="field_id" ref="Fix-repair.field_project_task__x_studio_quotation_type"/>
+    <field name="value">Repair</field>
+    <field name="name">Repair</field>
+    <field name="sequence">2</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category_gro__x_fee" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_studio_transaction_type"/>
+    <field name="value">Fee</field>
+    <field name="name">Fee</field>
+    <field name="sequence">2</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_fee" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_transaction_type"/>
+    <field name="value">Fee</field>
+    <field name="name">Fee</field>
+    <field name="sequence">2</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_non_claimable" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+    <field name="value">Non-Claimable</field>
+    <field name="name">Non-Claimable</field>
+    <field name="sequence">2</field>
+  </record>
+  <record id="sel_BugFix-Project_project_project__x_studio_repair" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_project_project__x_studio_quotation_type"/>
+    <field name="value">Repair</field>
+    <field name="name">Repair</field>
+    <field name="sequence">2</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category_gro__x_hour" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category_gro__x_studio_transaction_type"/>
+    <field name="value">Hour</field>
+    <field name="name">Hour</field>
+    <field name="sequence">3</field>
+  </record>
+  <record id="sel_BugFix-Project_x_project_category__x_stu_hour" model="ir.model.fields.selection">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_transaction_type"/>
+    <field name="value">Hour</field>
+    <field name="name">Hour</field>
+    <field name="sequence">3</field>
+  </record>
+</odoo>
