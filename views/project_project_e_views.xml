@@ -11,19 +11,19 @@
       <field name="mode">extension</field>
       <field name="arch" type="xml">
         <data>
-    <xpath expr="//header/button[@name='1913'][2]" position="after">
+    <xpath expr="//header/button[@name='%(project.project_share_wizard_action)d'][2]" position="after">
       <!-- STRIPPED action button aid=2119 unresolvable -->
     </xpath>
     
-    <xpath expr="//header/button[@name='2119']" position="after">
+    <xpath expr="//header/button[@name='2119']<!-- WARNING: xpath refs unresolvable action -->" position="after">
       <!-- STRIPPED action button aid=2731 unresolvable -->
     </xpath>
     
-    <xpath expr="//header/button[@name='2731']" position="after">
+    <xpath expr="//header/button[@name='2731']<!-- WARNING: xpath refs unresolvable action -->" position="after">
       <!-- STRIPPED action button aid=2732 unresolvable -->
     </xpath>
     
-    <xpath expr="//header/button[@name='2732']" position="after">
+    <xpath expr="//header/button[@name='2732']<!-- WARNING: xpath refs unresolvable action -->" position="after">
       <!-- STRIPPED action button aid=2733 unresolvable -->
     </xpath>
     

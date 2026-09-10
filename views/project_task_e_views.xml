@@ -37,11 +37,11 @@
       <!-- STRIPPED action button aid=2224 unresolvable -->
     </xpath>
     
-    <xpath expr="//button[@name='2224']" position="after">
+    <xpath expr="//button[@name='2224']<!-- WARNING: xpath refs unresolvable action -->" position="after">
       <!-- STRIPPED action button aid=2242 unresolvable -->
     </xpath>
     
-    <xpath expr="//button[@name='2242']" position="after">
+    <xpath expr="//button[@name='2242']<!-- WARNING: xpath refs unresolvable action -->" position="after">
       <!-- STRIPPED action button aid=2316 unresolvable -->
     </xpath>
     
