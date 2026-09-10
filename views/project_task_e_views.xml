@@ -65,11 +65,7 @@
       <field name="mode">extension</field>
       <field name="arch" type="xml">
         <data>
-  <xpath expr="//field[@name='effective_hours']" position="after">
-    <field name="x_studio_starting_date" optional="show"/>
-    <field name="date_end" optional="show"/>
-    <field name="planned_date_begin" optional="show"/>
-    </xpath>
+  <!-- STRIPPED xpath effective_hours: not on ported parent view -->
 </data>
       </field>
     </record>
