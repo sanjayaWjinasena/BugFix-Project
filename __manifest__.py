@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.32',
+    'version': '17.0.0.0.33',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',

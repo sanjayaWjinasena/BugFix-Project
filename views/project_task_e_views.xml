@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- BugFix-Project: Phase E - 6 views for project.task -->
-<odoo>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- BugFix-Project: Phase E - 6 views for project.task --><odoo>
   <data>
     <record id="view_4621_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
       <field name="name">Odoo Studio: view.task.form2.inherit</field>
@@ -75,23 +74,7 @@
       </field>
     </record>
 
-    <record id="view_5011_odoo_studio_project_task_view_inherit_e" model="ir.ui.view">
-      <field name="name">Odoo Studio: project.task.view.inherit</field>
-      <field name="model">project.task</field>
-      <field name="type">form</field>
-      <field name="priority">99</field>
-      <field name="active" eval="False"/>
-      <field name="inherit_id" ref="sale_project.project_sharing_inherit_project_task_view_form"/>
-      <field name="mode">extension</field>
-      <field name="arch" type="xml">
-        <data>
-    <xpath expr="//button[@name='action_view_so']" position="attributes">
-      <attribute name="invisible">(sale_order_id == False) or (x_studio_cancelled == True)</attribute></xpath>
-  </data>
-      </field>
-    </record>
-
-    <record id="view_4730_odoo_studio_task_form_inherit_e" model="ir.ui.view">
+    <!-- STRIPPED view 5011: parent view has broken allow_billable ref --><record id="view_4730_odoo_studio_task_form_inherit_e" model="ir.ui.view">
       <field name="name">Odoo Studio: task.form.inherit</field>
       <field name="model">project.task</field>
       <field name="type">form</field>
