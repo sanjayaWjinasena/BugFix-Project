@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- BugFix-Project: Phase E - 3 views for project.update -->
-<odoo>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- BugFix-Project: Phase E - 3 views for project.update --><odoo>
   <data>
     <record id="view_4932_odoo_studio_project_update_view_form_button_e" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.form_button</field>
@@ -12,7 +11,7 @@
       <field name="mode">extension</field>
       <field name="arch" type="xml">
         <data>
-    <xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
+    <xpath expr="//form" position="inside"><field name="x_studio_selection_field_0zgmv" invisible="1"/></xpath><xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
       <!-- STRIPPED action button aid=2147 unresolvable -->
     </xpath>
   </data>
