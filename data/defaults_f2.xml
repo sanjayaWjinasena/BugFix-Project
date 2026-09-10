@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Phase F2 - 3 defaults -->
+<odoo noupdate="1">
+  <record id="default_BugFix_Project_field_project_update__x_studio_sele_pending" model="ir.default">
+    <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
+    <field name="json_value">"Pending"</field>
+  </record>
+  <record id="default_Fix_repair_field_project_task__x_studio_priority_normal" model="ir.default">
+    <field name="field_id" ref="Fix-repair.field_project_task__x_studio_priority"/>
+    <field name="json_value">"Normal"</field>
+  </record>
+  <record id="default_BugFix_Project_field_x_project_category__x_studio__none" model="ir.default">
+    <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+    <field name="json_value">"None"</field>
+  </record>
+</odoo>
