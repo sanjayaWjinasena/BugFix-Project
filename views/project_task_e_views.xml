@@ -37,13 +37,9 @@
       <!-- STRIPPED action button aid=2224 unresolvable -->
     </xpath>
     
-    <xpath expr="//button[@name='2224']<!-- WARNING: xpath refs unresolvable action -->" position="after">
-      <!-- STRIPPED action button aid=2242 unresolvable -->
-    </xpath>
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
     
-    <xpath expr="//button[@name='2242']<!-- WARNING: xpath refs unresolvable action -->" position="after">
-      <!-- STRIPPED action button aid=2316 unresolvable -->
-    </xpath>
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
     
     <xpath expr="//button[@name='action_fsm_worksheet']" position="attributes">
       <attribute name="invisible">(worksheet_count != 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or ((partner_id == False) or (helpdesk_ticket_id != False))))</attribute></xpath>
@@ -53,13 +49,9 @@
     
     <xpath expr="//button[@name='action_create_invoice']" position="replace"/>
     
-    <!--xpath expr="//field[@name='x_studio_diagnosis_code']" position="attributes">
-     <attribute name="domain">[["x_studio_diagnosis_area_1","=",x_studio_diagnosis_area]]</attribute>
-    </xpath-->
+    <!-- STRIPPED malformed xpath comment block -->
     
-    <!--xpath expr="//field[@name='x_studio_sub_reason']" position="attributes">
-     <attribute name="domain">[["x_studio_reason_code","=",x_studio_reason]]</attribute>
-    </xpath-->
+    <!-- STRIPPED malformed xpath comment block -->
     
   </data>
       </field>
@@ -131,9 +123,7 @@
     <xpath expr="//button[@name='action_timer_start']" position="attributes">
       <attribute name="invisible">1</attribute></xpath>
     
-    <!--xpath expr="//button[@name='action_fsm_validate'][2]" position="attributes">
-      <attribute name="attrs">{'invisible': ['|',('display_mark_as_done_secondary', '=', False),('x_studio_valid_confirm_so', '=', False)]}</attribute> 
-    </xpath-->
+    <!-- STRIPPED malformed xpath comment block -->
     
     <xpath expr="//field[@name='fsm_done']" position="after">
                     <field name="x_studio_payment_type" invisible="1"/>

@@ -15,17 +15,11 @@
       <!-- STRIPPED action button aid=2119 unresolvable -->
     </xpath>
     
-    <xpath expr="//header/button[@name='2119']<!-- WARNING: xpath refs unresolvable action -->" position="after">
-      <!-- STRIPPED action button aid=2731 unresolvable -->
-    </xpath>
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
     
-    <xpath expr="//header/button[@name='2731']<!-- WARNING: xpath refs unresolvable action -->" position="after">
-      <!-- STRIPPED action button aid=2732 unresolvable -->
-    </xpath>
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
     
-    <xpath expr="//header/button[@name='2732']<!-- WARNING: xpath refs unresolvable action -->" position="after">
-      <!-- STRIPPED action button aid=2733 unresolvable -->
-    </xpath>
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
     
   </data>
       </field>
