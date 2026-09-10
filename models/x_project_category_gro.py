@@ -13,4 +13,4 @@ class XProjectCategoryGro(models.Model):
     x_studio_category_group_name = fields.Char(string='Category Group Name')
     x_studio_line_property = fields.Char(string='Line property')
     x_studio_sequence = fields.Integer(string='Sequence')
-    x_studio_transaction_type = fields.Selection([], string='Transaction Type')
+    x_studio_transaction_type = fields.Selection([('Item', 'Item'), ('Expense', 'Expense'), ('Fee', 'Fee'), ('Hour', 'Hour')], string='Transaction Type')

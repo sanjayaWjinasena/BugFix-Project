@@ -15,7 +15,7 @@ class ProjectTask(models.Model):
     x_studio_payment_type = fields.Selection([], string='Payment Type', readonly=True)
     x_studio_priority = fields.Selection([], string='Priority')
     x_studio_quick_repair_status_1 = fields.Selection([], string='Quick Repair Status')
-    x_studio_quotation_type = fields.Selection([], string='Quotation Type', readonly=True)
+    x_studio_quotation_type = fields.Selection([('Sales', 'Sales'), ('Project', 'Project'), ('Repair', 'Repair')], string='Quotation Type', readonly=True)
     x_studio_related_information = fields.Binary(string='Related Information', readonly=True)
     x_studio_repair_completed_stage_updated = fields.Boolean(string='Repair Completed Stage Updated', readonly=True)
     x_studio_repair_image_01 = fields.Binary(string='Repair Image 01')

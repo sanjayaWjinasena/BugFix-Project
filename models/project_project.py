@@ -12,7 +12,7 @@ class ProjectProject(models.Model):
     x_studio_image_2 = fields.Binary(string='Image 2')
     x_studio_image_3 = fields.Binary(string='Image 3')
     x_studio_project_group = fields.Many2one('x_project_groups', string='Project Group', readonly=True)
-    x_studio_quotation_type = fields.Selection([], string='Quotation Type', readonly=True)
+    x_studio_quotation_type = fields.Selection([('Sales', 'Sales'), ('Project', 'Project'), ('Repair', 'Repair')], string='Quotation Type', readonly=True)
     x_studio_repair_project = fields.Boolean(string='Repair Project')
     x_studio_valid_gm = fields.Boolean(string='Valid GM', readonly=True, store=False)
     x_x_studio_created_from_project_no_account_move_count = fields.Integer(string='Created From Project No count', store=False)

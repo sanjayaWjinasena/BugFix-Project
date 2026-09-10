@@ -9,4 +9,4 @@ class ProjectUpdate(models.Model):
     x_studio_estimated_gp = fields.Float(string='Estimated GP')
     x_studio_financial_progress = fields.Float(string='Financial Project Progress')
     x_studio_gross_margin_report = fields.Many2one('x_sales_report_model', string='Gross Margin Report')
-    x_studio_selection_field_0zgmv = fields.Selection([], string='Project Update Status')
+    x_studio_selection_field_0zgmv = fields.Selection([('Pending', 'Pending'), ('Completed', 'Completed')], string='Project Update Status')
