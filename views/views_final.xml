@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: Views final - 2 remaining views -->
+<odoo>
+  <data>
+    <record id="view_final_project_task_odoo_studio_project_task_view_inherit" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.view.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="sale_project.view_sale_project_inherit_form"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_view_so']" position="attributes">
+      <attribute name="invisible">(sale_order_id == False) or (x_studio_cancelled == True)</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+    <record id="view_final_project_task_odoo_studio_task_form_inherit" model="ir.ui.view">
+      <field name="name">Odoo Studio: task.form.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="industry_fsm_report.view_task_form2_inherit"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_preview_worksheet'][2]" position="attributes">
+      <!--attribute name="attrs">{'invisible': True}</attribute> -->
+      <!--attribute name="states" />-->
+      <attribute name="invisible">1</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_send_report'][2]" position="attributes">
+      <attribute name="invisible">1</attribute></xpath>
+  </data>
+      </field>
+    </record>
+
+  </data>
+</odoo>
