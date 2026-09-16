@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.53',
+    'version': '17.0.0.0.54',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -116,7 +116,6 @@
     'data': [
         'data/defaults_final.xml',
         'views/views_final.xml',
-        'data/menus_f6.xml',
         'data/window_actions_f4.xml',
         'data/defaults_f2.xml',
         'security/ir_model_pins.xml',
@@ -139,7 +138,6 @@
         'data/record_rules.xml',
         'data/server_actions_backlog.xml',
         'data/window_actions_backlog.xml',
-        'data/menus_from_routing.xml',
         'data/mail_templates_from_routing.xml',
         'data/automations_gap.xml',
         'data/window_actions_gap.xml',
@@ -147,7 +145,9 @@
         'views/project_project_e_views.xml',
         'views/project_task_e_views.xml',
         'views/project_update_e_views.xml',
-    ],
+        'data/menus_f6.xml',
+        'data/menus_from_routing.xml',
+],
     'installable': True,
     'auto_install': False,
     'application': True,
