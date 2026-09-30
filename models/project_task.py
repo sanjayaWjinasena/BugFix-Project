@@ -13,7 +13,10 @@ class ProjectTask(models.Model):
     x_studio_incomplete_delivery_available = fields.Boolean(string='Incomplete Delivery Available', readonly=True, store=False)
     x_studio_material_availability = fields.Selection([], string='Material Availability', readonly=True, store=False)
     x_studio_payment_type = fields.Selection([], string='Payment Type', readonly=True)
-    x_studio_priority = fields.Selection([], string='Priority')
+    x_studio_priority = fields.Selection(
+        [('Highest', 'Highest'), ('High', 'High'), ('Normal', 'Normal'),
+         ('Low', 'Low'), ('Lowest', 'Lowest')],
+        string='Priority')
     x_studio_quick_repair_status_1 = fields.Selection([], string='Quick Repair Status')
     x_studio_quotation_type = fields.Selection([('Sales', 'Sales'), ('Project', 'Project'), ('Repair', 'Repair')], string='Quotation Type', readonly=True)
     x_studio_related_information = fields.Binary(string='Related Information', readonly=True)
