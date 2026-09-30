@@ -12,10 +12,6 @@
       <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
       <field name="json_value">"Pending"</field>
     </record>
-
-    <record id="default_169_project_task_x_studio_priority" model="ir.default">
-      <field name="field_id" ref="BugFix-Project.field_project_task__x_studio_priority"/>
-      <field name="json_value">"Normal"</field>
-    </record>
+    <!-- SKIPPED default_169_project_task_x_studio_priority: target field declared as fields.Selection([]) in Python; runtime-only options can be transiently absent during registry rebuild, causing default validation to fail. -->
   </data>
 </odoo>
