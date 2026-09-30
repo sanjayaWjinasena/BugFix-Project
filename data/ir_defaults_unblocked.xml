@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- BugFix-Project: 3 previously-DROPPED ir.default records now re-shippable (selection options ported since original drop) -->
+<odoo>
+  <data noupdate="1">
+
+    <record id="default_316_x_project_category_x_studio_claimability" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+      <field name="json_value">"None"</field>
+    </record>
+
+    <record id="default_326_project_update_x_studio_selection_field_0zgmv" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
+      <field name="json_value">"Pending"</field>
+    </record>
+
+    <record id="default_169_project_task_x_studio_priority" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_task__x_studio_priority"/>
+      <field name="json_value">"Normal"</field>
+    </record>
+  </data>
+</odoo>
