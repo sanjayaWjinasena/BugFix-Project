@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class XProjectCategoryGro(models.Model):
     _name = 'x_project_category_gro'
+    _rec_name = 'x_name'  # Clear-DB Studio model: records are named by x_name
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Project Category Group'
 

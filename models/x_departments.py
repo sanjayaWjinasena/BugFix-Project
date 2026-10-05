@@ -5,6 +5,7 @@ from odoo import fields, models
 class XDepartments(models.Model):
     """Studio-ported custom model x_departments."""
     _name = 'x_departments'
+    _rec_name = 'x_name'  # Clear-DB Studio model: records are named by x_name
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Departments'
 
