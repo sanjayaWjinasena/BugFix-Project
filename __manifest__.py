@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.62',
+    'version': '17.0.0.0.63',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -120,6 +120,7 @@
         'data/defaults_f2.xml',
         'security/ir_model_pins.xml',
         'security/ir.model.access.csv',
+        'security/removed_handmade_access_rights.xml',
         'data/server_actions.xml',
         'data/server_actions_v2.xml',
         'data/automations.xml',
