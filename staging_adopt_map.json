@@ -1,0 +1,1062 @@
+{
+"access_1121_test_access_rights": {
+"ir.model.access": [
+[
+1121,
+"2021-05-17 04:53:12"
+]
+]
+},
+"access_1122_test_access_rights_2": {
+"ir.model.access": [
+[
+1122,
+"2021-05-17 05:55:15"
+]
+]
+},
+"access_1696_project_category_group_group_system": {
+"ir.model.access": [
+[
+1696,
+"2023-02-14 14:35:15"
+]
+]
+},
+"access_1697_project_category_group_group_user": {
+"ir.model.access": [
+[
+1697,
+"2023-02-14 14:35:15"
+]
+]
+},
+"access_1698_project_category_group_system": {
+"ir.model.access": [
+[
+1698,
+"2023-02-14 14:36:17"
+]
+]
+},
+"access_1699_project_category_group_user": {
+"ir.model.access": [
+[
+1699,
+"2023-02-14 14:36:17"
+]
+]
+},
+"access_1700_project_groups_group_system": {
+"ir.model.access": [
+[
+1700,
+"2023-02-14 14:36:46"
+]
+]
+},
+"access_1701_project_groups_group_user": {
+"ir.model.access": [
+[
+1701,
+"2023-02-14 14:36:46"
+]
+]
+},
+"access_5579_project_template": {
+"ir.model.access": [
+[
+5579,
+"2023-11-23 05:58:43"
+]
+]
+},
+"access_5580_proj__category": {
+"ir.model.access": [
+[
+5580,
+"2023-11-23 05:59:12"
+]
+]
+},
+"access_5581_proj__category_group": {
+"ir.model.access": [
+[
+5581,
+"2023-11-23 05:59:58"
+]
+]
+},
+"access_5581_proj_category_group": {
+"ir.model.access": [
+[
+5581,
+"2023-11-23 05:59:58"
+]
+]
+},
+"access_5582_proj__groups": {
+"ir.model.access": [
+[
+5582,
+"2023-11-23 06:00:23"
+]
+]
+},
+"access_5583_proj__milesstones": {
+"ir.model.access": [
+[
+5583,
+"2023-11-23 06:00:43"
+]
+]
+},
+"access_5584_proj__update": {
+"ir.model.access": [
+[
+5584,
+"2023-11-23 06:06:25"
+]
+]
+},
+"access_5585_proj__task": {
+"ir.model.access": [
+[
+5585,
+"2023-11-23 06:07:14"
+]
+]
+},
+"access_6058_project_project_helpdesk_user": {
+"ir.model.access": [
+[
+6058,
+"2023-12-06 05:51:23"
+]
+]
+},
+"access_6059_project_task_helpdesk_user": {
+"ir.model.access": [
+[
+6059,
+"2023-12-06 05:51:23"
+]
+]
+},
+"access_6073_project_project_helpdesk_user": {
+"ir.model.access": [
+[
+6073,
+"2023-12-06 06:07:17"
+]
+]
+},
+"access_6074_project_task_helpdesk_user": {
+"ir.model.access": [
+[
+6074,
+"2023-12-06 06:07:17"
+]
+]
+},
+"access_6144_project_project_helpdesk_user": {
+"ir.model.access": [
+[
+6144,
+"2023-12-14 07:54:11"
+]
+]
+},
+"access_6145_project_task_helpdesk_user": {
+"ir.model.access": [
+[
+6145,
+"2023-12-14 07:54:11"
+]
+]
+},
+"act_window_1916_project_sharing": {
+"ir.actions.act_window": [
+[
+1916,
+"2023-02-02 11:27:46"
+]
+]
+},
+"act_window_2025_project_category_group": {
+"ir.actions.act_window": [
+[
+2025,
+"2023-02-14 14:35:15"
+]
+]
+},
+"act_window_251_tasks": {
+"ir.actions.act_window": [
+[
+251,
+"2021-02-03 05:30:53"
+]
+]
+},
+"act_window_2619_project_project": {
+"ir.actions.act_window": [
+[
+2619,
+"2024-07-12 03:36:01"
+]
+]
+},
+"act_window_266_assigned_tasks": {
+"ir.actions.act_window": [
+[
+266,
+"2021-02-03 05:30:53"
+]
+]
+},
+"act_window_2802_project_task": {
+"ir.actions.act_window": [
+[
+2802,
+"2024-10-09 02:19:18"
+]
+]
+},
+"act_window_2803_project_update": {
+"ir.actions.act_window": [
+[
+2803,
+"2024-10-09 02:48:32"
+]
+]
+},
+"act_window_2805_project_milestone": {
+"ir.actions.act_window": [
+[
+2805,
+"2024-10-09 03:33:13"
+]
+]
+},
+"act_window_2877_projects_project_project": {
+"ir.actions.act_window": [
+[
+2877,
+"2024-11-07 02:43:57"
+]
+]
+},
+"act_window_2878_project_stage_project_project_stage": {
+"ir.actions.act_window": [
+[
+2878,
+"2024-11-07 02:44:35"
+]
+]
+},
+"action_2026_project_category": {
+"ir.actions.act_window": [
+[
+2026,
+"2023-02-14 14:36:17"
+]
+]
+},
+"action_2027_project_groups": {
+"ir.actions.act_window": [
+[
+2027,
+"2023-02-14 14:36:46"
+]
+]
+},
+"action_2619_project_project": {
+"ir.actions.act_window": [
+[
+2619,
+"2024-07-12 03:36:01"
+]
+]
+},
+"action_2802_project_task": {
+"ir.actions.act_window": [
+[
+2802,
+"2024-10-09 02:19:18"
+]
+]
+},
+"action_2803_project_update": {
+"ir.actions.act_window": [
+[
+2803,
+"2024-10-09 02:48:32"
+]
+]
+},
+"action_2877_projects_project_project": {
+"ir.actions.act_window": [
+[
+2877,
+"2024-11-07 02:43:57"
+]
+]
+},
+"action_2879_project_category_x_project_category": {
+"ir.actions.act_window": [
+[
+2879,
+"2024-11-07 02:48:43"
+]
+]
+},
+"action_784_departments": {
+"ir.actions.act_window": [
+[
+784,
+"2021-05-17 04:35:14"
+]
+]
+},
+"automation_191_project_update_project_gross_margin_report_auto_generate": {
+"base.automation": [
+[
+191,
+"2023-04-03 13:00:38"
+]
+]
+},
+"automation_194_proj_project_update_validations": {
+"base.automation": [
+[
+194,
+"2023-04-20 03:22:46"
+]
+]
+},
+"automation_195_proj_project_update_notify_pm": {
+"base.automation": [
+[
+195,
+"2023-04-20 03:59:12"
+]
+]
+},
+"base_automation_179_rr_auto_update_helpdesk_pipeline_status_1": {
+"base.automation": [
+[
+179,
+"2023-02-08 06:55:52"
+]
+]
+},
+"base_automation_200_rr_validate_diagnosis_lines": {
+"base.automation": [
+[
+200,
+"2023-06-07 07:50:08"
+]
+]
+},
+"default_14_x_departments_x_active": {
+"ir.default": [
+[
+14,
+"2021-05-17 04:35:14"
+]
+]
+},
+"default_15_x_departments_x_studio_sequence": {
+"ir.default": [
+[
+15,
+"2021-05-17 04:35:14"
+]
+]
+},
+"default_169_project_task_x_studio_priority": {
+"ir.default": [
+[
+169,
+"2021-10-13 10:01:44"
+]
+]
+},
+"default_302_x_project_category_gro_x_active": {
+"ir.default": [
+[
+302,
+"2023-02-14 14:35:15"
+]
+]
+},
+"default_303_x_project_category_gro_x_studio_sequence": {
+"ir.default": [
+[
+303,
+"2023-02-14 14:35:15"
+]
+]
+},
+"default_304_x_project_category_x_active": {
+"ir.default": [
+[
+304,
+"2023-02-14 14:36:17"
+]
+]
+},
+"default_305_x_project_category_x_studio_sequence": {
+"ir.default": [
+[
+305,
+"2023-02-14 14:36:17"
+]
+]
+},
+"default_306_x_project_groups_x_active": {
+"ir.default": [
+[
+306,
+"2023-02-14 14:36:46"
+]
+]
+},
+"default_307_x_project_groups_x_studio_sequence": {
+"ir.default": [
+[
+307,
+"2023-02-14 14:36:46"
+]
+]
+},
+"default_316_x_project_category_x_studio_claimability": {
+"ir.default": [
+[
+316,
+"2023-03-20 11:17:51"
+]
+]
+},
+"default_326_project_update_x_studio_selection_field_0zgmv": {
+"ir.default": [
+[
+326,
+"2023-04-20 04:36:10"
+]
+]
+},
+"mail_template_50_janitharc_gmail_com": {
+"mail.template": [
+[
+50,
+"2023-04-20 05:34:34"
+]
+]
+},
+"menu_985_project_category_group": {
+"ir.ui.menu": [
+[
+985,
+"2023-02-14 14:35:15"
+]
+]
+},
+"menu_986_project_category": {
+"ir.ui.menu": [
+[
+986,
+"2023-02-14 14:36:17"
+]
+]
+},
+"menu_987_project_groups": {
+"ir.ui.menu": [
+[
+987,
+"2023-02-14 14:36:46"
+]
+]
+},
+"menu_f6_project_category": {
+"ir.ui.menu": [
+[
+986,
+"2023-02-14 14:36:17"
+]
+]
+},
+"menu_f6_project_category_group": {
+"ir.ui.menu": [
+[
+985,
+"2023-02-14 14:35:15"
+]
+]
+},
+"menu_f6_project_groups": {
+"ir.ui.menu": [
+[
+987,
+"2023-02-14 14:36:46"
+]
+]
+},
+"ported_default_form_view_fo_3f299c76_71ec_4033_87c7_58900e29e002": {
+"ir.ui.view": [
+[
+4743,
+"2023-02-14 14:36:46"
+]
+]
+},
+"ported_default_form_view_fo_4c47b759_0437_4a50_8bde_31e224e98d73": {
+"ir.ui.view": [
+[
+4737,
+"2023-02-14 14:35:15"
+]
+]
+},
+"ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4": {
+"ir.ui.view": [
+[
+4740,
+"2023-02-14 14:36:17"
+]
+]
+},
+"ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3": {
+"ir.ui.view": [
+[
+2320,
+"2021-05-17 04:35:14"
+]
+]
+},
+"ported_default_form_view_fo_d583be6a_921f_4205_94a7_603a2375ce6e": {
+"ir.ui.view": [
+[
+3784,
+"2022-03-29 07:43:19"
+]
+]
+},
+"ported_default_gantt_view_f_fe6aa571_bf0f_4a65_9eba_73ad101e85fc": {
+"ir.ui.view": [
+[
+4931,
+"2023-04-20 02:30:52"
+]
+]
+},
+"ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140": {
+"ir.ui.view": [
+[
+4742,
+"2023-02-14 14:36:46"
+]
+]
+},
+"ported_default_list_view_fo_8853c5be_dc14_48d4_82c4_f209d820d16a": {
+"ir.ui.view": [
+[
+3783,
+"2022-03-29 07:43:19"
+]
+]
+},
+"ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549": {
+"ir.ui.view": [
+[
+2319,
+"2021-05-17 04:35:14"
+]
+]
+},
+"ported_default_list_view_fo_bec9b336_4bd6_4f26_9907_592cba56fed5": {
+"ir.ui.view": [
+[
+4736,
+"2023-02-14 14:35:15"
+]
+]
+},
+"ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be": {
+"ir.ui.view": [
+[
+4739,
+"2023-02-14 14:36:17"
+]
+]
+},
+"ported_default_search_view__0109453b_5222_4c2f_86c8_68a69bf444de": {
+"ir.ui.view": [
+[
+4741,
+"2023-02-14 14:36:17"
+]
+]
+},
+"ported_default_search_view__1ba8dab6_4af4_45b5_ac3e_42e6825cdd43": {
+"ir.ui.view": [
+[
+4744,
+"2023-02-14 14:36:46"
+]
+]
+},
+"ported_default_search_view__36b50122_6852_4842_9718_7d6fbf0c90e3": {
+"ir.ui.view": [
+[
+3785,
+"2022-03-29 07:43:19"
+]
+]
+},
+"ported_default_search_view__848b9042_a23c_4ede_bd0a_959bc46f916e": {
+"ir.ui.view": [
+[
+4738,
+"2023-02-14 14:35:15"
+]
+]
+},
+"ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47": {
+"ir.ui.view": [
+[
+2321,
+"2021-05-17 04:35:14"
+]
+]
+},
+"ported_odoo_studio_default__1f20671c_d39c_4464_9e3c_0c77ab8f748b": {
+"ir.ui.view": [
+[
+4746,
+"2023-02-14 14:44:50"
+]
+]
+},
+"ported_odoo_studio_default__25244692_8d9f_4fba_9286_7f16ca6d45f1": {
+"ir.ui.view": [
+[
+3791,
+"2022-03-29 08:33:19"
+]
+]
+},
+"ported_odoo_studio_default__85283cff_70e4_4b23_b216_f01c6954b1cd": {
+"ir.ui.view": [
+[
+4745,
+"2023-02-14 14:38:18"
+]
+]
+},
+"ported_odoo_studio_default__c9cffa3c_2353_4dba_bc25_27f33202c35e": {
+"ir.ui.view": [
+[
+4747,
+"2023-02-14 14:52:35"
+]
+]
+},
+"ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12": {
+"ir.ui.view": [
+[
+4924,
+"2023-03-30 06:45:54"
+]
+]
+},
+"ported_view_2322_odoo_studio_default_form_view_for_x_depa": {
+"ir.ui.view": [
+[
+2322,
+"2021-05-17 04:42:36"
+]
+]
+},
+"ported_view_4748_odoo_studio_project_project_form_customi": {
+"ir.ui.view": [
+[
+4748,
+"2023-02-14 15:54:23"
+]
+]
+},
+"ported_view_4893_odoo_studio_project_project_tree_customi": {
+"ir.ui.view": [
+[
+4893,
+"2023-03-21 15:30:12"
+]
+]
+},
+"ported_view_project_task_form_3019": {
+"ir.ui.view": [
+[
+3019,
+"2021-10-13 10:01:08"
+]
+]
+},
+"rule_271_test_users_records_only": {
+"ir.rule": [
+[
+271,
+"2021-05-17 07:01:33"
+]
+]
+},
+"rule_401_project_see_private_tasks": {
+"ir.rule": [
+[
+401,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_404_project_updates_multi_company": {
+"ir.rule": [
+[
+404,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_405_project_update_employees_follow_required_for_follower_only_p": {
+"ir.rule": [
+[
+405,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_406_project_updates_project_user_can_see_all_project_updates": {
+"ir.rule": [
+[
+406,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_407_project_milestone_multi_company": {
+"ir.rule": [
+[
+407,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_408_project_milestone_employees_follow_required_for_follower_onl": {
+"ir.rule": [
+[
+408,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_409_project_milestone_project_manager_can_see_all_project_milest": {
+"ir.rule": [
+[
+409,
+"2023-02-02 11:27:46"
+]
+]
+},
+"rule_67_project_multi_company": {
+"ir.rule": [
+[
+67,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_688_project_milestone_portal_users_portal_user_can_read_with_pro": {
+"ir.rule": [
+[
+688,
+"2025-03-18 10:04:44"
+]
+]
+},
+"rule_68_project_project_manager_see_all": {
+"ir.rule": [
+[
+68,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_69_project_employees_following_required_for_follower_only_proje": {
+"ir.rule": [
+[
+69,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_70_project_task_multi_company": {
+"ir.rule": [
+[
+70,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_71_project_task_employees_follow_required_for_follower_only_pro": {
+"ir.rule": [
+[
+71,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_72_project_task_project_manager_see_all_tasks_linked_to_a_proje": {
+"ir.rule": [
+[
+72,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_74_project_portal_users_portal_and_following": {
+"ir.rule": [
+[
+74,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_754_project_stage_multi_company": {
+"ir.rule": [
+[
+754,
+"2025-03-18 10:18:56"
+]
+]
+},
+"rule_75_project_task_portal_users_portal_and_following_project_or_po": {
+"ir.rule": [
+[
+75,
+"2021-02-03 05:30:53"
+]
+]
+},
+"rule_761_project_task_employees_full_access_to_own_private_task_only": {
+"ir.rule": [
+[
+761,
+"2025-03-18 10:20:18"
+]
+]
+},
+"rule_762_project_task_project_users_follow_required_for_follower_only": {
+"ir.rule": [
+[
+762,
+"2025-03-18 10:20:18"
+]
+]
+},
+"server_action_2003_rr_auto_update_helpdesk_pipeline_status_1": {
+"ir.actions.server": [
+[
+2003,
+"2023-02-08 06:55:52"
+]
+]
+},
+"server_action_2119_project_update_month_end_entries_2": {
+"ir.actions.server": [
+[
+2119,
+"2023-03-23 01:14:12"
+]
+]
+},
+"server_action_2130_project_update_project_gross_margin_report_auto_generate": {
+"ir.actions.server": [
+[
+2130,
+"2023-04-03 11:01:57"
+]
+]
+},
+"server_action_2131_project_update_project_gross_margin_report_auto_generate": {
+"ir.actions.server": [
+[
+2131,
+"2023-04-03 13:00:38"
+]
+]
+},
+"server_action_2145_proj_project_update_validations": {
+"ir.actions.server": [
+[
+2145,
+"2023-04-20 03:22:46"
+]
+]
+},
+"server_action_2146_proj_project_update_notify_pm": {
+"ir.actions.server": [
+[
+2146,
+"2023-04-20 03:59:12"
+]
+]
+},
+"server_action_2147_proj_project_update_completed_final": {
+"ir.actions.server": [
+[
+2147,
+"2023-04-20 04:45:31"
+]
+]
+},
+"server_action_2150_proj_project_update_completed": {
+"ir.actions.server": [
+[
+2150,
+"2023-04-20 05:33:07"
+]
+]
+},
+"server_action_2153_proj_project_update_completed_email_to_client": {
+"ir.actions.server": [
+[
+2153,
+"2023-04-20 05:34:03"
+]
+]
+},
+"server_action_2219_rr_validate_diagnosis_lines": {
+"ir.actions.server": [
+[
+2219,
+"2023-06-07 07:50:08"
+]
+]
+},
+"server_action_2224_rr_repair_diagnosis_validation": {
+"ir.actions.server": [
+[
+2224,
+"2023-06-07 15:00:45"
+]
+]
+},
+"server_action_2242_rr_repair_image_validation": {
+"ir.actions.server": [
+[
+2242,
+"2023-06-27 11:01:14"
+]
+]
+},
+"server_action_2316_rr_end_quick_repair": {
+"ir.actions.server": [
+[
+2316,
+"2023-08-09 06:34:18"
+]
+]
+},
+"server_action_2731_project_create_cash_advance_bills": {
+"ir.actions.server": [
+[
+2731,
+"2024-07-25 02:26:55"
+]
+]
+},
+"server_action_2732_project_issue_cash_advances": {
+"ir.actions.server": [
+[
+2732,
+"2024-07-25 02:28:20"
+]
+]
+},
+"server_action_2733_project_settle_cash_advances": {
+"ir.actions.server": [
+[
+2733,
+"2024-07-25 02:29:19"
+]
+]
+},
+"view_4621_odoo_studio_view_task_form2_inherit_e": {
+"ir.ui.view": [
+[
+4621,
+"2023-02-08 08:52:53"
+],
+[
+4620,
+"2023-02-08 08:43:46"
+]
+]
+},
+"view_4625_odoo_studio_project_task_form_button_e": {
+"ir.ui.view": [
+[
+4625,
+"2023-02-08 09:13:47"
+]
+]
+},
+"view_4775_odoo_studio_project_task_tree_customization_e": {
+"ir.ui.view": [
+[
+4775,
+"2023-02-22 07:24:27"
+]
+]
+},
+"view_4895_odoo_studio_project_project_form_button_e": {
+"ir.ui.view": [
+[
+4895,
+"2023-03-23 01:25:01"
+]
+]
+},
+"view_4925_odoo_studio_project_update_view_tree_customization_e": {
+"ir.ui.view": [
+[
+4925,
+"2023-04-03 13:11:27"
+]
+]
+},
+"view_4931_default_gantt_view_for_project_project_e": {
+"ir.ui.view": [
+[
+4931,
+"2023-04-20 02:30:52"
+]
+]
+},
+"view_4932_odoo_studio_project_update_view_form_button_e": {
+"ir.ui.view": [
+[
+4932,
+"2023-04-20 05:27:06"
+]
+]
+},
+"view_4933_odoo_studio_project_update_view_kanban_customization_e": {
+"ir.ui.view": [
+[
+4933,
+"2023-04-20 05:41:52"
+]
+]
+}
+}
