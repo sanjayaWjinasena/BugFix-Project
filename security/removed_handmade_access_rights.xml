@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: access rights removed on 2026-10-06. They were entered by hand on production (Settings > Technical > Access Rights), which makes them environment data, not repo functionality; the port had also dropped their group, so they applied to every user. Kept here, commented out, so any of them can be brought back. Nothing in this file is loaded. -->
+<odoo>
+<!-- REMOVED access_5583_proj__milesstones (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5583_proj__milesstones" model="ir.model.access">
+    <field name="name">Proj. Milesstones</field>
+    <field name="model_id" ref="project.model_project_milestone"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5579_project_template (1110): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5579_project_template" model="ir.model.access">
+    <field name="name">Project Template</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6073_project_project_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Full Rights". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6073_project_project_helpdesk_user" model="ir.model.access">
+    <field name="name">project.project.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_full_rights"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6058_project_project_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Minimum Rights". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6058_project_project_helpdesk_user" model="ir.model.access">
+    <field name="name">project.project.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_minimum_rights"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6144_project_project_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Ticket Creater". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6144_project_project_helpdesk_user" model="ir.model.access">
+    <field name="name">project.project.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_ticket_creater"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5585_proj__task (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5585_proj__task" model="ir.model.access">
+    <field name="name">Proj. Task</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6074_project_task_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Full Rights". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6074_project_task_helpdesk_user" model="ir.model.access">
+    <field name="name">project.task.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_full_rights"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6059_project_task_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Minimum Rights". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6059_project_task_helpdesk_user" model="ir.model.access">
+    <field name="name">project.task.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_minimum_rights"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_6145_project_task_helpdesk_user (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Helpdesk / Jin - Repair - Ticket Creater". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_6145_project_task_helpdesk_user" model="ir.model.access">
+    <field name="name">project.task.helpdesk.user</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_helpdesk_jin_repair_ticket_creater"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5584_proj__update (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5584_proj__update" model="ir.model.access">
+    <field name="name">Proj. Update</field>
+    <field name="model_id" ref="BugFix-Project.model_project_update"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5580_proj__category (1100): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5580_proj__category" model="ir.model.access">
+    <field name="name">Proj. Category</field>
+    <field name="model_id" ref="BugFix-Project.model_x_project_category"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5581_proj__category_group (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5581_proj__category_group" model="ir.model.access">
+    <field name="name">Proj. Category Group</field>
+    <field name="model_id" ref="BugFix-Project.model_x_project_category_gro"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_5582_proj__groups (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5582_proj__groups" model="ir.model.access">
+    <field name="name">Proj. Groups</field>
+    <field name="model_id" ref="BugFix-Project.model_x_project_groups"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_1121_test_access_rights (1000): hand-made on production (hand-made (__export__)); the port had dropped its group so it applied to every user. Production restricts it to group "Test_Department". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_1121_test_access_rights" model="ir.model.access">
+    <field name="name">test_access_rights</field>
+    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_misc_test_department"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+<!-- REMOVED access_1122_test_access_rights_2 (1111): hand-made on production (hand-made (__export__)); the port had dropped its group so it applied to every user. Production restricts it to group "Test_Department_2". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_1122_test_access_rights_2" model="ir.model.access">
+    <field name="name">test_access_rights_2</field>
+    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_misc_test_department_2"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+  </record>
+  -->
+<!-- REMOVED access_5581_proj_category_group (1000): hand-made on production (hand-made (no id)); the port had dropped its group so it applied to every user. Production restricts it to group "Accounting / Jin - ProjectInvoice". Uncomment (and set the group) to bring it back. -->
+  <!--
+  <record id="access_5581_proj_category_group" model="ir.model.access">
+    <field name="name">Proj. Category Group</field>
+    <field name="model_id" ref="BugFix-Project.model_x_project_category_gro"/>
+    <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+  -->
+</odoo>
