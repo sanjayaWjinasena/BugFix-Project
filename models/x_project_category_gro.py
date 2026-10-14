@@ -1,16 +1,20 @@
 """Sentinel declaration for x_project_category_gro so cross-references resolve."""
+
 from odoo import fields, models
 
 
 class XProjectCategoryGro(models.Model):
-    _name = 'x_project_category_gro'
-    _rec_name = 'x_name'  # Clear-DB Studio model: records are named by x_name
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = 'Project Category Group'
+    _name = "x_project_category_gro"
+    _rec_name = "x_name"  # Clear-DB Studio model: records are named by x_name
+    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _description = "Project Category Group"
 
-    x_active = fields.Boolean(string='Active')
-    x_name = fields.Char(string='Category Group')
-    x_studio_category_group_name = fields.Char(string='Category Group Name')
-    x_studio_line_property = fields.Char(string='Line property')
-    x_studio_sequence = fields.Integer(string='Sequence')
-    x_studio_transaction_type = fields.Selection([('Item', 'Item'), ('Expense', 'Expense'), ('Fee', 'Fee'), ('Hour', 'Hour')], string='Transaction Type')
+    x_active = fields.Boolean(string="Active")
+    x_name = fields.Char(string="Category Group")
+    x_studio_category_group_name = fields.Char(string="Category Group Name")
+    x_studio_line_property = fields.Char(string="Line property")
+    x_studio_sequence = fields.Integer(string="Sequence")
+    x_studio_transaction_type = fields.Selection(
+        [("Item", "Item"), ("Expense", "Expense"), ("Fee", "Fee"), ("Hour", "Hour")],
+        string="Transaction Type",
+    )

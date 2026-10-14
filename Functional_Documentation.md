@@ -158,17 +158,27 @@ This repo adds three document and three image upload fields on a Project Related
 ```python
 ctx = env.context
 
-ctx.update({'default_x_studio_created_from_project':True,'default_x_studio_project_no_bill':record.id,'default_x_studio_project_no':record.id,'default_x_studio_journal_type':'Bill','default_journal_id':40,'default_move_type':'in_invoice','default_x_studio_type':'Advance Payment'})
+ctx.update(
+    {
+        "default_x_studio_created_from_project": True,
+        "default_x_studio_project_no_bill": record.id,
+        "default_x_studio_project_no": record.id,
+        "default_x_studio_journal_type": "Bill",
+        "default_journal_id": 40,
+        "default_move_type": "in_invoice",
+        "default_x_studio_type": "Advance Payment",
+    }
+)
 
 action = {
-          'name': 'Cash Advance Bills',
-          'type': 'ir.actions.act_window',
-          'res_model': 'account.move',
-          'view_mode': 'form',
-          'view_type': 'form',
-          'target': 'new',
-          'context': ctx,
-          }
+    "name": "Cash Advance Bills",
+    "type": "ir.actions.act_window",
+    "res_model": "account.move",
+    "view_mode": "form",
+    "view_type": "form",
+    "target": "new",
+    "context": ctx,
+}
 ```
   </details>
 - **Project - Issue Cash Advances** (`server_action_2732_project_issue_cash_advances`, type `code`)
@@ -180,17 +190,26 @@ action = {
 ```python
 ctx = env.context
 
-ctx.update({'default_x_studio_created_from_project_1':True,'default_x_studio_project_no_issue':record.id,'default_x_studio_project_no_1':record.id,'default_partner_type':'supplier','default_journal_id':2,'default_x_studio_type':'Advance Payment'})
+ctx.update(
+    {
+        "default_x_studio_created_from_project_1": True,
+        "default_x_studio_project_no_issue": record.id,
+        "default_x_studio_project_no_1": record.id,
+        "default_partner_type": "supplier",
+        "default_journal_id": 2,
+        "default_x_studio_type": "Advance Payment",
+    }
+)
 
 action = {
-          'name': 'Issue Cash Advances',
-          'type': 'ir.actions.act_window',
-          'res_model': 'account.payment',
-          'view_mode': 'form',
-          'view_type': 'form',
-          'target': 'new',
-          'context': ctx,
-          }
+    "name": "Issue Cash Advances",
+    "type": "ir.actions.act_window",
+    "res_model": "account.payment",
+    "view_mode": "form",
+    "view_type": "form",
+    "target": "new",
+    "context": ctx,
+}
 ```
   </details>
 - **Project - Settle Cash Advances** (`server_action_2733_project_settle_cash_advances`, type `code`)
@@ -202,17 +221,27 @@ action = {
 ```python
 ctx = env.context
 
-ctx.update({'default_x_studio_created_from_project':True,'default_x_studio_project_no_settle':record.id,'default_x_studio_project_no':record.id,'default_x_studio_journal_type':'Settlement','default_journal_id':3,'default_move_type':'entry','default_x_studio_type':'Advance Payment'})
+ctx.update(
+    {
+        "default_x_studio_created_from_project": True,
+        "default_x_studio_project_no_settle": record.id,
+        "default_x_studio_project_no": record.id,
+        "default_x_studio_journal_type": "Settlement",
+        "default_journal_id": 3,
+        "default_move_type": "entry",
+        "default_x_studio_type": "Advance Payment",
+    }
+)
 
 action = {
-          'name': 'Settle Cash Advances',
-          'type': 'ir.actions.act_window',
-          'res_model': 'account.move',
-          'view_mode': 'form',
-          'view_type': 'form',
-          'target': 'new',
-          'context': ctx,
-          }
+    "name": "Settle Cash Advances",
+    "type": "ir.actions.act_window",
+    "res_model": "account.move",
+    "view_mode": "form",
+    "view_type": "form",
+    "target": "new",
+    "context": ctx,
+}
 ```
   </details>
 - **Project - Update Month End Entries - 2** (`server_action_2119_project_update_month_end_entries_2`, type `code`)
@@ -222,30 +251,63 @@ action = {
   <details><summary>code (24 lines)</summary>
 
 ```python
-valid_gm = env['x_sales_report_model'].search([('x_studio_report_code', '=', 'Project Gross Margin'),('x_studio_project_no', '=', record.id),('x_studio_auto_generated', '=', True),('x_studio_month_end_entry_updated', '=', False)])
+valid_gm = env["x_sales_report_model"].search(
+    [
+        ("x_studio_report_code", "=", "Project Gross Margin"),
+        ("x_studio_project_no", "=", record.id),
+        ("x_studio_auto_generated", "=", True),
+        ("x_studio_month_end_entry_updated", "=", False),
+    ]
+)
 
 if valid_gm:
-  gm_account = env['x_imports_ledger_setup'].search([('id', '=', 1)], limit=1)
-  if gm_account:
-    if gm_account.x_studio_vendor_despatch_debit_account.id == 0 or gm_account.x_studio_vendor_despatch_credit_account.id == 0:
-      raise UserError('Month End Accounts must be Specified in Imports Ledger Setup')
-  
-  for valid_gm_lines in valid_gm:
-    gm_lines=[]
-    gm_lines.append([0,0,{
-      'account_id':gm_account.x_studio_vendor_despatch_debit_account.id,
-      'name':'Project Month End Entry',
-      'debit':100}])
-                
-    gm_lines.append([0,0,{
-      'account_id':gm_account.x_studio_vendor_despatch_credit_account.id,
-      'name':'Project Month End Entry',
-      'credit':100}])	
-              
-    gm_entry = env['account.move'].create({'x_studio_created_from_project_no':record.id,'journal_id':15,'move_type':'entry','line_ids':gm_lines})
-    valid_gm_lines.write({'x_studio_month_end_entry_updated': True}) 
+    gm_account = env["x_imports_ledger_setup"].search([("id", "=", 1)], limit=1)
+    if gm_account:
+        if (
+            gm_account.x_studio_vendor_despatch_debit_account.id == 0
+            or gm_account.x_studio_vendor_despatch_credit_account.id == 0
+        ):
+            raise UserError(
+                "Month End Accounts must be Specified in Imports Ledger Setup"
+            )
+
+    for valid_gm_lines in valid_gm:
+        gm_lines = []
+        gm_lines.append(
+            [
+                0,
+                0,
+                {
+                    "account_id": gm_account.x_studio_vendor_despatch_debit_account.id,
+                    "name": "Project Month End Entry",
+                    "debit": 100,
+                },
+            ]
+        )
+
+        gm_lines.append(
+            [
+                0,
+                0,
+                {
+                    "account_id": gm_account.x_studio_vendor_despatch_credit_account.id,
+                    "name": "Project Month End Entry",
+                    "credit": 100,
+                },
+            ]
+        )
+
+        gm_entry = env["account.move"].create(
+            {
+                "x_studio_created_from_project_no": record.id,
+                "journal_id": 15,
+                "move_type": "entry",
+                "line_ids": gm_lines,
+            }
+        )
+        valid_gm_lines.write({"x_studio_month_end_entry_updated": True})
 else:
-  raise UserError("There are no month end entries to be processed.")
+    raise UserError("There are no month end entries to be processed.")
 ```
   </details>
 **Window actions (6):**
@@ -513,7 +575,7 @@ This repo adds a Project Update Status (Pending or Completed) shown as a statusb
   <details><summary>code (1 lines)</summary>
 
 ```python
-record.write({'x_studio_selection_field_0zgmv': 'Completed'})
+record.write({"x_studio_selection_field_0zgmv": "Completed"})
 ```
   </details>
 - **PROJ - Project Update - Completed - Email to Client** (`server_action_2153_proj_project_update_completed_email_to_client`, type `mail_post`)
@@ -587,13 +649,13 @@ record.write({'x_studio_selection_field_0zgmv': 'Completed'})
 
 ```python
 if record.progress <= 0:
-  raise UserError('Project Progress should be defined.')
-  
+    raise UserError("Project Progress should be defined.")
+
 desc = record.description
 desc_len = len(desc)
 
 if desc_len < 12:
-  raise UserError('Description should be greater than 5 characters.')
+    raise UserError("Description should be greater than 5 characters.")
 ```
   </details>
 - **Project Update - Project Gross Margin Report Auto Generate** (`server_action_2130_project_update_project_gross_margin_report_auto_generate`, type `code`)
@@ -603,12 +665,22 @@ if desc_len < 12:
   <details><summary>code (6 lines)</summary>
 
 ```python
-report_type = env['x_sales_report_type'].search([('x_studio_report_code', '=', 'Project Gross Margin')])
+report_type = env["x_sales_report_type"].search(
+    [("x_studio_report_code", "=", "Project Gross Margin")]
+)
 if report_type:
-  create_report_model = env['x_sales_report_model'].create({'x_studio_report_type':report_type.id,'x_studio_created_from_project_update': record.id,'x_studio_project_no':record.project_id.id}) 
-  
-  record['x_studio_gross_margin_report'] = create_report_model.id
-  record['x_studio_financial_progress'] = create_report_model.x_studio_financial_progress
+    create_report_model = env["x_sales_report_model"].create(
+        {
+            "x_studio_report_type": report_type.id,
+            "x_studio_created_from_project_update": record.id,
+            "x_studio_project_no": record.project_id.id,
+        }
+    )
+
+    record["x_studio_gross_margin_report"] = create_report_model.id
+    record["x_studio_financial_progress"] = (
+        create_report_model.x_studio_financial_progress
+    )
 ```
   </details>
 - **Project Update - Project Gross Margin Report Auto Generate** (`server_action_2131_project_update_project_gross_margin_report_auto_generate`, type `code`)
@@ -618,14 +690,24 @@ if report_type:
   <details><summary>code (8 lines)</summary>
 
 ```python
-report_type = env['x_sales_report_type'].search([('x_studio_report_code', '=', 'Project Gross Margin')])
+report_type = env["x_sales_report_type"].search(
+    [("x_studio_report_code", "=", "Project Gross Margin")]
+)
 if report_type:
-  create_report_model = env['x_sales_report_model'].create({'x_studio_report_type':report_type.id,'x_studio_created_from_project_update': record.id,'x_studio_project_no':record.project_id.id}) 
-  
-  record['x_studio_gross_margin_report'] = create_report_model.id
-  record['x_studio_financial_progress'] = create_report_model.x_studio_financial_progress
-  record['x_studio_estimated_gp'] = create_report_model.x_studio_estimated_gp_
-  record['x_studio_actual_gp'] = create_report_model.x_studio_actual_gp_
+    create_report_model = env["x_sales_report_model"].create(
+        {
+            "x_studio_report_type": report_type.id,
+            "x_studio_created_from_project_update": record.id,
+            "x_studio_project_no": record.project_id.id,
+        }
+    )
+
+    record["x_studio_gross_margin_report"] = create_report_model.id
+    record["x_studio_financial_progress"] = (
+        create_report_model.x_studio_financial_progress
+    )
+    record["x_studio_estimated_gp"] = create_report_model.x_studio_estimated_gp_
+    record["x_studio_actual_gp"] = create_report_model.x_studio_actual_gp_
 ```
   </details>
 **Automations (3):**
