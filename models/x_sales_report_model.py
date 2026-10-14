@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """x_sales_report_model is owned by Jinasena_Masterdata_Reporting.
 
 All fields (scalar, Many2one, Many2many, related O2Ms) are declared there.

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Sentinel declaration for x_project_category_gro so cross-references resolve."""
 from odoo import fields, models
 
