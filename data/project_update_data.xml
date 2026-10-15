@@ -1,6 +1,27 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- BugFix-Project backlog: 7 server actions (0 skipped) --><odoo>
-
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- 3 automations ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
+  <record id="automation_191_project_update_project_gross_margin_report_auto_generate" model="base.automation">
+    <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="active" eval="True"/>
+    <!-- TODO: wire action_server_ids to actual server_action xmlids: [2131] -->
+  </record>
+  <record id="automation_194_proj_project_update_validations" model="base.automation">
+    <field name="name">PROJ - Project Update - Validations</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="active" eval="True"/>
+    <!-- TODO: wire action_server_ids to actual server_action xmlids: [2145] -->
+  </record>
+  <record id="automation_195_proj_project_update_notify_pm" model="base.automation">
+    <field name="name">PROJ - Project Update - Notify PM</field>
+    <field name="model_id" search="[('model', '=', 'project.update')]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="active" eval="True"/>
+    <!-- TODO: wire action_server_ids to actual server_action xmlids: [2146] -->
+  </record>
   <record id="server_action_2146_proj_project_update_notify_pm" model="ir.actions.server">
     <field name="name">PROJ - Project Update - Notify PM</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -11,7 +32,6 @@
     <field name="activity_summary">Update Project Activities</field>
     <field name="activity_note">&lt;p&gt;&lt;br&gt;&lt;/p&gt;</field>
   </record>
-
   <record id="server_action_2150_proj_project_update_completed" model="ir.actions.server">
     <field name="name">PROJ - Project Update - Completed</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -20,7 +40,6 @@
     <field name="code">record.write({'x_studio_selection_field_0zgmv': 'Completed'}) 
 </field>
   </record>
-
   <record id="server_action_2145_proj_project_update_validations" model="ir.actions.server">
     <field name="name">PROJ - Project Update - Validations</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -38,7 +57,6 @@ if desc_len &lt; 12:
 
 </field>
   </record>
-
   <record id="server_action_2130_project_update_project_gross_margin_report_auto_generate" model="ir.actions.server">
     <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -51,7 +69,6 @@ if report_type:
   record['x_studio_gross_margin_report'] = create_report_model.id
   record['x_studio_financial_progress'] = create_report_model.x_studio_financial_progress</field>
   </record>
-
   <record id="server_action_2131_project_update_project_gross_margin_report_auto_generate" model="ir.actions.server">
     <field name="name">Project Update - Project Gross Margin Report Auto Generate</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -66,14 +83,12 @@ if report_type:
   record['x_studio_estimated_gp'] = create_report_model.x_studio_estimated_gp_
   record['x_studio_actual_gp'] = create_report_model.x_studio_actual_gp_</field>
   </record>
-
   <record id="server_action_2153_proj_project_update_completed_email_to_client" model="ir.actions.server">
     <field name="name">PROJ - Project Update - Completed - Email to Client</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
     <field name="state">mail_post</field>
     <field name="usage">ir_actions_server</field>
   </record>
-
 <record id="server_action_2147_proj_project_update_completed_final" model="ir.actions.server">
     <field name="name">PROJ - Project Update - Completed - Final</field>
     <field name="model_id" search="[('model', '=', 'project.update')]"/>
@@ -81,5 +96,19 @@ if report_type:
     <field name="usage">ir_actions_server</field>
     <field name="child_ids" eval="[(6, 0, [ref('BugFix-Project.server_action_2150_proj_project_update_completed'), ref('BugFix-Project.server_action_2153_proj_project_update_completed_email_to_client')])]"/>
   </record>
-
-  </odoo>
+    <data noupdate="1">
+    <record id="mail_template_50_janitharc_gmail_com" model="mail.template">
+      <field name="name">janitharc@gmail.com</field>
+      <field name="model_id" ref="project.model_project_update"/>
+      <field name="subject">Project Progress Status</field>
+      <field name="email_from">rohana.b@jinasena.com.lk</field>
+      <field name="email_to">janitharc@gmail.com</field>
+      <field name="auto_delete" eval="True"/>
+      <field name="body_html" type="html"><p style="margin:0px 0 12px 0;box-sizing:border-box;">Sample Project Progress Status</p></field>
+    </record>
+    <record id="default_326_project_update_x_studio_selection_field_0zgmv" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_update__x_studio_selection_field_0zgmv"/>
+      <field name="json_value">"Pending"</field>
+    </record>
+    </data>
+</odoo>

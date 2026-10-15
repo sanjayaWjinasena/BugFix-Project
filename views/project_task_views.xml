@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="aw_f4_project_task_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+  <record id="action_2802_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+  <record id="act_window_251_tasks" model="ir.actions.act_window">
+    <field name="name">Tasks</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">tree,gantt,kanban,form,calendar,pivot,graph,activity</field>
+    <field name="domain">[('project_id', '=', active_id)]</field>
+    <field name="context">{
+                'pivot_row_groupby': ['user_ids'],
+                'default_project_id': active_id,
+                'show_project_update': True,
+            }</field>
+    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+                    No tasks found. Let's create one!
+                </p><p>
+                    To get things done, use activities and status on tasks.<br/>
+                    Chat in real-time or by email to collaborate efficiently.
+                </p>
+            </field>
+  </record>
+  <record id="act_window_266_assigned_tasks" model="ir.actions.act_window">
+    <field name="name">Assigned Tasks</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">tree,form,calendar,graph,pivot</field>
+    <field name="domain">[('project_id', '!=', False)]</field>
+    <field name="context">{'search_default_user_ids': [active_id], 'default_user_ids': [(6, 0, [active_id])]}</field>
+  </record>
+  <record id="act_window_1916_project_sharing" model="ir.actions.act_window">
+    <field name="name">Project Sharing</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="domain">[('project_id', '=', active_id), ('display_in_project', '=', True)]</field>
+    <field name="context">{
+            'default_project_id': active_id,
+            'delete': 0,
+            'active_id_chatter': active_id,
+        }</field>
+    <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+                No tasks found. Let's create one!
+            </p>
+            <p>
+                Keep track of the progress of your tasks from creation to completion.<br/>
+                Collaborate efficiently by chatting in real-time or via email.
+            </p>
+        </field>
+  </record>
+  <record id="ported_view_project_task_form_3019" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.task.form customization</field>
+    <field name="model">project.task</field>
+    <field name="key">Fix-repair.view_project_task_form_3019</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+      <data>
+        <!-- fix_repair:sanitized-v190 -->
+        
+        
+        
+        
+        
+        <xpath expr="//notebook" position="inside">
+          <page string="Repair Image" name="studio_page_8ci_1ik1qk8tm">
+            <group name="studio_group_8ci">
+              <group name="studio_group_8ci_left">
+                <field name="x_studio_repair_image_01" widget="tablet_image"/>
+              </group>
+              <group name="studio_group_8ci_right">
+                <field name="x_studio_repair_image_02" widget="tablet_image"/>
+              </group>
+            </group>
+          </page>
+          <page string="Warranty Card" name="studio_page_8db_1ik1r0ore">
+            <group name="studio_group_8db">
+              <group name="studio_group_8db_left">
+                <field name="x_studio_warranty_card" widget="image"/>
+              </group>
+              <group name="studio_group_8db_right">
+                <field name="x_studio_related_information" widget="image"/>
+              </group>
+            </group>
+          </page>
+          
+        </xpath>
+      </data>
+    </field>
+  </record>
+  <record id="act_window_2802_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+    <record id="view_4621_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: view.task.form2.inherit</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//form" position="inside"><field name="x_studio_cancelled" invisible="1"/><field name="x_studio_end_quick_repair" invisible="1"/><field name="x_studio_quotation_type" invisible="1"/><field name="x_studio_repair_image_01" invisible="1"/><field name="x_studio_valid_diagnosis" invisible="1"/></xpath><xpath expr="//button[@name='action_fsm_create_quotation']" position="attributes">
+      <attribute name="invisible">(sale_order_id == False) or ((x_studio_quotation_type != 'Project') or (x_studio_cancelled == True))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_fsm_view_material']" position="attributes">
+      <attribute name="invisible">((helpdesk_ticket_id != False) and (x_studio_repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (x_studio_valid_diagnosis == False)) or ((x_studio_cancelled == True) or (x_studio_end_quick_repair == True)))</attribute></xpath>
+  </data>
+      </field>
+    </record>
+    <record id="view_4625_odoo_studio_project_task_form_button_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.form_button</field>
+      <field name="model">project.task</field>
+      <field name="type">form</field>
+      <field name="priority">99</field>
+      <field name="active" eval="False"/>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+    <xpath expr="//button[@name='action_get_project_forecast_by_user']" position="attributes">
+      <attribute name="invisible">(helpdesk_ticket_id != False) or (allow_forecast == False)</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_create_invoice']" position="before">
+      <!-- STRIPPED action button aid=2224 unresolvable -->
+    </xpath>
+    
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
+    
+    <!-- STRIPPED xpath: numeric button ref unresolvable -->
+    
+    <xpath expr="//button[@name='action_fsm_worksheet']" position="attributes">
+      <attribute name="invisible">(worksheet_count != 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or ((partner_id == False) or (helpdesk_ticket_id != False))))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_fsm_worksheet'][2]" position="attributes">
+      <attribute name="invisible">(worksheet_count == 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or (helpdesk_ticket_id != False)))</attribute></xpath>
+    
+    <xpath expr="//button[@name='action_create_invoice']" position="replace"/>
+    
+    <!-- STRIPPED malformed xpath comment block -->
+    
+    <!-- STRIPPED malformed xpath comment block -->
+    
+  </data>
+      </field>
+    </record>
+    <record id="view_4775_odoo_studio_project_task_tree_customization_e" model="ir.ui.view">
+      <field name="name">Odoo Studio: project.task.tree customization</field>
+      <field name="model">project.task</field>
+      <field name="type">tree</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="project.view_task_tree2"/>
+      <field name="mode">extension</field>
+      <field name="arch" type="xml">
+        <data>
+  <!-- STRIPPED xpath effective_hours: not on ported parent view -->
+</data>
+      </field>
+    </record>
+    <!-- STRIPPED view 5011: parent view has broken allow_billable ref -->
+<!-- STRIPPED view_4730_odoo_studio_task_form_inherit_e: action_preview_worksheet not on target project.task -->
+<!-- STRIPPED view 4620: helpdesk_ticket_id not on target project.task -->
+</odoo>

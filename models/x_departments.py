@@ -15,3 +15,11 @@ class XDepartments(models.Model):
     x_studio_description = fields.Char(string="Description")
     x_studio_sequence = fields.Integer(string="Sequence")
     x_studio_user_id = fields.Many2one("res.users", string="Responsible")
+
+
+class XDepartmentsGap(models.Model):
+    _inherit = "x_departments"
+    _rec_name = "x_name"  # Clear-DB Studio model: records are named by x_name
+
+    x_active = fields.Boolean(string="Active")
+    x_name = fields.Char(string="Name")

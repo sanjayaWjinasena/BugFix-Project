@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <record id="action_2026_project_category" model="ir.actions.act_window">
+    <field name="name">Project Category</field>
+    <field name="res_model">x_project_category</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="action_2879_project_category_x_project_category" model="ir.actions.act_window">
+    <field name="name">Project Category (x_project_category)</field>
+    <field name="res_model">x_project_category</field>
+    <field name="view_mode">tree,form</field>
+  </record>
   <record id="ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4" model="ir.ui.view">
     <field name="name">Default form view for x_project_category</field>
     <field name="model">x_project_category</field>

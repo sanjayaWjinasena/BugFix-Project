@@ -68,3 +68,9 @@ class ProjectTask(models.Model):
     )
     x_studio_warranty_card = fields.Binary(string="Warranty Card", readonly=True)
     x_task_id_sale_order_count = fields.Integer(string="Task count", store=False)
+
+
+class ProjectTaskGap(models.Model):
+    _inherit = "project.task"
+
+    x_task_id_sale_order_count = fields.Integer(string="Task count")

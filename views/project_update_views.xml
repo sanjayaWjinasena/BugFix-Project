@@ -1,6 +1,45 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- BugFix-Project: Phase E - 3 views for project.update --><odoo>
-  <data>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="aw_f4_project_update_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="action_2803_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.update.view.form customization</field>
+    <field name="model">project.update</field>
+    <field name="key">studio_customization.odoo_studio_project__f6849389-d612-4bdf-b988-61738a735a12</field>
+    <field name="type">form</field>
+    <field name="priority">99</field>
+    <field name="mode">extension</field>
+    <field name="inherit_id" ref="project.project_update_view_form"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]" position="before">
+          <header>
+            
+            <field widget="statusbar" name="x_studio_selection_field_0zgmv" string="Project Update Status" force_save="True" readonly="1"/>
+          </header>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]" position="before">
+          <div name="button_box" class="oe_button_box"/>
+        </xpath>
+        
+        
+        
+      </data>
+    </field>
+  </record>
+  <record id="act_window_2803_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
     <record id="view_4932_odoo_studio_project_update_view_form_button_e" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.form_button</field>
       <field name="model">project.update</field>
@@ -17,7 +56,6 @@
   </data>
       </field>
     </record>
-
     <record id="view_4933_odoo_studio_project_update_view_kanban_customization_e" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.kanban customization</field>
       <field name="model">project.update</field>
@@ -30,7 +68,6 @@
   </data>
       </field>
     </record>
-
     <record id="view_4925_odoo_studio_project_update_view_tree_customization_e" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.tree customization</field>
       <field name="model">project.update</field>
@@ -46,6 +83,4 @@
 </data>
       </field>
     </record>
-
-  </data>
 </odoo>

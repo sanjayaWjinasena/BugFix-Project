@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <!-- 11 act_windows ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
+  <record id="action_784_departments" model="ir.actions.act_window">
+    <field name="name">Departments</field>
+    <field name="res_model">x_departments</field>
+    <field name="view_mode">tree,form</field>
+  </record>
   <record id="ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3" model="ir.ui.view">
     <field name="name">Default form view for x_departments</field>
     <field name="model">x_departments</field>
@@ -61,6 +67,20 @@
         <separator/>
         <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
       </search>
+    </field>
+  </record>
+  <record id="ported_view_2322_odoo_studio_default_form_view_for_x_depa" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for x_departments customization</field>
+    <field name="model">x_departments</field>
+    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
+    <field name="priority">99</field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="before">
+          <field name="x_studio_code" string="Code"/>
+          <field name="x_studio_description" string="Description"/>
+        </xpath>
+      </data>
     </field>
   </record>
 </odoo>

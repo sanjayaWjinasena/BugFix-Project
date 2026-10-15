@@ -3,7 +3,7 @@
   <!-- 5 server_actions ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
   <record id="server_action_2003_rr_auto_update_helpdesk_pipeline_status_1" model="ir.actions.server">
     <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
     <field name="code"><![CDATA[# fix_repair:idempotent-v1
 record._repair_auto_update_helpdesk_pipeline_status_1()
@@ -12,7 +12,7 @@ record._repair_auto_update_helpdesk_pipeline_status_1()
   </record>
   <record id="server_action_2316_rr_end_quick_repair" model="ir.actions.server">
     <field name="name">RR - End Quick Repair</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
     <field name="code"><![CDATA[# fix_repair:idempotent-v1
 record._repair_studio_end_quick_repair()
@@ -21,7 +21,7 @@ record._repair_studio_end_quick_repair()
   </record>
   <record id="server_action_2224_rr_repair_diagnosis_validation" model="ir.actions.server">
     <field name="name">RR - Repair Diagnosis Validation</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
     <field name="code"><![CDATA[# fix_repair:idempotent-v1
 record._repair_studio_diagnosis_validation()
@@ -30,7 +30,7 @@ record._repair_studio_diagnosis_validation()
   </record>
   <record id="server_action_2242_rr_repair_image_validation" model="ir.actions.server">
     <field name="name">RR - Repair Image Validation</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
     <field name="code"><![CDATA[# fix_repair:idempotent-v1
 record._repair_studio_image_validation()
@@ -39,11 +39,30 @@ record._repair_studio_image_validation()
   </record>
   <record id="server_action_2219_rr_validate_diagnosis_lines" model="ir.actions.server">
     <field name="name">RR - Validate Diagnosis Lines</field>
-    <field name="model_id" search="[(&apos;model&apos;, &apos;=&apos;, &apos;project.task&apos;)]"/>
+    <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
     <field name="code"><![CDATA[# fix_repair:idempotent-v1
 record._repair_studio_validate_diagnosis_lines()
 ]]></field>
     <field name="usage">base_automation</field>
   </record>
+  <record id="base_automation_179_rr_auto_update_helpdesk_pipeline_status_1" model="base.automation">
+    <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
+    <field name="active" eval="False"/>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="base_automation_200_rr_validate_diagnosis_lines" model="base.automation">
+    <field name="name">RR - Validate Diagnosis Lines</field>
+    <field name="active" eval="False"/>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="trigger">on_write</field>
+    <field name="filter_domain">[["helpdesk_ticket_id","!=",False]]</field>
+  </record>
+    <data noupdate="1">
+    <record id="default_169_project_task_x_studio_priority" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_task__x_studio_priority"/>
+      <field name="json_value">"Normal"</field>
+    </record>
+    </data>
 </odoo>

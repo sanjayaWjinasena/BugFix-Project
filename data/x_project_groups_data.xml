@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    <record id="default_306_x_project_groups_x_active" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_groups__x_active"/>
+      <field name="json_value">true</field>
+    </record>
+    <record id="default_307_x_project_groups_x_studio_sequence" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_x_project_groups__x_studio_sequence"/>
+      <field name="json_value">10</field>
+    </record>
+    <!-- DROPPED default_316_x_project_category_x_studio_claimability: selection value 'None' not in field allowed set -->
+<!-- DROPPED default_326_project_update_x_studio_selection_field_0zgmv: selection value 'Pending' not in field allowed set -->
+    </data>
+</odoo>
