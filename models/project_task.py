@@ -6,7 +6,8 @@ class ProjectTask(models.Model):
 
     x_studio_cancelled = fields.Boolean(string="Cancelled", readonly=True)
     x_studio_created_date = fields.Datetime(string="Created Date")
-    # TODO: x_studio_diagnosis_ids = fields.One2many(...) -- Studio inverse name unknown; port from Clear-DB manually.
+    # TODO: x_studio_diagnosis_ids = fields.One2many(...) -- Studio inverse name
+    # unknown; port from Clear-DB manually.
     x_studio_end_quick_repair = fields.Boolean(string="End Quick Repair")
     x_studio_fully_invoiced_so = fields.Boolean(
         string="Fully Invoiced SO", readonly=True, store=False
