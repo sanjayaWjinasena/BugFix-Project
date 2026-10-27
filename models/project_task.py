@@ -16,9 +16,17 @@ class ProjectTask(models.Model):
         string="Incomplete Delivery Available", readonly=True, store=False
     )
     x_studio_material_availability = fields.Selection(
-        [], string="Material Availability", readonly=True, store=False
+        [
+            ("Material Not Ready", "Material Not Ready"),
+            ("Material Ready", "Material Ready"),
+        ],
+        string="Material Availability",
+        readonly=True,
+        store=False,
     )
-    x_studio_payment_type = fields.Selection([], string="Payment Type", readonly=True)
+    x_studio_payment_type = fields.Selection(
+        [("Cash", "Cash"), ("Credit", "Credit")], string="Payment Type", readonly=True
+    )
     x_studio_priority = fields.Selection(
         [
             ("Highest", "Highest"),
@@ -29,7 +37,10 @@ class ProjectTask(models.Model):
         ],
         string="Priority",
     )
-    x_studio_quick_repair_status_1 = fields.Selection([], string="Quick Repair Status")
+    x_studio_quick_repair_status_1 = fields.Selection(
+        [("None", "None"), ("Quick Repair", "Quick Repair")],
+        string="Quick Repair Status",
+    )
     x_studio_quotation_type = fields.Selection(
         [("Sales", "Sales"), ("Project", "Project"), ("Repair", "Repair")],
         string="Quotation Type",
