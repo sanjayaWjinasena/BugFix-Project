@@ -17,11 +17,11 @@
       <form>
         <header/>
         <sheet string="Departments">
-          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="x_active == True"/>
-          <field name="x_active" invisible="1"/>
+          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active == True"/>
+          <field name="active" invisible="1"/>
           <div class="oe_title">
                       <h1>
-                          <field name="x_name" required="1" placeholder="Name..."/>
+                          <field name="name" required="1" placeholder="Name..."/>
                       </h1>
                   </div>
           <group name="studio_group_63a97d">
@@ -44,8 +44,8 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
       <tree>
-        <field name="x_studio_sequence" widget="handle"/>
-        <field name="x_name"/>
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
         <field name="x_studio_user_id" widget="many2one_avatar_user"/>
       </tree>
     </field>
@@ -59,11 +59,11 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
       <search>
-        <field name="x_name"/>
+        <field name="name"/>
         <field name="x_studio_user_id"/>
         <filter string="My Departments" name="my_x_departments" domain="[['x_studio_user_id', '=', uid]]"/>
         <separator/>
-        <filter string="Archived" name="archived_x_departments" domain="[['x_active', '=', False]]"/>
+        <filter string="Archived" name="archived_x_departments" domain="[['active', '=', False]]"/>
         <separator/>
         <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
       </search>
@@ -78,7 +78,7 @@
       <data>
         <xpath expr="//field[@name='x_studio_user_id']" position="before">
           <field name="x_studio_code" string="Code"/>
-          <field name="x_studio_description" string="Description"/>
+          <field name="description" string="Description"/>
         </xpath>
       </data>
     </field>

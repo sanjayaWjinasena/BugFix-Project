@@ -14,12 +14,12 @@
         </header>
         <header/>
         <sheet string="Sales Report Model">
-          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="x_active == True"/>
-          <field name="x_active" invisible="1"/>
+          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active == True"/>
+          <field name="active" invisible="1"/>
           <div class="oe_title">
                       <span class="o_form_label">Reference </span>
                       <h1>
-                          <field name="x_name" required="1" placeholder="Name..."/>
+                          <field name="name" required="1" placeholder="Name..."/>
                       </h1>
                   </div>
           <group name="studio_group_1eb3ec">
@@ -40,8 +40,8 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
       <tree>
-        <field name="x_studio_sequence" widget="handle"/>
-        <field name="x_name"/>
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
       </tree>
     </field>
   </record>
@@ -54,9 +54,9 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
       <search>
-        <field name="x_name"/>
+        <field name="name"/>
         <separator/>
-        <filter string="Archived" name="archived_x_sales_report_model" domain="[['x_active', '=', False]]"/>
+        <filter string="Archived" name="archived_x_sales_report_model" domain="[['active', '=', False]]"/>
         <separator/>
       </search>
     </field>
@@ -72,7 +72,7 @@
     <field name="arch" type="xml">
       <data>
         <xpath expr="//tree[1]" position="attributes">
-          <attribute name="default_order">x_name desc</attribute>
+          <attribute name="default_order">name desc</attribute>
         </xpath>
         
         

@@ -21,19 +21,19 @@ _logger = logging.getLogger(__name__)
 # framework query_insert / query_update — no cr.execute in our code.
 # (model, field, value, label, sequence)
 _FIELD_SELECTIONS = [
-    ("project.task", "x_studio_quotation_type", "Sales", "Sales", 10),
+    ("project.task", "quotation_type", "Sales", "Sales", 10),
     ("x_project_category_gro", "x_studio_transaction_type", "Item", "Item", 10),
     ("x_project_category", "x_studio_transaction_type", "Item", "Item", 10),
     ("x_project_category", "x_studio_claimability", "None", "None", 10),
-    ("project.project", "x_studio_quotation_type", "Sales", "Sales", 10),
+    ("project.project", "quotation_type", "Sales", "Sales", 10),
     ("project.update", "x_studio_selection_field_0zgmv", "Pending", "Pending", 10),
-    ("project.task", "x_studio_quotation_type", "Project", "Project", 1),
+    ("project.task", "quotation_type", "Project", "Project", 1),
     ("x_project_category_gro", "x_studio_transaction_type", "Expense", "Expense", 1),
     ("x_project_category", "x_studio_transaction_type", "Expense", "Expense", 1),
     ("x_project_category", "x_studio_claimability", "Claimable", "Claimable", 1),
-    ("project.project", "x_studio_quotation_type", "Project", "Project", 1),
+    ("project.project", "quotation_type", "Project", "Project", 1),
     ("project.update", "x_studio_selection_field_0zgmv", "Completed", "Completed", 1),
-    ("project.task", "x_studio_quotation_type", "Repair", "Repair", 2),
+    ("project.task", "quotation_type", "Repair", "Repair", 2),
     ("x_project_category_gro", "x_studio_transaction_type", "Fee", "Fee", 2),
     ("x_project_category", "x_studio_transaction_type", "Fee", "Fee", 2),
     (
@@ -43,7 +43,7 @@ _FIELD_SELECTIONS = [
         "Non-Claimable",
         2,
     ),
-    ("project.project", "x_studio_quotation_type", "Repair", "Repair", 2),
+    ("project.project", "quotation_type", "Repair", "Repair", 2),
     ("x_project_category_gro", "x_studio_transaction_type", "Hour", "Hour", 3),
     ("x_project_category", "x_studio_transaction_type", "Hour", "Hour", 3),
 ]

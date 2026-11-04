@@ -5,12 +5,12 @@ class XProjectCategory(models.Model):
     """Studio-ported custom model x_project_category."""
 
     _name = "x_project_category"
-    _rec_name = "x_name"  # Clear-DB Studio model: records are named by x_name
+    _rec_name = "name"  # Clear-DB Studio model: records are named by name
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Project Category"
 
-    x_active = fields.Boolean(string="Active")
-    x_name = fields.Char(string="Category")
+    active = fields.Boolean(string="Active")
+    name = fields.Char(string="Category")
     x_studio_category_group = fields.Many2one(
         "x_project_category_gro", string="Category Group"
     )
@@ -23,7 +23,7 @@ class XProjectCategory(models.Model):
         ],
         string="Claimability",
     )
-    x_studio_sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer(string="Sequence")
     x_studio_transaction_type = fields.Selection(
         [("Item", "Item"), ("Expense", "Expense"), ("Fee", "Fee"), ("Hour", "Hour")],
         string="Transaction Type",
@@ -33,7 +33,7 @@ class XProjectCategory(models.Model):
 
 class XProjectCategoryGap(models.Model):
     _inherit = "x_project_category"
-    _rec_name = "x_name"  # Clear-DB Studio model: records are named by x_name
+    _rec_name = "name"  # Clear-DB Studio model: records are named by name
 
-    x_active = fields.Boolean(string="Active")
-    x_name = fields.Char(string="Category")
+    active = fields.Boolean(string="Active")
+    name = fields.Char(string="Category")

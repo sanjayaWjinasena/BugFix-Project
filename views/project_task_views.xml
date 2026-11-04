@@ -74,20 +74,20 @@
           <page string="Repair Image" name="studio_page_8ci_1ik1qk8tm">
             <group name="studio_group_8ci">
               <group name="studio_group_8ci_left">
-                <field name="x_studio_repair_image_01" widget="tablet_image"/>
+                <field name="repair_image_01" widget="tablet_image"/>
               </group>
               <group name="studio_group_8ci_right">
-                <field name="x_studio_repair_image_02" widget="tablet_image"/>
+                <field name="repair_image_02" widget="tablet_image"/>
               </group>
             </group>
           </page>
           <page string="Warranty Card" name="studio_page_8db_1ik1r0ore">
             <group name="studio_group_8db">
               <group name="studio_group_8db_left">
-                <field name="x_studio_warranty_card" widget="image"/>
+                <field name="warranty_card" widget="image"/>
               </group>
               <group name="studio_group_8db_right">
-                <field name="x_studio_related_information" widget="image"/>
+                <field name="related_information" widget="image"/>
               </group>
             </group>
           </page>
@@ -110,11 +110,11 @@
       <field name="mode">extension</field>
       <field name="arch" type="xml">
         <data>
-    <xpath expr="//form" position="inside"><field name="x_studio_cancelled" invisible="1"/><field name="x_studio_end_quick_repair" invisible="1"/><field name="x_studio_quotation_type" invisible="1"/><field name="x_studio_repair_image_01" invisible="1"/><field name="x_studio_valid_diagnosis" invisible="1"/></xpath><xpath expr="//button[@name='action_fsm_create_quotation']" position="attributes">
-      <attribute name="invisible">(sale_order_id == False) or ((x_studio_quotation_type != 'Project') or (x_studio_cancelled == True))</attribute></xpath>
+    <xpath expr="//form" position="inside"><field name="cancelled" invisible="1"/><field name="end_quick_repair" invisible="1"/><field name="quotation_type" invisible="1"/><field name="repair_image_01" invisible="1"/><field name="valid_diagnosis" invisible="1"/></xpath><xpath expr="//button[@name='action_fsm_create_quotation']" position="attributes">
+      <attribute name="invisible">(sale_order_id == False) or ((quotation_type != 'Project') or (cancelled == True))</attribute></xpath>
     
     <xpath expr="//button[@name='action_fsm_view_material']" position="attributes">
-      <attribute name="invisible">((helpdesk_ticket_id != False) and (x_studio_repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (x_studio_valid_diagnosis == False)) or ((x_studio_cancelled == True) or (x_studio_end_quick_repair == True)))</attribute></xpath>
+      <attribute name="invisible">((helpdesk_ticket_id != False) and (repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (valid_diagnosis == False)) or ((cancelled == True) or (end_quick_repair == True)))</attribute></xpath>
   </data>
       </field>
     </record>

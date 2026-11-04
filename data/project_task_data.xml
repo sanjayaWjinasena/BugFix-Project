@@ -60,8 +60,8 @@ record._repair_studio_validate_diagnosis_lines()
     <field name="filter_domain">[["helpdesk_ticket_id","!=",False]]</field>
   </record>
     <data noupdate="1">
-    <record id="default_169_project_task_x_studio_priority" model="ir.default">
-      <field name="field_id" ref="BugFix-Project.field_project_task__x_studio_priority"/>
+    <record id="default_169_project_task_custom_reports_priority" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_task__custom_reports_priority"/>
       <field name="json_value">"Normal"</field>
     </record>
     </data>

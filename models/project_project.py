@@ -13,7 +13,7 @@ class ProjectProject(models.Model):
     x_studio_project_group = fields.Many2one(
         "x_project_groups", string="Project Group", readonly=True
     )
-    x_studio_quotation_type = fields.Selection(
+    quotation_type = fields.Selection(
         [("Sales", "Sales"), ("Project", "Project"), ("Repair", "Repair")],
         string="Quotation Type",
         readonly=True,
