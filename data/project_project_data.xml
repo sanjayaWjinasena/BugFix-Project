@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <record id="server_action_2731_project_create_cash_advance_bills" model="ir.actions.server">
+  <record id="action_project_create_cash_advance_bills" model="ir.actions.server">
     <field name="name">Project - Create Cash Advance Bills</field>
     <field name="model_id" search="[('model', '=', 'project.project')]"/>
     <field name="state">code</field>
@@ -22,7 +22,7 @@ action = {
 
 ]]></field>
   </record>
-  <record id="server_action_2732_project_issue_cash_advances" model="ir.actions.server">
+  <record id="action_project_issue_cash_advances" model="ir.actions.server">
     <field name="name">Project - Issue Cash Advances</field>
     <field name="model_id" search="[('model', '=', 'project.project')]"/>
     <field name="state">code</field>
@@ -47,7 +47,7 @@ action = {
 
 ]]></field>
   </record>
-  <record id="server_action_2733_project_settle_cash_advances" model="ir.actions.server">
+  <record id="action_project_settle_cash_advances" model="ir.actions.server">
     <field name="name">Project - Settle Cash Advances</field>
     <field name="model_id" search="[('model', '=', 'project.project')]"/>
     <field name="state">code</field>
@@ -72,7 +72,7 @@ action = {
 
 ]]></field>
   </record>
-  <record id="server_action_2119_project_update_month_end_entries_2" model="ir.actions.server">
+  <record id="action_project_update_month_end_entries_2" model="ir.actions.server">
     <field name="name">Project - Update Month End Entries - 2</field>
     <field name="model_id" search="[('model', '=', 'project.project')]"/>
     <field name="state">code</field>

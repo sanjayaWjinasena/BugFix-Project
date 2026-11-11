@@ -5,12 +5,12 @@
     <field name="res_model">project.update</field>
     <field name="view_mode">kanban,tree,form</field>
   </record>
-  <record id="action_2803_project_update" model="ir.actions.act_window">
+  <record id="action_project_update" model="ir.actions.act_window">
     <field name="name">project.update</field>
     <field name="res_model">project.update</field>
     <field name="view_mode">kanban,tree,form</field>
   </record>
-  <record id="ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12" model="ir.ui.view">
+  <record id="view_project_update_view_form_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: project.update.view.form customization</field>
     <field name="model">project.update</field>
     <field name="key">studio_customization.odoo_studio_project__f6849389-d612-4bdf-b988-61738a735a12</field>
@@ -35,12 +35,12 @@
       </data>
     </field>
   </record>
-  <record id="act_window_2803_project_update" model="ir.actions.act_window">
+  <record id="action_project_update_2" model="ir.actions.act_window">
     <field name="name">project.update</field>
     <field name="res_model">project.update</field>
     <field name="view_mode">kanban,tree,form</field>
   </record>
-    <record id="view_4932_odoo_studio_project_update_view_form_button_e" model="ir.ui.view">
+    <record id="view_project_update_view_form_button" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.form_button</field>
       <field name="model">project.update</field>
       <field name="type">form</field>
@@ -56,7 +56,7 @@
   </data>
       </field>
     </record>
-    <record id="view_4933_odoo_studio_project_update_view_kanban_customization_e" model="ir.ui.view">
+    <record id="view_project_update_view_kanban_inherit" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.kanban customization</field>
       <field name="model">project.update</field>
       <field name="type">kanban</field>
@@ -68,7 +68,7 @@
   </data>
       </field>
     </record>
-    <record id="view_4925_odoo_studio_project_update_view_tree_customization_e" model="ir.ui.view">
+    <record id="view_project_update_view_tree_inherit" model="ir.ui.view">
       <field name="name">Odoo Studio: project.update.view.tree customization</field>
       <field name="model">project.update</field>
       <field name="type">tree</field>

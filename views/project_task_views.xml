@@ -5,12 +5,12 @@
     <field name="res_model">project.task</field>
     <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
   </record>
-  <record id="action_2802_project_task" model="ir.actions.act_window">
+  <record id="action_project_task" model="ir.actions.act_window">
     <field name="name">project.task</field>
     <field name="res_model">project.task</field>
     <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
   </record>
-  <record id="act_window_251_tasks" model="ir.actions.act_window">
+  <record id="action_tasks" model="ir.actions.act_window">
     <field name="name">Tasks</field>
     <field name="res_model">project.task</field>
     <field name="view_mode">tree,gantt,kanban,form,calendar,pivot,graph,activity</field>
@@ -28,14 +28,14 @@
                 </p>
             </field>
   </record>
-  <record id="act_window_266_assigned_tasks" model="ir.actions.act_window">
+  <record id="action_assigned_tasks" model="ir.actions.act_window">
     <field name="name">Assigned Tasks</field>
     <field name="res_model">project.task</field>
     <field name="view_mode">tree,form,calendar,graph,pivot</field>
     <field name="domain">[('project_id', '!=', False)]</field>
     <field name="context">{'search_default_user_ids': [active_id], 'default_user_ids': [(6, 0, [active_id])]}</field>
   </record>
-  <record id="act_window_1916_project_sharing" model="ir.actions.act_window">
+  <record id="action_project_sharing" model="ir.actions.act_window">
     <field name="name">Project Sharing</field>
     <field name="res_model">project.task</field>
     <field name="view_mode">kanban,tree,form</field>
@@ -54,7 +54,7 @@
             </p>
         </field>
   </record>
-  <record id="ported_view_project_task_form_3019" model="ir.ui.view">
+  <record id="view_project_task_form_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: project.task.form customization</field>
     <field name="model">project.task</field>
     <field name="key">Fix-repair.view_project_task_form_3019</field>
@@ -96,12 +96,12 @@
       </data>
     </field>
   </record>
-  <record id="act_window_2802_project_task" model="ir.actions.act_window">
+  <record id="action_project_task_2" model="ir.actions.act_window">
     <field name="name">project.task</field>
     <field name="res_model">project.task</field>
     <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
   </record>
-    <record id="view_4621_odoo_studio_view_task_form2_inherit_e" model="ir.ui.view">
+    <record id="view_task_form2_inherit" model="ir.ui.view">
       <field name="name">Odoo Studio: view.task.form2.inherit</field>
       <field name="model">project.task</field>
       <field name="type">form</field>
@@ -118,7 +118,7 @@
   </data>
       </field>
     </record>
-    <record id="view_4625_odoo_studio_project_task_form_button_e" model="ir.ui.view">
+    <record id="view_project_task_form_button" model="ir.ui.view">
       <field name="name">Odoo Studio: project.task.form_button</field>
       <field name="model">project.task</field>
       <field name="type">form</field>
@@ -154,7 +154,7 @@
   </data>
       </field>
     </record>
-    <record id="view_4775_odoo_studio_project_task_tree_customization_e" model="ir.ui.view">
+    <record id="view_project_task_tree_inherit" model="ir.ui.view">
       <field name="name">Odoo Studio: project.task.tree customization</field>
       <field name="model">project.task</field>
       <field name="type">tree</field>

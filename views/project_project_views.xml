@@ -10,17 +10,17 @@
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
   </record>
-  <record id="action_2619_project_project" model="ir.actions.act_window">
+  <record id="action_project_project" model="ir.actions.act_window">
     <field name="name">project.project</field>
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
   </record>
-  <record id="action_2877_projects_project_project" model="ir.actions.act_window">
+  <record id="action_projects_project_project" model="ir.actions.act_window">
     <field name="name">Projects (project.project)</field>
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
   </record>
-  <record id="ported_default_gantt_view_f_fe6aa571_bf0f_4a65_9eba_73ad101e85fc" model="ir.ui.view">
+  <record id="view_project_project_gantt_2" model="ir.ui.view">
     <field name="name">Default gantt view for project.project</field>
     <field name="model">project.project</field>
     <field name="key">studio_customization.default_gantt_view_f_fe6aa571-bf0f-4a65-9eba-73ad101e85fc</field>
@@ -31,7 +31,7 @@
       <gantt date_start="create_date" date_stop="create_date" string="Default gantt view for project.project"/>
     </field>
   </record>
-  <record id="ported_view_4748_odoo_studio_project_project_form_customi" model="ir.ui.view">
+  <record id="view_project_project_form_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: project.project.form customization</field>
     <field name="model">project.project</field>
     <field name="inherit_id" ref="project.edit_project"/>
@@ -66,7 +66,7 @@
       </data>
     </field>
   </record>
-  <record id="ported_view_4893_odoo_studio_project_project_tree_customi" model="ir.ui.view">
+  <record id="view_project_project_tree_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: project.project.tree customization</field>
     <field name="model">project.project</field>
     <field name="inherit_id" ref="project.view_project"/>
@@ -79,17 +79,17 @@
       </data>
     </field>
   </record>
-  <record id="act_window_2619_project_project" model="ir.actions.act_window">
+  <record id="action_project_project_2" model="ir.actions.act_window">
     <field name="name">project.project</field>
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
   </record>
-  <record id="act_window_2877_projects_project_project" model="ir.actions.act_window">
+  <record id="action_projects_project_project_2" model="ir.actions.act_window">
     <field name="name">Projects (project.project)</field>
     <field name="res_model">project.project</field>
     <field name="view_mode">kanban,tree,form,gantt</field>
   </record>
-    <record id="view_4895_odoo_studio_project_project_form_button_e" model="ir.ui.view">
+    <record id="view_project_project_form_button" model="ir.ui.view">
       <field name="name">Odoo Studio: project.project.form-button</field>
       <field name="model">project.project</field>
       <field name="type">form</field>
@@ -111,7 +111,7 @@
   </data>
       </field>
     </record>
-    <record id="view_4931_default_gantt_view_for_project_project_e" model="ir.ui.view">
+    <record id="view_project_project_gantt" model="ir.ui.view">
       <field name="name">Default gantt view for project.project</field>
       <field name="model">project.project</field>
       <field name="type">gantt</field>

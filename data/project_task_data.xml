@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <!-- 5 server_actions ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
-  <record id="server_action_2003_rr_auto_update_helpdesk_pipeline_status_1" model="ir.actions.server">
+  <record id="action_rr_auto_update_helpdesk_pipeline_status_1" model="ir.actions.server">
     <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
     <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
@@ -10,7 +10,7 @@ record._repair_auto_update_helpdesk_pipeline_status_1()
 ]]></field>
     <field name="usage">base_automation</field>
   </record>
-  <record id="server_action_2316_rr_end_quick_repair" model="ir.actions.server">
+  <record id="action_rr_end_quick_repair" model="ir.actions.server">
     <field name="name">RR - End Quick Repair</field>
     <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
@@ -19,7 +19,7 @@ record._repair_studio_end_quick_repair()
 ]]></field>
     <field name="usage">ir_actions_server</field>
   </record>
-  <record id="server_action_2224_rr_repair_diagnosis_validation" model="ir.actions.server">
+  <record id="action_rr_repair_diagnosis_validation" model="ir.actions.server">
     <field name="name">RR - Repair Diagnosis Validation</field>
     <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
@@ -28,7 +28,7 @@ record._repair_studio_diagnosis_validation()
 ]]></field>
     <field name="usage">ir_actions_server</field>
   </record>
-  <record id="server_action_2242_rr_repair_image_validation" model="ir.actions.server">
+  <record id="action_rr_repair_image_validation" model="ir.actions.server">
     <field name="name">RR - Repair Image Validation</field>
     <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
@@ -37,7 +37,7 @@ record._repair_studio_image_validation()
 ]]></field>
     <field name="usage">ir_actions_server</field>
   </record>
-  <record id="server_action_2219_rr_validate_diagnosis_lines" model="ir.actions.server">
+  <record id="action_rr_validate_diagnosis_lines" model="ir.actions.server">
     <field name="name">RR - Validate Diagnosis Lines</field>
     <field name="model_id" search="[('model', '=', 'project.task')]"/>
     <field name="state">code</field>
@@ -46,13 +46,13 @@ record._repair_studio_validate_diagnosis_lines()
 ]]></field>
     <field name="usage">base_automation</field>
   </record>
-  <record id="base_automation_179_rr_auto_update_helpdesk_pipeline_status_1" model="base.automation">
+  <record id="automation_rr_auto_update_helpdesk_pipeline_status_1" model="base.automation">
     <field name="name">RR - Auto Update Helpdesk Pipeline Status - 1</field>
     <field name="active" eval="False"/>
     <field name="model_id" ref="project.model_project_task"/>
     <field name="trigger">on_create_or_write</field>
   </record>
-  <record id="base_automation_200_rr_validate_diagnosis_lines" model="base.automation">
+  <record id="automation_rr_validate_diagnosis_lines" model="base.automation">
     <field name="name">RR - Validate Diagnosis Lines</field>
     <field name="active" eval="False"/>
     <field name="model_id" ref="project.model_project_task"/>
@@ -60,7 +60,7 @@ record._repair_studio_validate_diagnosis_lines()
     <field name="filter_domain">[["helpdesk_ticket_id","!=",False]]</field>
   </record>
     <data noupdate="1">
-    <record id="default_169_project_task_custom_reports_priority" model="ir.default">
+    <record id="default_project_task_custom_reports_priority" model="ir.default">
       <field name="field_id" ref="BugFix-Project.field_project_task__custom_reports_priority"/>
       <field name="json_value">"Normal"</field>
     </record>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <!-- 11 act_windows ports for BugFix-Project (auto-generated from Clear-DB snapshot) -->
-  <record id="action_784_departments" model="ir.actions.act_window">
+  <record id="action_departments" model="ir.actions.act_window">
     <field name="name">Departments</field>
     <field name="res_model">departments</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <record id="ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3" model="ir.ui.view">
+  <record id="view_departments_form" model="ir.ui.view">
     <field name="name">Default form view for departments</field>
     <field name="model">departments</field>
     <field name="key">studio_customization.default_form_view_fo_bd8d3ada-46a1-4fd3-9469-e13371fb5db3</field>
@@ -35,7 +35,7 @@
       </form>
     </field>
   </record>
-  <record id="ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549" model="ir.ui.view">
+  <record id="view_departments_list" model="ir.ui.view">
     <field name="name">Default list view for departments</field>
     <field name="model">departments</field>
     <field name="key">studio_customization.default_list_view_fo_a3146a55-ec15-4748-b6e8-4e6005b08549</field>
@@ -50,7 +50,7 @@
       </tree>
     </field>
   </record>
-  <record id="ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47" model="ir.ui.view">
+  <record id="view_departments_search" model="ir.ui.view">
     <field name="name">Default search view for departments</field>
     <field name="model">departments</field>
     <field name="key">studio_customization.default_search_view__8ffb2001-1b7c-4a47-a326-117b4137bb47</field>
@@ -69,10 +69,10 @@
       </search>
     </field>
   </record>
-  <record id="ported_view_2322_odoo_studio_default_form_view_for_x_depa" model="ir.ui.view">
+  <record id="view_default_form_view_for_departments_inherit" model="ir.ui.view">
     <field name="name">Odoo Studio: Default form view for departments customization</field>
     <field name="model">departments</field>
-    <field name="inherit_id" ref="BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3"/>
+    <field name="inherit_id" ref="BugFix-Project.view_departments_form"/>
     <field name="priority">99</field>
     <field name="arch" type="xml">
       <data>

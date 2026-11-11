@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <record id="act_window_2878_project_stage_project_project_stage" model="ir.actions.act_window">
+  <record id="action_project_stage_project_project_stage" model="ir.actions.act_window">
     <field name="name">Project Stage (project.project.stage)</field>
     <field name="res_model">project.project.stage</field>
     <field name="view_mode">kanban,tree,form</field>

@@ -81,7 +81,7 @@ graph LR
 
 *Extends a model created by `project`.*
 
-Other repos that use this model: `server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`window action BugFix-Studio-Misc.act_window_2805_project_milestone_d7` (BugFix-Studio-Misc)
+Other repos that use this model: `server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`window action BugFix-Studio-Misc.action_project_milestone_d7` (BugFix-Studio-Misc)
 
 **Summary:**
 
@@ -93,22 +93,22 @@ This repo adds no fields or logic to project milestones. It ships a window actio
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| project.milestone | `act_window_2805_project_milestone` | Opens **Project Milestone** records (tree,form). | `model project.milestone` (project) | `menu BugFix-Studio-Misc.menu_f6_project_milestone` (BugFix-Studio-Misc) |
+| project.milestone | `action_project_milestone` | Opens **Project Milestone** records (tree,form). | `model project.milestone` (project) | `menu BugFix-Studio-Misc.menu_project_milestone` (BugFix-Studio-Misc) |
 
 **Record rules (4):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project/Milestone: Project manager can see all project milestones | `rule_409_project_milestone_project_manager_can_see_all_project_milest` | For Project / Administrator: read/write/create/delete on Project Milestone with no record filter (empty domain = all records). | `group project.group_project_manager` (project)<br>`model project.milestone` (project) |  |
-| Project/Milestone: employees: follow required for follower-only projects | `rule_408_project_milestone_employees_follow_required_for_follower_onl` | For User types / Internal User: read/write/create/delete on Project Milestone only where `[
+| Project/Milestone: Project manager can see all project milestones | `rule_project_milestone_project_manager_can_see_all_project_milest` | For Project / Administrator: read/write/create/delete on Project Milestone with no record filter (empty domain = all records). | `group project.group_project_manager` (project)<br>`model project.milestone` (project) |  |
+| Project/Milestone: employees: follow required for follower-only projects | `rule_project_milestone_employees_follow_required_for_follower_onl` | For User types / Internal User: read/write/create/delete on Project Milestone only where `[
         '|',
             ('project_id.privacy_visibility', '!=', 'followers'),
             '|',
                 ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
                 ('project_id.user_id', '=', user.id),
         ]`. | `group base.group_user` (base)<br>`model project.milestone` (project)<br>`project.milestone.project_id` (project)<br>`project.project.message_partner_ids` (project)<br>`project.project.privacy_visibility` (project)<details><summary>+1 more</summary>`project.project.user_id` (project)</details> |  |
-| Project/Milestone: multi-company | `rule_407_project_milestone_multi_company` | For everyone (global rule): read/write/create/delete on Project Milestone only where `['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]`. | `model project.milestone` (project)<br>`project.milestone.project_id` (project)<br>`project.project.company_id` (project) |  |
-| Project/milestone portal users: portal user can read with project sharing feature | `rule_688_project_milestone_portal_users_portal_user_can_read_with_pro` | For User types / Portal: read/write/create/delete on Project Milestone only where `[
+| Project/Milestone: multi-company | `rule_project_milestone_multi_company` | For everyone (global rule): read/write/create/delete on Project Milestone only where `['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]`. | `model project.milestone` (project)<br>`project.milestone.project_id` (project)<br>`project.project.company_id` (project) |  |
+| Project/milestone portal users: portal user can read with project sharing feature | `rule_project_milestone_portal_users_portal_user_can_read_with_pro` | For User types / Portal: read/write/create/delete on Project Milestone only where `[
             ('project_id.privacy_visibility', '=', 'portal'),
             ('project_id.collaborator_ids.partner_id', 'in', [user.partner_id.id]),
         ]`. | `group base.group_portal` (base)<br>`model project.milestone` (project)<br>`project.collaborator.partner_id` (project)<br>`project.milestone.project_id` (project)<br>`project.project.collaborator_ids` (project)<details><summary>+1 more</summary>`project.project.privacy_visibility` (project)</details> |  |
@@ -129,16 +129,16 @@ This repo adds three document and three image upload fields on a Project Related
 
 | Field | Label | Type | Function | How it gets its value | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| `document_1` | Document 1 | binary | First project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `document_2` | Document 2 | binary | Second project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `document_3` | Document 3 | binary | Third project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `image_1` | Image 1 | binary | First project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `image_2` | Image 2 | binary | Second project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `image_3` | Image 3 | binary | Third project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `project_group` | Project Group | many2one → `project_groups` | Project Group the project belongs to, shown read-only on the project form; sales order actions in BugFix-Sales copy it from the order's project onto the order. | stored | `model project_groups` | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `quotation_type` | Quotation Type | selection: Sales=Sales; Project=Project; Repair=Repair | Read-only quotation type of the project (Sales, Project or Repair), shown on the project form after Allocated Hours. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `repair_project` | Repair Project | boolean | Checkbox on the project form that marks the project as a repair project; set manually and not used by any logic in this repo. | stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
-| `valid_gm` | Valid GM | boolean | Intended flag that the project has a valid gross-margin report; ported as a non-stored field with no compute, so it is always unchecked. Kept as a hidden, read-only field on the project form. | not stored |  | `view BugFix-Project.ported_view_4748_odoo_studio_project_project_form_customi` |
+| `document_1` | Document 1 | binary | First project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `document_2` | Document 2 | binary | Second project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `document_3` | Document 3 | binary | Third project document file, uploaded by the user in the Documents section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `image_1` | Image 1 | binary | First project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `image_2` | Image 2 | binary | Second project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `image_3` | Image 3 | binary | Third project image, uploaded in the Images section of the Project Related Documents tab on the project form. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `project_group` | Project Group | many2one → `project_groups` | Project Group the project belongs to, shown read-only on the project form; sales order actions in BugFix-Sales copy it from the order's project onto the order. | stored | `model project_groups` | `view BugFix-Project.view_project_project_form_inherit` |
+| `quotation_type` | Quotation Type | selection: Sales=Sales; Project=Project; Repair=Repair | Read-only quotation type of the project (Sales, Project or Repair), shown on the project form after Allocated Hours. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `repair_project` | Repair Project | boolean | Checkbox on the project form that marks the project as a repair project; set manually and not used by any logic in this repo. | stored |  | `view BugFix-Project.view_project_project_form_inherit` |
+| `valid_gm` | Valid GM | boolean | Intended flag that the project has a valid gross-margin report; ported as a non-stored field with no compute, so it is always unchecked. Kept as a hidden, read-only field on the project form. | not stored |  | `view BugFix-Project.view_project_project_form_inherit` |
 | `created_from_project_no_account_move_count` | Created From Project No count | integer | Intended Studio smart-button count of journal entries created from this project; ported as a plain non-stored integer with no compute, so it always shows 0. | not stored |  |  |
 | `main_project_2_sale_order_line_count` | Main Project 2 count | integer | Intended Studio smart-button count of sales order lines whose Main Project 2 is this project; ported as a plain non-stored integer with no compute, so it always shows 0. | not stored |  |  |
 | `project_no_account_move_line_count` | Project No count | integer | Intended Studio smart-button count of journal items linked to this project; ported as a plain non-stored integer with no compute, so it always shows 0. | not stored |  |  |
@@ -149,7 +149,7 @@ This repo adds three document and three image upload fields on a Project Related
 
 **Server actions (4):**
 
-- **Project - Create Cash Advance Bills** (`server_action_2731_project_create_cash_advance_bills`, type `code`)
+- **Project - Create Cash Advance Bills** (`action_project_create_cash_advance_bills`, type `code`)
   - Function: Opens a new vendor bill in a popup, prefilled as an Advance Payment bill linked to this project (journal ID 40, journal type Bill).
   - Depends on: `model project.project` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -181,7 +181,7 @@ action = {
 }
 ```
   </details>
-- **Project - Issue Cash Advances** (`server_action_2732_project_issue_cash_advances`, type `code`)
+- **Project - Issue Cash Advances** (`action_project_issue_cash_advances`, type `code`)
   - Function: Opens a new supplier payment in a popup, prefilled as an Advance Payment issued against this project (journal ID 2).
   - Depends on: `model project.project` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -212,7 +212,7 @@ action = {
 }
 ```
   </details>
-- **Project - Settle Cash Advances** (`server_action_2733_project_settle_cash_advances`, type `code`)
+- **Project - Settle Cash Advances** (`action_project_settle_cash_advances`, type `code`)
   - Function: Opens a new journal entry in a popup, prefilled as an Advance Payment settlement for this project (journal ID 3, journal type Settlement).
   - Depends on: `model project.project` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -244,7 +244,7 @@ action = {
 }
 ```
   </details>
-- **Project - Update Month End Entries - 2** (`server_action_2119_project_update_month_end_entries_2`, type `code`)
+- **Project - Update Month End Entries - 2** (`action_project_update_month_end_entries_2`, type `code`)
   - Function: For each auto-generated Project Gross Margin report not yet posted, creates a month-end journal entry (journal ID 15) with fixed 100 debit/credit lines on the Imports Ledger Setup accounts and marks it done. Errors if accounts are missing or nothing is pending.
   - Depends on: `model account.move` (account), `model project.project` (project), `model imports_ledger_setup` (BugFix-Purchase), `model sales_report_model` (Jinasena_Masterdata_Reporting)
   - Used by: — (not linked to a button, menu or automation)
@@ -315,21 +315,21 @@ else:
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
 | Projects (project.project) | `aw_f4_project_project_projects_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) |  |
-| Projects (project.project) | `action_2877_projects_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Project.menu_f6_projects_project_project` |
-| Projects (project.project) | `act_window_2877_projects_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_projects_project_project` (BugFix-Studio-Misc) |
-| project.project | `aw_f4_project_project_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Project.menu_f6_project_project`<br>`menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_project_project` (BugFix-Studio-Misc) |
-| project.project | `action_2619_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) |  |
-| project.project | `act_window_2619_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) |  |
+| Projects (project.project) | `action_projects_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Project.menu_projects_project_project` |
+| Projects (project.project) | `action_projects_project_project_2` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_projects_project_project` (BugFix-Studio-Misc) |
+| project.project | `aw_f4_project_project_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) | `menu BugFix-Project.menu_project_project`<br>`menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_project_project` (BugFix-Studio-Misc) |
+| project.project | `action_project_project` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) |  |
+| project.project | `action_project_project_2` | Opens **Project** records (kanban,tree,form,gantt). | `model project.project` (project) |  |
 
 **Views (5):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default gantt view for project.project | `ported_default_gantt_view_f_fe6aa571_bf0f_4a65_9eba_73ad101e85fc` | gantt | full gantt layout with 0 fields | Gantt view of projects that uses Created on as both start and end date, so every project is a zero-length bar. Duplicate of view 4931. |  |  |
-| Default gantt view for project.project | `view_4931_default_gantt_view_for_project_project_e` | gantt | full gantt layout with 0 fields | Gantt view of projects that uses Created on as both start and end date. Duplicate of the ported gantt view. |  |  |
-| Odoo Studio: project.project.form customization | `ported_view_4748_odoo_studio_project_project_form_customi` | form | after `//button[@name='action_view_tasks']`: add ; after `//field[@name='allocated_hours']`: add field activity_user_id, field project_group, field quotation_type, field valid_gm, field repair_project; inside `//form[1]/sheet[1]/notebook[1]`: add page 'Project Related Documents' | On the project form, adds Activity responsible user, Project Group, Quotation Type, hidden Valid GM and Repair Project after Allocated Hours, plus a Project Related Documents tab with 3 documents and 3 images. Its cash-advance and report smart buttons were stripped. | `project.project.activity_user_id` (project)<br>`project.project.document_1`<br>`project.project.document_2`<br>`project.project.document_3`<br>`project.project.image_1`<details><summary>+7 more</summary>`project.project.image_2`<br>`project.project.image_3`<br>`project.project.project_group`<br>`project.project.quotation_type`<br>`project.project.repair_project`<br>`project.project.valid_gm`<br>`view project.edit_project` (project)</details> |  |
-| Odoo Studio: project.project.form-button | `view_4895_odoo_studio_project_project_form_button_e` | form | after `//header/button[@name='810'][2]`: add | Meant to add Month End Entries and other header buttons to the project form; every button was stripped as unresolvable during porting, so the view has no effect. | `view project.edit_project` (project) |  |
-| Odoo Studio: project.project.tree customization | `ported_view_4893_odoo_studio_project_project_tree_customi` | tree | after `//field[@name='stage_id']`: add field id | Adds an optional ID column after Stage in the project list. | `view project.view_project` (project) |  |
+| Default gantt view for project.project | `view_project_project_gantt_2` | gantt | full gantt layout with 0 fields | Gantt view of projects that uses Created on as both start and end date, so every project is a zero-length bar. Duplicate of view 4931. |  |  |
+| Default gantt view for project.project | `view_project_project_gantt` | gantt | full gantt layout with 0 fields | Gantt view of projects that uses Created on as both start and end date. Duplicate of the ported gantt view. |  |  |
+| Odoo Studio: project.project.form customization | `view_project_project_form_inherit` | form | after `//button[@name='action_view_tasks']`: add ; after `//field[@name='allocated_hours']`: add field activity_user_id, field project_group, field quotation_type, field valid_gm, field repair_project; inside `//form[1]/sheet[1]/notebook[1]`: add page 'Project Related Documents' | On the project form, adds Activity responsible user, Project Group, Quotation Type, hidden Valid GM and Repair Project after Allocated Hours, plus a Project Related Documents tab with 3 documents and 3 images. Its cash-advance and report smart buttons were stripped. | `project.project.activity_user_id` (project)<br>`project.project.document_1`<br>`project.project.document_2`<br>`project.project.document_3`<br>`project.project.image_1`<details><summary>+7 more</summary>`project.project.image_2`<br>`project.project.image_3`<br>`project.project.project_group`<br>`project.project.quotation_type`<br>`project.project.repair_project`<br>`project.project.valid_gm`<br>`view project.edit_project` (project)</details> |  |
+| Odoo Studio: project.project.form-button | `view_project_project_form_button` | form | after `//header/button[@name='810'][2]`: add | Meant to add Month End Entries and other header buttons to the project form; every button was stripped as unresolvable during porting, so the view has no effect. | `view project.edit_project` (project) |  |
+| Odoo Studio: project.project.tree customization | `view_project_project_tree_inherit` | tree | after `//field[@name='stage_id']`: add field id | Adds an optional ID column after Stage in the project list. | `view project.view_project` (project) |  |
 
 **Record rules (4):**
 
@@ -351,7 +351,7 @@ else:
 
 *Extends a model created by `project`.*
 
-Other repos that use this model: `window action BugFix-Studio-Misc.act_window_2878_project_stage_project_project_stage_d7` (BugFix-Studio-Misc)
+Other repos that use this model: `window action BugFix-Studio-Misc.action_project_stage_project_project_stage_d7` (BugFix-Studio-Misc)
 
 **Summary:**
 
@@ -363,19 +363,19 @@ This repo adds no fields or logic to project stages. It only ships a window acti
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Stage (project.project.stage) | `act_window_2878_project_stage_project_project_stage` | Opens **Project Stage** records (kanban,tree,form). | `model project.project.stage` (project) | `menu BugFix-Studio-Misc.menu_f6_project_stage_project_project_stage` (BugFix-Studio-Misc) |
+| Project Stage (project.project.stage) | `action_project_stage_project_project_stage` | Opens **Project Stage** records (kanban,tree,form). | `model project.project.stage` (project) | `menu BugFix-Studio-Misc.menu_project_stage_project_project_stage` (BugFix-Studio-Misc) |
 
 **Record rules (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Stage: multi-company | `rule_754_project_stage_multi_company` | For everyone (global rule): read/write/create/delete on Project Stage only where `[('company_id', 'in', company_ids + [False])]`. | `model project.project.stage` (project)<br>`project.project.stage.company_id` (project) |  |
+| Project Stage: multi-company | `rule_project_stage_multi_company` | For everyone (global rule): read/write/create/delete on Project Stage only where `[('company_id', 'in', company_ids + [False])]`. | `model project.project.stage` (project)<br>`project.project.stage.company_id` (project) |  |
 
 ### `project.task` — Task
 
 *Extends a model created by `project`.* Python: `models/project_task.py`, `models/project_task_gap.py`.
 
-Other repos that use this model: `account.payment.register.action_create_payments()` (Fix-Repair-Wizard-Nav, Fix-repair)<br>`helpdesk.ticket._compute_task_done()` (Fix-repair)<br>`helpdesk.ticket.related_field_FNjnC` (Fix-repair)<br>`sale.order._compute_ticket_repair_stage_state()` (Fix-repair)<br>`sale.order._fix_repair_auto_generate_quotation_type()` (Fix-repair)<br>`sale.order._get_repair_stock_source_locations()` (Fix-repair)<br>`sale.order._move_ticket_to_stage()` (Fix-repair)<br>`sale.order.action_re_estimate()` (Fix-repair)<details><summary>+12 more</summary>`server action BugFix-Sales.sa_f5_sale_order_rr_auto_generate_quotation_type_for_project_sos_2` (BugFix-Sales)<br>`server action BugFix-Sales.sa_f5_sale_order_rr_auto_generate_quotation_type_for_project_sos` (BugFix-Sales)<br>`server action BugFix-Sales.sa_f5_sale_order_rr_auto_generate_quotation_type_for_repair_sos` (BugFix-Sales)<br>`server action BugFix-Sales.server_action_1995_rr_auto_generate_quotation_type_for_repair_sos` (BugFix-Sales)<br>`server action BugFix-Sales.server_action_2114_rr_auto_generate_quotation_type_for_project_sos` (BugFix-Sales)<br>`server action BugFix-Sales.server_action_2117_rr_auto_generate_quotation_type_for_project_sos_2` (BugFix-Sales)<br>`server action BugFix-Sales.server_action_2572_proj_update_with_main_so` (BugFix-Sales)<br>`server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`server action Fix-repair.action_repair_end_quick_repair` (Fix-repair)<br>`stock.picking._action_done()` (Fix-repair)<br>`project_task_worksheet_template_1.project_task_id` (BugFix-Studio-Misc)<br>`task_diagnosis.task_id` (Fix-repair)</details>
+Other repos that use this model: `account.payment.register.action_create_payments()` (Fix-Repair-Wizard-Nav, Fix-repair)<br>`helpdesk.ticket._compute_task_done()` (Fix-repair)<br>`helpdesk.ticket.related_field_FNjnC` (Fix-repair)<br>`sale.order._compute_ticket_repair_stage_state()` (Fix-repair)<br>`sale.order._fix_repair_auto_generate_quotation_type()` (Fix-repair)<br>`sale.order._get_repair_stock_source_locations()` (Fix-repair)<br>`sale.order._move_ticket_to_stage()` (Fix-repair)<br>`sale.order.action_re_estimate()` (Fix-repair)<details><summary>+12 more</summary>`server action BugFix-Sales.action_sale_order_rr_auto_generate_quotation_type_for_project_sos_2` (BugFix-Sales)<br>`server action BugFix-Sales.action_sale_order_rr_auto_generate_quotation_type_for_project_sos` (BugFix-Sales)<br>`server action BugFix-Sales.action_sale_order_rr_auto_generate_quotation_type_for_repair_sos` (BugFix-Sales)<br>`server action BugFix-Sales.action_rr_auto_generate_quotation_type_for_repair_sos` (BugFix-Sales)<br>`server action BugFix-Sales.action_rr_auto_generate_quotation_type_for_project_sos` (BugFix-Sales)<br>`server action BugFix-Sales.action_rr_auto_generate_quotation_type_for_project_sos_2` (BugFix-Sales)<br>`server action BugFix-Sales.action_proj_update_with_main_so` (BugFix-Sales)<br>`server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`server action Fix-repair.action_repair_end_quick_repair` (Fix-repair)<br>`stock.picking._action_done()` (Fix-repair)<br>`project_task_worksheet_template_1.project_task_id` (BugFix-Studio-Misc)<br>`task_diagnosis.task_id` (Fix-repair)</details>
 
 **Summary:**
 
@@ -387,34 +387,34 @@ This repo adds the repair fields used on field-service tasks linked to a repair 
 
 | Field | Label | Type | Function | How it gets its value | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| `cancelled` | Cancelled | boolean | Shows whether the linked helpdesk ticket is cancelled (copied via `helpdesk_ticket_id.cancelled`); hides the Create Quotation and Products buttons on the task form when set. | related `helpdesk_ticket_id.cancelled`; stored | `helpdesk.ticket.cancelled` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.view_4621_odoo_studio_view_task_form2_inherit_e`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `cancelled` | Cancelled | boolean | Shows whether the linked helpdesk ticket is cancelled (copied via `helpdesk_ticket_id.cancelled`); hides the Create Quotation and Products buttons on the task form when set. | related `helpdesk_ticket_id.cancelled`; stored | `helpdesk.ticket.cancelled` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.view_task_form2_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `created_date` | Created Date | datetime | Created Date of the repair task, entered on the repair diagnosis task form and copied when the task is duplicated. | stored |  | `view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
-| `end_quick_repair` | End Quick Repair | boolean | Set to True by the RR - End Quick Repair action to mark the task's quick repair as finished. Hides the Products button, and the ticket's tested-OK and fully-paid checks treat it as done. | stored |  | `helpdesk.ticket._compute_is_tested_ok()` (Fix-repair)<br>`project.task._repair_studio_end_quick_repair()` (Fix-repair)<br>`view BugFix-Project.view_4621_odoo_studio_view_task_form2_inherit_e`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `end_quick_repair` | End Quick Repair | boolean | Set to True by the RR - End Quick Repair action to mark the task's quick repair as finished. Hides the Products button, and the ticket's tested-OK and fully-paid checks treat it as done. | stored |  | `helpdesk.ticket._compute_is_tested_ok()` (Fix-repair)<br>`project.task._repair_studio_end_quick_repair()` (Fix-repair)<br>`view BugFix-Project.view_task_form2_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `fully_invoiced_so` | Fully Invoiced SO | boolean | Computed: True when the task's sales order is fully invoiced, or is cancelled after the ticket reached Repair Completed; the helpdesk ticket reads it to decide whether the repair is fully paid. | not stored | `project.task._compute_fully_invoiced_so()` (Fix-repair) |  |
 | `incomplete_delivery_available` | Incomplete Delivery Available | boolean | Computed: True when the task's non-cancelled sales order has an open (not done, not cancelled) delivery, or has no delivery at all. | not stored | `project.task._compute_incomplete_delivery_available()` (Fix-repair) |  |
 | `material_availability` | Material Availability | selection: Material Not Ready=Material Not Ready; Material Not Ready=Material Not Ready; Material Ready=Material Ready; Material Ready=Material Ready | Computed: Material Ready when the task's sales order is locked (done) and has a completed outgoing delivery from outside the warehouse stock location, otherwise Material Not Ready. Shown on the repair diagnosis form. | not stored | `project.task._compute_material_availability()` (Fix-repair) | `view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `payment_type` | Payment Type | selection: Cash=Cash; Cash=Cash; Credit=Credit; Credit=Credit; Advance=Advance; Advance=Advance | Payment type of the task (Cash, Credit or Advance), selectable by the user; not used by any logic in this repo. | stored |  |  |
-| `custom_reports_priority` | Priority | selection: Highest=Highest; Highest=Highest; High=High; High=High; Normal=Normal; Normal=Normal; Low=Low; Low=Low … | Priority of the repair task (Highest to Lowest), with a configured default; shown on the repair diagnosis form and copied when the task is duplicated. | stored |  | `default BugFix-Project.default_169_project_task_custom_reports_priority`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `custom_reports_priority` | Priority | selection: Highest=Highest; Highest=Highest; High=High; High=High; Normal=Normal; Normal=Normal; Low=Low; Low=Low … | Priority of the repair task (Highest to Lowest), with a configured default; shown on the repair diagnosis form and copied when the task is duplicated. | stored |  | `default BugFix-Project.default_project_task_custom_reports_priority`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `quick_repair_status_1` | Quick Repair Status | selection: None=None; None=None; Quick Repair=Quick Repair; Quick Repair=Quick Repair | Quick Repair status of the task (None or Quick Repair); set to Quick Repair by the RR - End Quick Repair action and read by the ticket's tested-OK check. | stored |  | `helpdesk.ticket._compute_is_tested_ok()` (Fix-repair)<br>`project.task._repair_studio_end_quick_repair()` (Fix-repair) |
-| `quotation_type` | Quotation Type | selection: Sales=Sales; Sales=Sales; Project=Project; Project=Project; Repair=Repair; Repair=Repair | Quotation type of the task's sales order (copied via `sale_order_id.quotation_type`); the Create Quotation button on the task form shows only for Project-type orders. | related `sale_order_id.quotation_type`; stored | `project.task.sale_order_id` (sale_project)<br>`sale.order.quotation_type` (BugFix-Sales) | `view BugFix-Project.view_4621_odoo_studio_view_task_form2_inherit_e`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
-| `related_information` | Related Information | binary | Related-information image copied from the linked helpdesk ticket; shown on the Warranty Card tab of the task form. | related `helpdesk_ticket_id.related_information`; stored | `helpdesk.ticket.related_information` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.ported_view_project_task_form_3019`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `quotation_type` | Quotation Type | selection: Sales=Sales; Sales=Sales; Project=Project; Project=Project; Repair=Repair; Repair=Repair | Quotation type of the task's sales order (copied via `sale_order_id.quotation_type`); the Create Quotation button on the task form shows only for Project-type orders. | related `sale_order_id.quotation_type`; stored | `project.task.sale_order_id` (sale_project)<br>`sale.order.quotation_type` (BugFix-Sales) | `view BugFix-Project.view_task_form2_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `related_information` | Related Information | binary | Related-information image copied from the linked helpdesk ticket; shown on the Warranty Card tab of the task form. | related `helpdesk_ticket_id.related_information`; stored | `helpdesk.ticket.related_information` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.view_project_task_form_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `repair_completed_stage_updated` | Repair Completed Stage Updated | boolean | Shows whether the linked helpdesk ticket has already been moved to Repair Completed (copied from the ticket); used by the Fully Invoiced SO and Valid Invoiced SO computations. | related `helpdesk_ticket_id.repair_complete_stage_updated`; stored | `helpdesk.ticket.repair_complete_stage_updated` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `project.task._compute_fully_invoiced_so()` (Fix-repair)<br>`project.task._compute_valid_invoiced_so()` (Fix-repair) |
-| `repair_image_01` | Repair Image 01 | binary | First repair photo, uploaded on the Repair Image tab of the task form; while empty on a ticket-linked task, the Products button is hidden. | stored |  | `view BugFix-Project.ported_view_project_task_form_3019`<br>`view BugFix-Project.view_4621_odoo_studio_view_task_form2_inherit_e`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
-| `repair_image_02` | Repair Image 02 | binary | Second repair photo, uploaded on the Repair Image tab of the task form and the repair diagnosis view. | stored |  | `view BugFix-Project.ported_view_project_task_form_3019`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `repair_image_01` | Repair Image 01 | binary | First repair photo, uploaded on the Repair Image tab of the task form; while empty on a ticket-linked task, the Products button is hidden. | stored |  | `view BugFix-Project.view_project_task_form_inherit`<br>`view BugFix-Project.view_task_form2_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `repair_image_02` | Repair Image 02 | binary | Second repair photo, uploaded on the Repair Image tab of the task form and the repair diagnosis view. | stored |  | `view BugFix-Project.view_project_task_form_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `repair_reason` | Repair Reason | many2many → `repair_reason` | Repair Reasons selected for the task from the Repair Reason list, on the repair diagnosis form. | stored | `model repair_reason` (Fix-repair) | `view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `starting_date` | Starting Date | datetime | Starting date of the task, entered by the user; not shown on any view or used by any logic in this repo. | stored |  |  |
 | `valid_confirm2_so` | Valid Confirm2 SO | boolean | Computed: True when the task's sales order is in the locked (done) state; read by the helpdesk ticket's Valid Confirmed2 SO check. | not stored | `project.task._compute_valid_confirm2_so()` (Fix-repair) |  |
 | `valid_confirm_so` | Valid Confirm SO | boolean | Computed: True when the task's sales order is in the Quotation Sent state; read by the helpdesk ticket's Valid Confirmed SO check. | not stored | `project.task._compute_valid_confirm_so()` (Fix-repair) |  |
 | `valid_delivered_so` | Valid Delivered SO | boolean | Computed: True when the task's locked sales order has a completed delivery. The helpdesk ticket reads it to move the ticket to Repair Started. | not stored | `project.task._compute_valid_delivered_so()` (Fix-repair) |  |
 | `valid_delivered_so2` | Valid Delivered SO2 | boolean | Stored flag set by the Valid Delivered SO computation when a completed delivery went to a customer location; the helpdesk ticket uses it to advance to Repair Completed. | stored |  |  |
-| `valid_diagnosis` | Valid Diagnosis | boolean | Computed: True when the task has at least one diagnosis line. Without it, the Products button is hidden on ticket-linked tasks, and the Validate Diagnosis Lines action raises an error. | not stored | `project.task._compute_valid_diagnosis()` (Fix-repair) | `project.task._compute_valid_diagnosis()` (Fix-repair)<br>`project.task._repair_studio_validate_diagnosis_lines()` (Fix-repair)<br>`view BugFix-Project.view_4621_odoo_studio_view_task_form2_inherit_e` |
+| `valid_diagnosis` | Valid Diagnosis | boolean | Computed: True when the task has at least one diagnosis line. Without it, the Products button is hidden on ticket-linked tasks, and the Validate Diagnosis Lines action raises an error. | not stored | `project.task._compute_valid_diagnosis()` (Fix-repair) | `project.task._compute_valid_diagnosis()` (Fix-repair)<br>`project.task._repair_studio_validate_diagnosis_lines()` (Fix-repair)<br>`view BugFix-Project.view_task_form2_inherit` |
 | `valid_invoiced_so` | Valid Invoiced SO | boolean | Computed: True when the task's sales order is settled (cancelled, on credit, RUG-approved, a posted payment exists, or all invoices are in payment). The ticket uses it to move to the invoiced stage. | not stored | `project.task._compute_valid_invoiced_so()` (Fix-repair) |  |
-| `warranty_card` | Warranty Card | binary | Warranty card image copied from the linked helpdesk ticket; shown on the Warranty Card tab of the task form. | related `helpdesk_ticket_id.warranty_card`; stored | `helpdesk.ticket.warranty_card` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.ported_view_project_task_form_3019`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
+| `warranty_card` | Warranty Card | binary | Warranty card image copied from the linked helpdesk ticket; shown on the Warranty Card tab of the task form. | related `helpdesk_ticket_id.warranty_card`; stored | `helpdesk.ticket.warranty_card` (Fix-repair)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) | `view BugFix-Project.view_project_task_form_inherit`<br>`view Fix-repair.view_project_task_repair_diagnosis` (Fix-repair) |
 | `task_id_sale_order_count` | Task Id Sale Order Count | integer | Intended Studio smart-button count of sales orders linked to this task; ported as a plain non-stored integer with no compute, so it always shows 0. | not stored |  |  |
 
 **Server actions (5):**
 
-- **RR - Auto Update Helpdesk Pipeline Status - 1** (`server_action_2003_rr_auto_update_helpdesk_pipeline_status_1`, type `code`)
+- **RR - Auto Update Helpdesk Pipeline Status - 1** (`action_rr_auto_update_helpdesk_pipeline_status_1`, type `code`)
   - Function: When a task is linked to a helpdesk ticket that is still in New or Received at Factory and has a field-service task, moves the ticket to Diagnosis and stamps the stage date and audit fields.
   - Depends on: `model project.task` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -425,7 +425,7 @@ This repo adds the repair fields used on field-service tasks linked to a repair 
 record._repair_auto_update_helpdesk_pipeline_status_1()
 ```
   </details>
-- **RR - End Quick Repair** (`server_action_2316_rr_end_quick_repair`, type `code`)
+- **RR - End Quick Repair** (`action_rr_end_quick_repair`, type `code`)
   - Function: Marks the task's quick repair as ended (End Quick Repair, Quick Repair status). Moves the linked helpdesk ticket to Repair Completed (stage 9 or 28 by company) and stamps the stage date and audit fields.
   - Depends on: `model project.task` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -436,7 +436,7 @@ record._repair_auto_update_helpdesk_pipeline_status_1()
 record._repair_studio_end_quick_repair()
 ```
   </details>
-- **RR - Repair Diagnosis Validation** (`server_action_2224_rr_repair_diagnosis_validation`, type `code`)
+- **RR - Repair Diagnosis Validation** (`action_rr_repair_diagnosis_validation`, type `code`)
   - Function: Always raises the error 'Atleast one repair diagnosis line must be specified for the selected task'; the condition is expected to be checked by whatever triggers it. Its button was stripped from the task form during porting.
   - Depends on: `model project.task` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -447,7 +447,7 @@ record._repair_studio_end_quick_repair()
 record._repair_studio_diagnosis_validation()
 ```
   </details>
-- **RR - Repair Image Validation** (`server_action_2242_rr_repair_image_validation`, type `code`)
+- **RR - Repair Image Validation** (`action_rr_repair_image_validation`, type `code`)
   - Function: Always raises the error 'Atleast one repair image should be uploaded for the selected task'; the condition is expected to be checked by whatever triggers it.
   - Depends on: `model project.task` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -458,7 +458,7 @@ record._repair_studio_diagnosis_validation()
 record._repair_studio_image_validation()
 ```
   </details>
-- **RR - Validate Diagnosis Lines** (`server_action_2219_rr_validate_diagnosis_lines`, type `code`)
+- **RR - Validate Diagnosis Lines** (`action_rr_validate_diagnosis_lines`, type `code`)
   - Function: Raises 'Repair diagnosis must be specified' when a task linked to a helpdesk ticket has no diagnosis lines (Valid Diagnosis is false).
   - Depends on: `model project.task` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -473,34 +473,34 @@ record._repair_studio_validate_diagnosis_lines()
 
 | Name | Record name | State | Function | Depends on | Used by |
 |---|---|---|---|---|---|
-| RR - Auto Update Helpdesk Pipeline Status - 1 | `base_automation_179_rr_auto_update_helpdesk_pipeline_status_1` | archived | When a record is created or updated on Task, runs nothing (no action linked). **Archived — does not run.** | `model project.task` (project) |  |
-| RR - Validate Diagnosis Lines | `base_automation_200_rr_validate_diagnosis_lines` | archived | When a record is updated on Task and `[["helpdesk_ticket_id","!=",False]]`, runs nothing (no action linked). **Archived — does not run.** | `model project.task` (project)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) |  |
+| RR - Auto Update Helpdesk Pipeline Status - 1 | `automation_rr_auto_update_helpdesk_pipeline_status_1` | archived | When a record is created or updated on Task, runs nothing (no action linked). **Archived — does not run.** | `model project.task` (project) |  |
+| RR - Validate Diagnosis Lines | `automation_rr_validate_diagnosis_lines` | archived | When a record is updated on Task and `[["helpdesk_ticket_id","!=",False]]`, runs nothing (no action linked). **Archived — does not run.** | `model project.task` (project)<br>`project.task.helpdesk_ticket_id` (helpdesk_fsm) |  |
 
 **Window actions (6):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Assigned Tasks | `act_window_266_assigned_tasks` | Opens **Task** records (tree,form,calendar,graph,pivot), filtered to `[('project_id', '!=', False)]`. | `model project.task` (project)<br>`project.task.project_id` (project) |  |
-| Project Sharing | `act_window_1916_project_sharing` | Opens **Task** records (kanban,tree,form), filtered to `[('project_id', '=', active_id), ('display_in_project', '=', True)]`. | `model project.task` (project)<br>`project.task.display_in_project` (project)<br>`project.task.project_id` (project) |  |
-| Tasks | `act_window_251_tasks` | Opens **Task** records (tree,gantt,kanban,form,calendar,pivot,graph,activity), filtered to `[('project_id', '=', active_id)]`. | `model project.task` (project)<br>`project.task.project_id` (project) |  |
+| Assigned Tasks | `action_assigned_tasks` | Opens **Task** records (tree,form,calendar,graph,pivot), filtered to `[('project_id', '!=', False)]`. | `model project.task` (project)<br>`project.task.project_id` (project) |  |
+| Project Sharing | `action_project_sharing` | Opens **Task** records (kanban,tree,form), filtered to `[('project_id', '=', active_id), ('display_in_project', '=', True)]`. | `model project.task` (project)<br>`project.task.display_in_project` (project)<br>`project.task.project_id` (project) |  |
+| Tasks | `action_tasks` | Opens **Task** records (tree,gantt,kanban,form,calendar,pivot,graph,activity), filtered to `[('project_id', '=', active_id)]`. | `model project.task` (project)<br>`project.task.project_id` (project) |  |
 | project.task | `aw_f4_project_task_project_task` | Opens **Task** records (kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort). | `model project.task` (project) | `menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_project_task` (BugFix-Studio-Misc) |
-| project.task | `action_2802_project_task` | Opens **Task** records (kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort). | `model project.task` (project) | `menu BugFix-Project.menu_f6_project_task` |
-| project.task | `act_window_2802_project_task` | Opens **Task** records (kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort). | `model project.task` (project) |  |
+| project.task | `action_project_task` | Opens **Task** records (kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort). | `model project.task` (project) | `menu BugFix-Project.menu_project_task` |
+| project.task | `action_project_task_2` | Opens **Task** records (kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort). | `model project.task` (project) |  |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Odoo Studio: project.task.form customization | `ported_view_project_task_form_3019` | form | inside `//notebook`: add page 'Repair Image', page 'Warranty Card' | Adds two tabs to the task form: Repair Image (Repair Image 01 and 02) and Warranty Card (warranty card and related-information images from the helpdesk ticket). | `project.task.related_information`<br>`project.task.repair_image_01`<br>`project.task.repair_image_02`<br>`project.task.warranty_card`<br>`view project.view_task_form2` (project) |  |
-| Odoo Studio: project.task.form_button | `view_4625_odoo_studio_project_task_form_button_e` | form | set invisible=(helpdesk_ticket_id != False) or (allow_forecast == False) on `//button[@name='action_get_project_forecast_by_user']`; before `//button[@name='action_create_invoice']`: add ; set invisible=(worksheet_count != 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or ((partner_id == False) or (helpdesk_ticket_id != False)))) on `//button[@name='action_fsm_worksheet']`; set invisible=(worksheet_count == 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or (helpdesk_ticket_id != False))) on `//button[@name='action_fsm_worksheet'][2]`; remove `//button[@name='action_create_invoice']` | Inactive (archived). Would hide the forecast and worksheet buttons and remove Create Invoice on helpdesk-linked tasks. Its diagnosis-validation button was stripped. | `view project.view_task_form2` (project) |  |
-| Odoo Studio: project.task.tree customization | `view_4775_odoo_studio_project_task_tree_customization_e` | tree |  | Empty: its only change (on Effective Hours) was stripped during porting, so it has no effect on the task list. | `view project.view_task_tree2` (project) |  |
-| Odoo Studio: view.task.form2.inherit | `view_4621_odoo_studio_view_task_form2_inherit_e` | form | inside `//form`: add field cancelled, field end_quick_repair, field quotation_type, field repair_image_01, field valid_diagnosis; set invisible=(sale_order_id == False) or ((quotation_type != 'Project') or (cancelled == True)) on `//button[@name='action_fsm_create_quotation']`; set invisible=((helpdesk_ticket_id != False) and (repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (valid_diagnosis == False)) or ((cancelled == True) or (end_quick_repair == True))) on `//button[@name='action_fsm_view_material']` | Inactive (archived). Would hide Create Quotation unless the task's order is a non-cancelled Project quotation, and hide Products on ticket tasks missing a repair image or diagnosis, or when cancelled or quick repair ended. | `project.task.cancelled`<br>`project.task.end_quick_repair`<br>`project.task.quotation_type`<br>`project.task.repair_image_01`<br>`project.task.valid_diagnosis`<details><summary>+1 more</summary>`view industry_fsm.view_task_form2_inherit` (industry_fsm)</details> |  |
+| Odoo Studio: project.task.form customization | `view_project_task_form_inherit` | form | inside `//notebook`: add page 'Repair Image', page 'Warranty Card' | Adds two tabs to the task form: Repair Image (Repair Image 01 and 02) and Warranty Card (warranty card and related-information images from the helpdesk ticket). | `project.task.related_information`<br>`project.task.repair_image_01`<br>`project.task.repair_image_02`<br>`project.task.warranty_card`<br>`view project.view_task_form2` (project) |  |
+| Odoo Studio: project.task.form_button | `view_project_task_form_button` | form | set invisible=(helpdesk_ticket_id != False) or (allow_forecast == False) on `//button[@name='action_get_project_forecast_by_user']`; before `//button[@name='action_create_invoice']`: add ; set invisible=(worksheet_count != 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or ((partner_id == False) or (helpdesk_ticket_id != False)))) on `//button[@name='action_fsm_worksheet']`; set invisible=(worksheet_count == 0) or ((worksheet_template_id == False) or ((allow_worksheets == False) or (helpdesk_ticket_id != False))) on `//button[@name='action_fsm_worksheet'][2]`; remove `//button[@name='action_create_invoice']` | Inactive (archived). Would hide the forecast and worksheet buttons and remove Create Invoice on helpdesk-linked tasks. Its diagnosis-validation button was stripped. | `view project.view_task_form2` (project) |  |
+| Odoo Studio: project.task.tree customization | `view_project_task_tree_inherit` | tree |  | Empty: its only change (on Effective Hours) was stripped during porting, so it has no effect on the task list. | `view project.view_task_tree2` (project) |  |
+| Odoo Studio: view.task.form2.inherit | `view_task_form2_inherit` | form | inside `//form`: add field cancelled, field end_quick_repair, field quotation_type, field repair_image_01, field valid_diagnosis; set invisible=(sale_order_id == False) or ((quotation_type != 'Project') or (cancelled == True)) on `//button[@name='action_fsm_create_quotation']`; set invisible=((helpdesk_ticket_id != False) and (repair_image_01 == False)) or (((helpdesk_ticket_id != False) and (valid_diagnosis == False)) or ((cancelled == True) or (end_quick_repair == True))) on `//button[@name='action_fsm_view_material']` | Inactive (archived). Would hide Create Quotation unless the task's order is a non-cancelled Project quotation, and hide Products on ticket tasks missing a repair image or diagnosis, or when cancelled or quick repair ended. | `project.task.cancelled`<br>`project.task.end_quick_repair`<br>`project.task.quotation_type`<br>`project.task.repair_image_01`<br>`project.task.valid_diagnosis`<details><summary>+1 more</summary>`view industry_fsm.view_task_form2_inherit` (industry_fsm)</details> |  |
 
 **Record rules (7):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project/Task: employees: Full access to own private task only | `rule_761_project_task_employees_full_access_to_own_private_task_only` | For User types / Internal User: read/write/create/delete on Task only where `[('project_id', '=', False), ('user_ids', 'in', user.id), ('parent_id', '=', False)]`. | `group base.group_user` (base)<br>`model project.task` (project)<br>`project.task.parent_id` (project)<br>`project.task.project_id` (project)<br>`project.task.user_ids` (project) |  |
+| Project/Task: employees: Full access to own private task only | `rule_project_task_employees_full_access_to_own_private_task_only` | For User types / Internal User: read/write/create/delete on Task only where `[('project_id', '=', False), ('user_ids', 'in', user.id), ('parent_id', '=', False)]`. | `group base.group_user` (base)<br>`model project.task` (project)<br>`project.task.parent_id` (project)<br>`project.task.project_id` (project)<br>`project.task.user_ids` (project) |  |
 | Project/Task: employees: follow required for follower-only projects | `rule_71_project_task_employees_follow_required_for_follower_only_pro` | For User types / Internal User: read/write/create/delete on Task only where `[
             '|',
                 '&',
@@ -525,7 +525,7 @@ record._repair_studio_validate_diagnosis_lines()
             '|', ('project_id', '!=', False),
                  ('user_ids', 'in', user.id),
         ]`. | `group project.group_project_manager` (project)<br>`model project.task` (project)<br>`project.task.project_id` (project)<br>`project.task.user_ids` (project) |  |
-| Project/Task: project users: follow required for follower-only projects | `rule_762_project_task_project_users_follow_required_for_follower_only` | For Project / User: write/create/delete on Task only where `[
+| Project/Task: project users: follow required for follower-only projects | `rule_project_task_project_users_follow_required_for_follower_only` | For Project / User: write/create/delete on Task only where `[
             '|',
                 '&',
                     ('project_id', '!=', False),
@@ -537,7 +537,7 @@ record._repair_studio_validate_diagnosis_lines()
                     # to subscribe check access to the record, follower is not enough at creation
                     ('user_ids', 'in', user.id)
         ]`. | `group project.group_project_user` (project)<br>`model project.task` (project)<br>`project.project.message_partner_ids` (project)<br>`project.project.privacy_visibility` (project)<br>`project.task.message_partner_ids` (project)<details><summary>+2 more</summary>`project.task.project_id` (project)<br>`project.task.user_ids` (project)</details> |  |
-| Project: See private tasks | `rule_401_project_see_private_tasks` | For Project / User: read/write/create/delete on Task only where `[
+| Project: See private tasks | `rule_project_see_private_tasks` | For Project / User: read/write/create/delete on Task only where `[
             ('project_id.privacy_visibility', '!=', 'followers'),
             '|', '|', ('project_id', '!=', False),
                       ('parent_id', '!=', False),
@@ -560,28 +560,28 @@ This repo adds a Project Update Status (Pending or Completed) shown as a statusb
 
 | Field | Label | Type | Function | How it gets its value | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| `actual_gp` | Actual GP | float | Actual gross profit for the project update, copied from the auto-generated Project Gross Margin report when the update is created. | stored |  | `server action BugFix-Project.server_action_2131_project_update_project_gross_margin_report_auto_generate` |
-| `estimated_gp` | Estimated GP | float | Estimated gross profit for the project update, copied from the auto-generated Project Gross Margin report when the update is created. | stored |  | `server action BugFix-Project.server_action_2131_project_update_project_gross_margin_report_auto_generate` |
-| `financial_progress` | Financial Project Progress | float | Financial progress of the project, copied from the auto-generated Project Gross Margin report; shown as an optional progress-bar column in the project update list. | stored |  | `server action BugFix-Project.server_action_2130_project_update_project_gross_margin_report_auto_generate`<br>`server action BugFix-Project.server_action_2131_project_update_project_gross_margin_report_auto_generate`<br>`view BugFix-Project.view_4925_odoo_studio_project_update_view_tree_customization_e` |
-| `gross_margin_report` | Gross Margin Report | many2one → `sales_report_model` | Link to the Project Gross Margin report (Sales Report Model record) generated automatically for this project update. | stored | `model sales_report_model` (Jinasena_Masterdata_Reporting) | `server action BugFix-Project.server_action_2130_project_update_project_gross_margin_report_auto_generate`<br>`server action BugFix-Project.server_action_2131_project_update_project_gross_margin_report_auto_generate` |
-| `selection_field_0zgmv` | Project Update Status | selection: Pending=Pending; Completed=Completed | Status of the project update (Pending or Completed), with a configured default; shown as a read-only statusbar in the form header and set to Completed by the PROJ - Project Update - Completed action. | stored |  | `default BugFix-Project.default_326_project_update_selection_field_0zgmv`<br>`server action BugFix-Project.server_action_2150_proj_project_update_completed`<br>`view BugFix-Project.ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12`<br>`view BugFix-Project.view_4932_odoo_studio_project_update_view_form_button_e` |
+| `actual_gp` | Actual GP | float | Actual gross profit for the project update, copied from the auto-generated Project Gross Margin report when the update is created. | stored |  | `server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate_2` |
+| `estimated_gp` | Estimated GP | float | Estimated gross profit for the project update, copied from the auto-generated Project Gross Margin report when the update is created. | stored |  | `server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate_2` |
+| `financial_progress` | Financial Project Progress | float | Financial progress of the project, copied from the auto-generated Project Gross Margin report; shown as an optional progress-bar column in the project update list. | stored |  | `server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate`<br>`server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate_2`<br>`view BugFix-Project.view_project_update_view_tree_inherit` |
+| `gross_margin_report` | Gross Margin Report | many2one → `sales_report_model` | Link to the Project Gross Margin report (Sales Report Model record) generated automatically for this project update. | stored | `model sales_report_model` (Jinasena_Masterdata_Reporting) | `server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate`<br>`server action BugFix-Project.action_project_update_project_gross_margin_report_auto_generate_2` |
+| `selection_field_0zgmv` | Project Update Status | selection: Pending=Pending; Completed=Completed | Status of the project update (Pending or Completed), with a configured default; shown as a read-only statusbar in the form header and set to Completed by the PROJ - Project Update - Completed action. | stored |  | `default BugFix-Project.default_project_update_selection_field_0zgmv`<br>`server action BugFix-Project.action_proj_project_update_completed`<br>`view BugFix-Project.view_project_update_view_form_inherit`<br>`view BugFix-Project.view_project_update_view_form_button` |
 
 **Server actions (7):**
 
-- **PROJ - Project Update - Completed** (`server_action_2150_proj_project_update_completed`, type `code`)
+- **PROJ - Project Update - Completed** (`action_proj_project_update_completed`, type `code`)
   - Function: Sets the project update's status to Completed.
   - Depends on: `model project.update` (project), `project.update.selection_field_0zgmv`
-  - Used by: `server action BugFix-Project.server_action_2147_proj_project_update_completed_final`
+  - Used by: `server action BugFix-Project.action_proj_project_update_completed_final`
   <details><summary>code (1 lines)</summary>
 
 ```python
 record.write({"selection_field_0zgmv": "Completed"})
 ```
   </details>
-- **PROJ - Project Update - Completed - Email to Client** (`server_action_2153_proj_project_update_completed_email_to_client`, type `mail_post`)
+- **PROJ - Project Update - Completed - Email to Client** (`action_proj_project_update_completed_email_to_client`, type `mail_post`)
   - Function: Meant to email the client when a project update is completed; it is a Post Message action with no template configured in the port, so it sends nothing.
   - Depends on: `model project.update` (project)
-  - Used by: `server action BugFix-Project.server_action_2147_proj_project_update_completed_final`
+  - Used by: `server action BugFix-Project.action_proj_project_update_completed_final`
   <details><summary>code (12 lines)</summary>
 
 ```python
@@ -599,9 +599,9 @@ record.write({"selection_field_0zgmv": "Completed"})
 # To return an action, assign: action = {...}
 ```
   </details>
-- **PROJ - Project Update - Completed - Final** (`server_action_2147_proj_project_update_completed_final`, type `multi`)
+- **PROJ - Project Update - Completed - Final** (`action_proj_project_update_completed_final`, type `multi`)
   - Function: Runs two actions in order: sets the project update's status to Completed, then the (template-less) email-to-client action. Its header button was stripped from the update form during porting.
-  - Depends on: `model project.update` (project), `server action BugFix-Project.server_action_2150_proj_project_update_completed`, `server action BugFix-Project.server_action_2153_proj_project_update_completed_email_to_client`
+  - Depends on: `model project.update` (project), `server action BugFix-Project.action_proj_project_update_completed`, `server action BugFix-Project.action_proj_project_update_completed_email_to_client`
   - Used by: — (not linked to a button, menu or automation)
   <details><summary>code (12 lines)</summary>
 
@@ -620,7 +620,7 @@ record.write({"selection_field_0zgmv": "Completed"})
 # To return an action, assign: action = {...}
 ```
   </details>
-- **PROJ - Project Update - Notify PM** (`server_action_2146_proj_project_update_notify_pm`, type `next_activity`)
+- **PROJ - Project Update - Notify PM** (`action_proj_project_update_notify_pm`, type `next_activity`)
   - Function: Schedules a To-Do activity 'Update Project Activities' on the project update for a specific user; no user is configured in the port, so the target user is not defined.
   - Depends on: `model project.update` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -641,7 +641,7 @@ record.write({"selection_field_0zgmv": "Completed"})
 # To return an action, assign: action = {...}
 ```
   </details>
-- **PROJ - Project Update - Validations** (`server_action_2145_proj_project_update_validations`, type `code`)
+- **PROJ - Project Update - Validations** (`action_proj_project_update_validations`, type `code`)
   - Function: Rejects a project update when Progress is zero or the description is shorter than 12 characters (the message says 5), raising an error.
   - Depends on: `model project.update` (project), `project.update.description` (project), `project.update.progress` (project)
   - Used by: — (not linked to a button, menu or automation)
@@ -658,7 +658,7 @@ if desc_len < 12:
     raise UserError("Description should be greater than 5 characters.")
 ```
   </details>
-- **Project Update - Project Gross Margin Report Auto Generate** (`server_action_2130_project_update_project_gross_margin_report_auto_generate`, type `code`)
+- **Project Update - Project Gross Margin Report Auto Generate** (`action_project_update_project_gross_margin_report_auto_generate`, type `code`)
   - Function: Creates a Project Gross Margin report for the update's project, links it to the update and copies its Financial Progress. Older variant of action 2131, which also copies estimated and actual GP.
   - Depends on: `model project.update` (project), `model sales_report_model` (Jinasena_Masterdata_Reporting), `model sales_report_type` (Jinasena_Masterdata_Reporting), `project.update.project_id` (project), `project.update.financial_progress`<details><summary>+1 more</summary>`project.update.gross_margin_report`</details>
   - Used by: — (not linked to a button, menu or automation)
@@ -683,7 +683,7 @@ if report_type:
     )
 ```
   </details>
-- **Project Update - Project Gross Margin Report Auto Generate** (`server_action_2131_project_update_project_gross_margin_report_auto_generate`, type `code`)
+- **Project Update - Project Gross Margin Report Auto Generate** (`action_project_update_project_gross_margin_report_auto_generate_2`, type `code`)
   - Function: Creates a Project Gross Margin report for the update's project, links it to the update and copies its Financial Progress, Estimated GP and Actual GP onto the update.
   - Depends on: `model project.update` (project), `model sales_report_model` (Jinasena_Masterdata_Reporting), `model sales_report_type` (Jinasena_Masterdata_Reporting), `project.update.project_id` (project), `project.update.actual_gp`<details><summary>+3 more</summary>`project.update.estimated_gp`, `project.update.financial_progress`, `project.update.gross_margin_report`</details>
   - Used by: — (not linked to a button, menu or automation)
@@ -714,26 +714,26 @@ if report_type:
 
 | Name | Record name | State | Function | Depends on | Used by |
 |---|---|---|---|---|---|
-| PROJ - Project Update - Notify PM | `automation_195_proj_project_update_notify_pm` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
-| PROJ - Project Update - Validations | `automation_194_proj_project_update_validations` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
-| Project Update - Project Gross Margin Report Auto Generate | `automation_191_project_update_project_gross_margin_report_auto_generate` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
+| PROJ - Project Update - Notify PM | `automation_proj_project_update_notify_pm` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
+| PROJ - Project Update - Validations | `automation_proj_project_update_validations` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
+| Project Update - Project Gross Margin Report Auto Generate | `automation_project_update_project_gross_margin_report_auto_generate` |  | When a record is created or updated on Project Update, runs nothing (no action linked). | `model project.update` (project) |  |
 
 **Window actions (3):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
 | project.update | `aw_f4_project_update_project_update` | Opens **Project Update** records (kanban,tree,form). | `model project.update` (project) |  |
-| project.update | `action_2803_project_update` | Opens **Project Update** records (kanban,tree,form). | `model project.update` (project) |  |
-| project.update | `act_window_2803_project_update` | Opens **Project Update** records (kanban,tree,form). | `model project.update` (project) | `menu BugFix-Project.menu_f6_project_update`<br>`menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_project_update` (BugFix-Studio-Misc) |
+| project.update | `action_project_update` | Opens **Project Update** records (kanban,tree,form). | `model project.update` (project) |  |
+| project.update | `action_project_update_2` | Opens **Project Update** records (kanban,tree,form). | `model project.update` (project) | `menu BugFix-Project.menu_project_update`<br>`menu BugFix-Studio-Misc.menu_f6r2_test_app_05_projects_project_update` (BugFix-Studio-Misc) |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Odoo Studio: project.update.view.form customization | `ported_odoo_studio_project__f6849389_d612_4bdf_b988_61738a735a12` | form | before `//form[1]/sheet[1]`: add header; before `//form[1]/sheet[1]/div[not(@name)][1]`: add div | Adds a header to the project update form with a read-only statusbar for Project Update Status (Pending/Completed), plus an empty smart-button box. | `project.update.selection_field_0zgmv`<br>`view project.project_update_view_form` (project) |  |
-| Odoo Studio: project.update.view.form_button | `view_4932_odoo_studio_project_update_view_form_button_e` | form | inside `//form`: add field selection_field_0zgmv; before `//header/field[@name='selection_field_0zgmv']`: add | Inactive (archived). Would add a hidden status field to the project update form; its Completed - Final button was stripped during porting. | `project.update.selection_field_0zgmv`<br>`view project.project_update_view_form` (project) |  |
-| Odoo Studio: project.update.view.kanban customization | `view_4933_odoo_studio_project_update_view_kanban_customization_e` | kanban |  | Empty customization of the project update kanban view; it makes no change. | `view project.project_update_view_kanban` (project) |  |
-| Odoo Studio: project.update.view.tree customization | `view_4925_odoo_studio_project_update_view_tree_customization_e` | tree | after `//field[@name="date"]`: add field financial_progress | Adds an optional Financial Project Progress column (progress bar) after Date in the project update list. | `project.update.financial_progress`<br>`view project.project_update_view_tree` (project) |  |
+| Odoo Studio: project.update.view.form customization | `view_project_update_view_form_inherit` | form | before `//form[1]/sheet[1]`: add header; before `//form[1]/sheet[1]/div[not(@name)][1]`: add div | Adds a header to the project update form with a read-only statusbar for Project Update Status (Pending/Completed), plus an empty smart-button box. | `project.update.selection_field_0zgmv`<br>`view project.project_update_view_form` (project) |  |
+| Odoo Studio: project.update.view.form_button | `view_project_update_view_form_button` | form | inside `//form`: add field selection_field_0zgmv; before `//header/field[@name='selection_field_0zgmv']`: add | Inactive (archived). Would add a hidden status field to the project update form; its Completed - Final button was stripped during porting. | `project.update.selection_field_0zgmv`<br>`view project.project_update_view_form` (project) |  |
+| Odoo Studio: project.update.view.kanban customization | `view_project_update_view_kanban_inherit` | kanban |  | Empty customization of the project update kanban view; it makes no change. | `view project.project_update_view_kanban` (project) |  |
+| Odoo Studio: project.update.view.tree customization | `view_project_update_view_tree_inherit` | tree | after `//field[@name="date"]`: add field financial_progress | Adds an optional Financial Project Progress column (progress bar) after Date in the project update list. | `project.update.financial_progress`<br>`view project.project_update_view_tree` (project) |  |
 
 **Mail templates (1):**
 
@@ -745,8 +745,8 @@ if report_type:
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project updates : Project user can see all project updates | `rule_406_project_updates_project_user_can_see_all_project_updates` | For Project / Administrator: read/write/create/delete on Project Update with no record filter (empty domain = all records). | `group project.group_project_manager` (project)<br>`model project.update` (project) |  |
-| Project/Update: employees: follow required for follower-only projects | `rule_405_project_update_employees_follow_required_for_follower_only_p` | For User types / Internal User: read/write/create/delete on Project Update only where `[
+| Project updates : Project user can see all project updates | `rule_project_updates_project_user_can_see_all_project_updates` | For Project / Administrator: read/write/create/delete on Project Update with no record filter (empty domain = all records). | `group project.group_project_manager` (project)<br>`model project.update` (project) |  |
+| Project/Update: employees: follow required for follower-only projects | `rule_project_update_employees_follow_required_for_follower_only` | For User types / Internal User: read/write/create/delete on Project Update only where `[
         '|',
             ('project_id.privacy_visibility', '!=', 'followers'),
             '|',
@@ -755,13 +755,13 @@ if report_type:
                     ('user_id', '=', user.id),
                     ('project_id.user_id', '=', user.id)
         ]`. | `group base.group_user` (base)<br>`model project.update` (project)<br>`project.project.message_partner_ids` (project)<br>`project.project.privacy_visibility` (project)<br>`project.project.user_id` (project)<details><summary>+2 more</summary>`project.update.project_id` (project)<br>`project.update.user_id` (project)</details> |  |
-| Project/Updates: multi-company | `rule_404_project_updates_multi_company` | For everyone (global rule): read/write/create/delete on Project Update only where `['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]`. | `model project.update` (project)<br>`project.project.company_id` (project)<br>`project.update.project_id` (project) |  |
+| Project/Updates: multi-company | `rule_project_updates_multi_company` | For everyone (global rule): read/write/create/delete on Project Update only where `['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]`. | `model project.update` (project)<br>`project.project.company_id` (project)<br>`project.update.project_id` (project) |  |
 
 ### `departments` — Departments
 
 *Created by this repo.* Python: `models/departments.py`, `models/x_departments_gap.py`. Record name field: `name`.
 
-Other repos that use this model: `access right BugFix-Studio-Misc.access_g_test_access_rights_2_x_departments_test_department_2` (BugFix-Studio-Misc)<br>`access right BugFix-Studio-Misc.access_g_test_access_rights_x_departments_test_department` (BugFix-Studio-Misc)
+Other repos that use this model: `access right BugFix-Studio-Misc.access_g_test_access_rights_2_departments_test_department_2` (BugFix-Studio-Misc)<br>`access right BugFix-Studio-Misc.access_g_test_access_rights_departments_test_department` (BugFix-Studio-Misc)
 
 **Summary:**
 
@@ -803,33 +803,33 @@ A Department is a simple named record with code, description, sequence, responsi
 | `website_message_ids` | Website Messages | one2many → `mail.message` | Chatter messages on the Department that are visible on the website/portal; standard chatter feature. | stored | `model mail.message` (mail) |  |
 | `write_date` | Last Updated on | datetime | Date and time the Department was last modified, set automatically. | stored |  |  |
 | `write_uid` | Last Updated by | many2one → `res.users` | User who last modified the Department record, set automatically. | stored | `model res.users` (base) |  |
-| `active` | Active | boolean | Archive flag for the Department (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_14_x_departments_active`<br>`view BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3`<br>`view BugFix-Project.ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47` |
-| `name` | Name | char | Name of the Department, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3`<br>`view BugFix-Project.ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549`<br>`view BugFix-Project.ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47` |
-| `code` | Code | char | Short code of the Department, entered on the department form. | stored |  | `view BugFix-Project.ported_view_2322_odoo_studio_default_form_view_for_x_depa` |
-| `description` | Description | char | Free-text description of the Department, entered on the department form. | stored |  | `view BugFix-Project.ported_view_2322_odoo_studio_default_form_view_for_x_depa` |
-| `sequence` | Sequence | integer | Ordering number for Department records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_15_x_departments_sequence`<br>`view BugFix-Project.ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549` |
-| `user_id` | Responsible | many2one → `res.users` | User responsible for the Department. Used by the My Departments filter and grouping, and by a global record rule (test_users_records_only) that limits every user to departments they are responsible for. | stored | `model res.users` (base) | `record rule BugFix-Project.rule_271_test_users_records_only`<br>`view BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3`<br>`view BugFix-Project.ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549`<br>`view BugFix-Project.ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47` |
+| `active` | Active | boolean | Archive flag for the Department (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_14_departments_active`<br>`view BugFix-Project.view_departments_form`<br>`view BugFix-Project.view_departments_search` |
+| `name` | Name | char | Name of the Department, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.view_departments_form`<br>`view BugFix-Project.view_departments_list`<br>`view BugFix-Project.view_departments_search` |
+| `code` | Code | char | Short code of the Department, entered on the department form. | stored |  | `view BugFix-Project.view_default_form_view_for_departments_inherit` |
+| `description` | Description | char | Free-text description of the Department, entered on the department form. | stored |  | `view BugFix-Project.view_default_form_view_for_departments_inherit` |
+| `sequence` | Sequence | integer | Ordering number for Department records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_15_departments_sequence`<br>`view BugFix-Project.view_departments_list` |
+| `user_id` | Responsible | many2one → `res.users` | User responsible for the Department. Used by the My Departments filter and grouping, and by a global record rule (test_users_records_only) that limits every user to departments they are responsible for. | stored | `model res.users` (base) | `record rule BugFix-Project.rule_271_test_users_records_only`<br>`view BugFix-Project.view_departments_form`<br>`view BugFix-Project.view_departments_list`<br>`view BugFix-Project.view_departments_search` |
 
 **Window actions (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Departments | `action_784_departments` | Opens **Departments** records (tree,form). | `model departments` |  |
+| Departments | `action_departments` | Opens **Departments** records (tree,form). | `model departments` |  |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default form view for departments | `ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3` | form | full form layout with 3 fields | Form view of a Department: Name as title, Responsible user, and an Archived ribbon when inactive. | `departments.active`<br>`departments.name`<br>`departments.user_id` | `view BugFix-Project.ported_view_2322_odoo_studio_default_form_view_for_x_depa` |
-| Default list view for departments | `ported_default_list_view_fo_a3146a55_ec15_4748_b6e8_4e6005b08549` | tree | full tree layout with 3 fields | List view of Departments with a drag handle for ordering, Name and Responsible user (avatar). | `departments.name`<br>`departments.sequence`<br>`departments.user_id` |  |
-| Default search view for departments | `ported_default_search_view__8ffb2001_1b7c_4a47_a326_117b4137bb47` | search | full search layout with 2 fields | Search view for Departments: search by Name or Responsible, filters My Departments and Archived, and group by Responsible. | `departments.active`<br>`departments.name`<br>`departments.user_id` |  |
-| Odoo Studio: Default form view for departments customization | `ported_view_2322_odoo_studio_default_form_view_for_x_depa` | form | before `//field[@name='user_id']`: add field code, field description | Adds Code and Description fields before Responsible on the Department form. | `view BugFix-Project.ported_default_form_view_fo_bd8d3ada_46a1_4fd3_9469_e13371fb5db3`<br>`departments.code`<br>`departments.description` |  |
+| Default form view for departments | `view_departments_form` | form | full form layout with 3 fields | Form view of a Department: Name as title, Responsible user, and an Archived ribbon when inactive. | `departments.active`<br>`departments.name`<br>`departments.user_id` | `view BugFix-Project.view_default_form_view_for_departments_inherit` |
+| Default list view for departments | `view_departments_list` | tree | full tree layout with 3 fields | List view of Departments with a drag handle for ordering, Name and Responsible user (avatar). | `departments.name`<br>`departments.sequence`<br>`departments.user_id` |  |
+| Default search view for departments | `view_departments_search` | search | full search layout with 2 fields | Search view for Departments: search by Name or Responsible, filters My Departments and Archived, and group by Responsible. | `departments.active`<br>`departments.name`<br>`departments.user_id` |  |
+| Odoo Studio: Default form view for departments customization | `view_default_form_view_for_departments_inherit` | form | before `//field[@name='user_id']`: add field code, field description | Adds Code and Description fields before Responsible on the Department form. | `view BugFix-Project.view_departments_form`<br>`departments.code`<br>`departments.description` |  |
 
 **Access rights (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| departments user access | `access_x_departments_user` | Gives **User types / Internal User** read/write/create/delete access to Departments records. | `group base.group_user` (base)<br>`model departments` |  |
+| departments user access | `access_departments_user` | Gives **User types / Internal User** read/write/create/delete access to Departments records. | `group base.group_user` (base)<br>`model departments` |  |
 
 **Record rules (1):**
 
@@ -841,7 +841,7 @@ A Department is a simple named record with code, description, sequence, responsi
 
 *Created by this repo.* Python: `models/project_category.py`, `models/x_project_category_gap.py`. Record name field: `name`.
 
-Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_category_x_project_category_accounting_jin_projectinvoice` (BugFix-Studio-Misc)<br>`account.move.line.category` (BugFix-Accounting)<br>`sale.order.line.category` (BugFix-Sales)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2102_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`temp_estimated.category` (BugFix-Accounting)
+Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_category_project_category_accounting_jin_projectinvoice` (BugFix-Studio-Misc)<br>`account.move.line.category` (BugFix-Accounting)<br>`sale.order.line.category` (BugFix-Sales)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`temp_estimated.category` (BugFix-Accounting)
 
 **Summary:**
 
@@ -883,43 +883,43 @@ A Project Category classifies project costs. Each category has a name, a Categor
 | `website_message_ids` | Website Messages | one2many → `mail.message` | Chatter messages on the Project Category that are visible on the website/portal; standard chatter feature. | stored | `model mail.message` (mail) |  |
 | `write_date` | Last Updated on | datetime | Date and time the Project Category was last modified, set automatically. | stored |  |  |
 | `write_uid` | Last Updated by | many2one → `res.users` | User who last modified the Project Category record, set automatically. | stored | `model res.users` (base) |  |
-| `active` | Active | boolean | Archive flag for the Project Category (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_304_x_project_category_active`<br>`view BugFix-Project.ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4`<br>`view BugFix-Project.ported_default_search_view__0109453b_5222_4c2f_86c8_68a69bf444de` |
-| `name` | Category | char | Name of the Project Category, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4`<br>`view BugFix-Project.ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be`<br>`view BugFix-Project.ported_default_search_view__0109453b_5222_4c2f_86c8_68a69bf444de` |
+| `active` | Active | boolean | Archive flag for the Project Category (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_project_category_active`<br>`view BugFix-Project.view_project_category_form`<br>`view BugFix-Project.view_project_category_search` |
+| `name` | Category | char | Name of the Project Category, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.view_project_category_form`<br>`view BugFix-Project.view_project_category_list`<br>`view BugFix-Project.view_project_category_search` |
 | `category_group` | Category Group | many2one → `project_category_gro` | Project Category Group this category belongs to; not shown on the ported category views. | stored | `model project_category_gro` |  |
 | `category_name` | Category Name | char | Additional category name text field; not shown on any view or used by any logic in this repo. | stored |  |  |
-| `claimability` | Claimability | selection: None=None; Claimable=Claimable; Non-Claimable=Non-Claimable | Whether expense costs in this category are Claimable or Non-Claimable (default configured). The SRM - RPT - Project Gross Margin report action uses it to split expense totals. | stored |  | `default BugFix-Project.default_316_x_project_category_claimability` |
-| `sequence` | Sequence | integer | Ordering number for Project Category records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_305_x_project_category_sequence`<br>`view BugFix-Project.ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be` |
+| `claimability` | Claimability | selection: None=None; Claimable=Claimable; Non-Claimable=Non-Claimable | Whether expense costs in this category are Claimable or Non-Claimable (default configured). The SRM - RPT - Project Gross Margin report action uses it to split expense totals. | stored |  | `default BugFix-Project.default_project_category_claimability` |
+| `sequence` | Sequence | integer | Ordering number for Project Category records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_project_category_sequence`<br>`view BugFix-Project.view_project_category_list` |
 | `transaction_type` | Transaction Type | selection: Item=Item; Expense=Expense; Fee=Fee; Hour=Hour | Transaction type of the category (Item, Expense, Fee or Hour). The SRM - RPT - Project Gross Margin report action uses it to group estimated and actual values by type. | stored |  |  |
 
 **Window actions (2):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Category | `action_2026_project_category` | Opens **Project Category** records (tree,form). | `model project_category` | `menu BugFix-Project.menu_986_project_category`<br>`menu BugFix-Project.menu_f6_project_category` |
-| Project Category (project_category) | `action_2879_project_category_project_category` | Opens **Project Category** records (tree,form). | `model project_category` | `menu BugFix-Studio-Misc.menu_f6r2_test_app_05_project_category_project_category` (BugFix-Studio-Misc) |
+| Project Category | `action_project_category` | Opens **Project Category** records (tree,form). | `model project_category` | `menu BugFix-Project.menu_project_category_2`<br>`menu BugFix-Project.menu_project_category` |
+| Project Category (project_category) | `action_project_category_project_category` | Opens **Project Category** records (tree,form). | `model project_category` | `menu BugFix-Studio-Misc.menu_f6r2_test_app_05_project_category_project_category` (BugFix-Studio-Misc) |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default form view for project_category | `ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4` | form | full form layout with 2 fields | Form view of a Project Category: Category name as title and an Archived ribbon when inactive. | `project_category.active`<br>`project_category.name` |  |
-| Default list view for project_category | `ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be` | tree | full tree layout with 2 fields | List view of Project Categories with a drag handle for ordering and the Category name. | `project_category.name`<br>`project_category.sequence` | `view BugFix-Project.ported_odoo_studio_default__1f20671c_d39c_4464_9e3c_0c77ab8f748b` |
-| Default search view for project_category | `ported_default_search_view__0109453b_5222_4c2f_86c8_68a69bf444de` | search | full search layout with 1 fields | Search view for Project Categories: search by Category and an Archived filter. | `project_category.active`<br>`project_category.name` |  |
-| Odoo Studio: Default list view for project_category customization | `ported_odoo_studio_default__1f20671c_d39c_4464_9e3c_0c77ab8f748b` | tree | set editable=bottom on `//tree[1]` | Makes the Project Category list editable inline, with new rows added at the bottom. | `view BugFix-Project.ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be` |  |
+| Default form view for project_category | `view_project_category_form` | form | full form layout with 2 fields | Form view of a Project Category: Category name as title and an Archived ribbon when inactive. | `project_category.active`<br>`project_category.name` |  |
+| Default list view for project_category | `view_project_category_list` | tree | full tree layout with 2 fields | List view of Project Categories with a drag handle for ordering and the Category name. | `project_category.name`<br>`project_category.sequence` | `view BugFix-Project.view_default_list_view_for_project_category_inherit` |
+| Default search view for project_category | `view_project_category_search` | search | full search layout with 1 fields | Search view for Project Categories: search by Category and an Archived filter. | `project_category.active`<br>`project_category.name` |  |
+| Odoo Studio: Default list view for project_category customization | `view_default_list_view_for_project_category_inherit` | tree | set editable=bottom on `//tree[1]` | Makes the Project Category list editable inline, with new rows added at the bottom. | `view BugFix-Project.view_project_category_list` |  |
 
 **Access rights (3):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Category group_system | `access_1698_project_category_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Category records. | `group base.group_system` (base)<br>`model project_category` |  |
-| Project Category group_user | `access_1699_project_category_group_user` | Gives **User types / Internal User** read access to Project Category records. | `group base.group_user` (base)<br>`model project_category` |  |
-| project_category user access | `access_x_project_category_user` | Gives **User types / Internal User** read/write/create/delete access to Project Category records. | `group base.group_user` (base)<br>`model project_category` |  |
+| Project Category group_system | `access_project_category_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Category records. | `group base.group_system` (base)<br>`model project_category` |  |
+| Project Category group_user | `access_project_category_group_user` | Gives **User types / Internal User** read access to Project Category records. | `group base.group_user` (base)<br>`model project_category` |  |
+| project_category user access | `access_project_category_user` | Gives **User types / Internal User** read/write/create/delete access to Project Category records. | `group base.group_user` (base)<br>`model project_category` |  |
 
 ### `project_category_gro` — Project Category Group
 
 *Created by this repo.* Python: `models/project_category_gro.py`, `models/x_project_category_gro_gap.py`. Record name field: `name`.
 
-Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_category_group_x_project_category_gro_accounting_jin_projectinvoice` (BugFix-Studio-Misc)
+Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_category_group_project_category_gro_accounting_jin_projectinvoice` (BugFix-Studio-Misc)
 
 **Summary:**
 
@@ -961,41 +961,41 @@ A Project Category Group groups Project Categories. It has a name, a Transaction
 | `website_message_ids` | Website Messages | one2many → `mail.message` | Chatter messages on the Project Category Group that are visible on the website/portal; standard chatter feature. | stored | `model mail.message` (mail) |  |
 | `write_date` | Last Updated on | datetime | Date and time the Project Category Group was last modified, set automatically. | stored |  |  |
 | `write_uid` | Last Updated by | many2one → `res.users` | User who last modified the Project Category Group record, set automatically. | stored | `model res.users` (base) |  |
-| `active` | Active | boolean | Archive flag for the Project Category Group (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_302_x_project_category_gro_active`<br>`view BugFix-Project.ported_default_form_view_fo_4c47b759_0437_4a50_8bde_31e224e98d73`<br>`view BugFix-Project.ported_default_search_view__848b9042_a23c_4ede_bd0a_959bc46f916e` |
-| `name` | Category Group | char | Name of the Project Category Group, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.ported_default_form_view_fo_4c47b759_0437_4a50_8bde_31e224e98d73`<br>`view BugFix-Project.ported_default_list_view_fo_bec9b336_4bd6_4f26_9907_592cba56fed5`<br>`view BugFix-Project.ported_default_search_view__848b9042_a23c_4ede_bd0a_959bc46f916e` |
+| `active` | Active | boolean | Archive flag for the Project Category Group (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_project_category_gro_active`<br>`view BugFix-Project.view_project_category_gro_form`<br>`view BugFix-Project.view_project_category_gro_search` |
+| `name` | Category Group | char | Name of the Project Category Group, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.view_project_category_gro_form`<br>`view BugFix-Project.view_project_category_gro_list`<br>`view BugFix-Project.view_project_category_gro_search` |
 | `category_group_name` | Category Group Name | char | Additional group name text field; not shown on any view or used by any logic in this repo. | stored |  |  |
 | `line_property` | Line property | char | Free-text line property of the category group; not shown on any view or used by any logic in this repo. | stored |  |  |
-| `sequence` | Sequence | integer | Ordering number for Project Category Group records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_303_x_project_category_gro_sequence`<br>`view BugFix-Project.ported_default_list_view_fo_bec9b336_4bd6_4f26_9907_592cba56fed5` |
+| `sequence` | Sequence | integer | Ordering number for Project Category Group records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_project_category_gro_sequence`<br>`view BugFix-Project.view_project_category_gro_list` |
 | `transaction_type` | Transaction Type | selection: Item=Item; Expense=Expense; Fee=Fee; Hour=Hour | Transaction type of the category group (Item, Expense, Fee or Hour); not used by any logic in this repo. | stored |  |  |
 
 **Window actions (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Category Group | `act_window_2025_project_category_group` | Opens **Project Category Group** records (tree,form). | `model project_category_gro` | `menu BugFix-Project.menu_985_project_category_group`<br>`menu BugFix-Project.menu_f6_project_category_group` |
+| Project Category Group | `action_project_category_group` | Opens **Project Category Group** records (tree,form). | `model project_category_gro` | `menu BugFix-Project.menu_project_category_group_2`<br>`menu BugFix-Project.menu_project_category_group` |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default form view for project_category_gro | `ported_default_form_view_fo_4c47b759_0437_4a50_8bde_31e224e98d73` | form | full form layout with 2 fields | Form view of a Project Category Group: Category Group name as title and an Archived ribbon when inactive. | `project_category_gro.active`<br>`project_category_gro.name` |  |
-| Default list view for project_category_gro | `ported_default_list_view_fo_bec9b336_4bd6_4f26_9907_592cba56fed5` | tree | full tree layout with 2 fields | List view of Project Category Groups with a drag handle for ordering and the Category Group name. | `project_category_gro.name`<br>`project_category_gro.sequence` | `view BugFix-Project.ported_odoo_studio_default__85283cff_70e4_4b23_b216_f01c6954b1cd` |
-| Default search view for project_category_gro | `ported_default_search_view__848b9042_a23c_4ede_bd0a_959bc46f916e` | search | full search layout with 1 fields | Search view for Project Category Groups: search by Category Group and an Archived filter. | `project_category_gro.active`<br>`project_category_gro.name` |  |
-| Odoo Studio: Default list view for project_category_gro customization | `ported_odoo_studio_default__85283cff_70e4_4b23_b216_f01c6954b1cd` | tree | set editable=bottom on `//tree[1]` | Makes the Project Category Group list editable inline, with new rows added at the bottom. | `view BugFix-Project.ported_default_list_view_fo_bec9b336_4bd6_4f26_9907_592cba56fed5` |  |
+| Default form view for project_category_gro | `view_project_category_gro_form` | form | full form layout with 2 fields | Form view of a Project Category Group: Category Group name as title and an Archived ribbon when inactive. | `project_category_gro.active`<br>`project_category_gro.name` |  |
+| Default list view for project_category_gro | `view_project_category_gro_list` | tree | full tree layout with 2 fields | List view of Project Category Groups with a drag handle for ordering and the Category Group name. | `project_category_gro.name`<br>`project_category_gro.sequence` | `view BugFix-Project.view_default_list_view_for_project_category_gro_inherit` |
+| Default search view for project_category_gro | `view_project_category_gro_search` | search | full search layout with 1 fields | Search view for Project Category Groups: search by Category Group and an Archived filter. | `project_category_gro.active`<br>`project_category_gro.name` |  |
+| Odoo Studio: Default list view for project_category_gro customization | `view_default_list_view_for_project_category_gro_inherit` | tree | set editable=bottom on `//tree[1]` | Makes the Project Category Group list editable inline, with new rows added at the bottom. | `view BugFix-Project.view_project_category_gro_list` |  |
 
 **Access rights (3):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Category Group group_system | `access_1696_project_category_group_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Category Group records. | `group base.group_system` (base)<br>`model project_category_gro` |  |
-| Project Category Group group_user | `access_1697_project_category_group_group_user` | Gives **User types / Internal User** read access to Project Category Group records. | `group base.group_user` (base)<br>`model project_category_gro` |  |
-| project_category_gro user access | `access_x_project_category_gro_user` | Gives **User types / Internal User** read/write/create/delete access to Project Category Group records. | `group base.group_user` (base)<br>`model project_category_gro` |  |
+| Project Category Group group_system | `access_project_category_group_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Category Group records. | `group base.group_system` (base)<br>`model project_category_gro` |  |
+| Project Category Group group_user | `access_project_category_group_group_user` | Gives **User types / Internal User** read access to Project Category Group records. | `group base.group_user` (base)<br>`model project_category_gro` |  |
+| project_category_gro user access | `access_project_category_gro_user` | Gives **User types / Internal User** read/write/create/delete access to Project Category Group records. | `group base.group_user` (base)<br>`model project_category_gro` |  |
 
 ### `project_groups` — Project Groups
 
 *Created by this repo.* Python: `models/project_groups.py`, `models/x_project_groups_gap.py`. Record name field: `name`.
 
-Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_groups_x_project_groups_accounting_jin_projectinvoice` (BugFix-Studio-Misc)<br>`sale.order.project_group` (BugFix-Sales)
+Other repos that use this model: `access right BugFix-Studio-Misc.access_g_proj_groups_project_groups_accounting_jin_projectinvoice` (BugFix-Studio-Misc)<br>`sale.order.project_group` (BugFix-Sales)
 
 **Summary:**
 
@@ -1037,39 +1037,39 @@ A Project Group is a named grouping assigned to projects; sales order actions in
 | `website_message_ids` | Website Messages | one2many → `mail.message` | Chatter messages on the Project Group that are visible on the website/portal; standard chatter feature. | stored | `model mail.message` (mail) |  |
 | `write_date` | Last Updated on | datetime | Date and time the Project Group was last modified, set automatically. | stored |  |  |
 | `write_uid` | Last Updated by | many2one → `res.users` | User who last modified the Project Group record, set automatically. | stored | `model res.users` (base) |  |
-| `active` | Active | boolean | Archive flag for the Project Group (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_306_x_project_groups_active`<br>`view BugFix-Project.ported_default_form_view_fo_3f299c76_71ec_4033_87c7_58900e29e002`<br>`view BugFix-Project.ported_default_search_view__1ba8dab6_4af4_45b5_ac3e_42e6825cdd43` |
-| `name` | Project Group | char | Name of the Project Group, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.ported_default_form_view_fo_3f299c76_71ec_4033_87c7_58900e29e002`<br>`view BugFix-Project.ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140`<br>`view BugFix-Project.ported_default_search_view__1ba8dab6_4af4_45b5_ac3e_42e6825cdd43` |
+| `active` | Active | boolean | Archive flag for the Project Group (default active); when unchecked the record is hidden, shows an Archived ribbon and appears only under the Archived filter. | stored |  | `default BugFix-Project.default_project_groups_active`<br>`view BugFix-Project.view_project_groups_form`<br>`view BugFix-Project.view_project_groups_search` |
+| `name` | Project Group | char | Name of the Project Group, entered by the user (required) and used as its display name. | stored |  | `view BugFix-Project.view_project_groups_form`<br>`view BugFix-Project.view_project_groups_list`<br>`view BugFix-Project.view_project_groups_search` |
 | `accounting_name` | Name | char | Additional name text field on the Project Group; not shown on any view or used by any logic in this repo. | stored |  |  |
-| `sequence` | Sequence | integer | Ordering number for Project Group records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_307_x_project_groups_sequence`<br>`view BugFix-Project.ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140` |
+| `sequence` | Sequence | integer | Ordering number for Project Group records (drag handle in the list), with a configured default. | stored |  | `default BugFix-Project.default_project_groups_sequence`<br>`view BugFix-Project.view_project_groups_list` |
 
 **Window actions (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Groups | `action_2027_project_groups` | Opens **Project Groups** records (tree,form). | `model project_groups` | `menu BugFix-Project.menu_987_project_groups`<br>`menu BugFix-Project.menu_f6_project_groups` |
+| Project Groups | `action_project_groups` | Opens **Project Groups** records (tree,form). | `model project_groups` | `menu BugFix-Project.menu_project_groups_2`<br>`menu BugFix-Project.menu_project_groups` |
 
 **Views (4):**
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default form view for project_groups | `ported_default_form_view_fo_3f299c76_71ec_4033_87c7_58900e29e002` | form | full form layout with 2 fields | Form view of a Project Group: Project Group name as title and an Archived ribbon when inactive. | `project_groups.active`<br>`project_groups.name` |  |
-| Default list view for project_groups | `ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140` | tree | full tree layout with 2 fields | List view of Project Groups with a drag handle for ordering and the Project Group name. | `project_groups.name`<br>`project_groups.sequence` | `view BugFix-Project.ported_odoo_studio_default__c9cffa3c_2353_4dba_bc25_27f33202c35e` |
-| Default search view for project_groups | `ported_default_search_view__1ba8dab6_4af4_45b5_ac3e_42e6825cdd43` | search | full search layout with 1 fields | Search view for Project Groups: search by Project Group and an Archived filter. | `project_groups.active`<br>`project_groups.name` |  |
-| Odoo Studio: Default list view for project_groups customization | `ported_odoo_studio_default__c9cffa3c_2353_4dba_bc25_27f33202c35e` | tree | set editable=bottom on `//tree[1]` | Makes the Project Group list editable inline, with new rows added at the bottom. | `view BugFix-Project.ported_default_list_view_fo_289ae9dd_5621_40c9_a6c8_caffa4299140` |  |
+| Default form view for project_groups | `view_project_groups_form` | form | full form layout with 2 fields | Form view of a Project Group: Project Group name as title and an Archived ribbon when inactive. | `project_groups.active`<br>`project_groups.name` |  |
+| Default list view for project_groups | `view_project_groups_list` | tree | full tree layout with 2 fields | List view of Project Groups with a drag handle for ordering and the Project Group name. | `project_groups.name`<br>`project_groups.sequence` | `view BugFix-Project.view_default_list_view_for_project_groups_inherit` |
+| Default search view for project_groups | `view_project_groups_search` | search | full search layout with 1 fields | Search view for Project Groups: search by Project Group and an Archived filter. | `project_groups.active`<br>`project_groups.name` |  |
+| Odoo Studio: Default list view for project_groups customization | `view_default_list_view_for_project_groups_inherit` | tree | set editable=bottom on `//tree[1]` | Makes the Project Group list editable inline, with new rows added at the bottom. | `view BugFix-Project.view_project_groups_list` |  |
 
 **Access rights (3):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| Project Groups group_system | `access_1700_project_groups_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Groups records. | `group base.group_system` (base)<br>`model project_groups` |  |
-| Project Groups group_user | `access_1701_project_groups_group_user` | Gives **User types / Internal User** read access to Project Groups records. | `group base.group_user` (base)<br>`model project_groups` |  |
-| project_groups user access | `access_x_project_groups_user` | Gives **User types / Internal User** read/write/create/delete access to Project Groups records. | `group base.group_user` (base)<br>`model project_groups` |  |
+| Project Groups group_system | `access_project_groups_group_system` | Gives **Administration / Settings** read/write/create/delete access to Project Groups records. | `group base.group_system` (base)<br>`model project_groups` |  |
+| Project Groups group_user | `access_project_groups_group_user` | Gives **User types / Internal User** read access to Project Groups records. | `group base.group_user` (base)<br>`model project_groups` |  |
+| project_groups user access | `access_project_groups_user` | Gives **User types / Internal User** read/write/create/delete access to Project Groups records. | `group base.group_user` (base)<br>`model project_groups` |  |
 
 ### `sales_report_model` — Sales Report Model
 
 *Extends a model created by `Jinasena_Masterdata_Reporting`.* Python: `models/sales_report_model.py`.
 
-Other repos that use this model: `access right BugFix-Accounting.access_1498_sales_report_model_group_system` (BugFix-Accounting)<br>`access right BugFix-Accounting.access_1499_sales_report_model_group_user` (BugFix-Accounting)<br>`access right BugFix-Accounting.access_x_sales_report_model_user` (BugFix-Accounting)<br>`access right Jinasena_Masterdata_Reporting.access_x_sales_report_model_user` (Jinasena_Masterdata_Reporting)<br>`automation BugFix-Accounting.base_automation_116_srm_auto_populate_data` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_117_srm_auto_populate_data_tau` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_119_srm_auto_populate_data_original` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_125_srm_auto_delete_sub_models` (BugFix-Accounting)<details><summary>+83 more</summary>`automation BugFix-Accounting.base_automation_126_jin_report_model_seq_no` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_131_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_132_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_133_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_134_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_135_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_136_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_137_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_182_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_188_report_model_created_date` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_189_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_248_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_99_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`report BugFix-Studio-Misc.action_report_1674_daily_sales_report` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_1684_customer_invoice_details` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_1713_sales_report_model_report` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_1728_daily_sales_report` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_1736_sales_details_for_incentive_calculation` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_1739_production_order_wip` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.action_report_2111_project_gross_margin` (BugFix-Studio-Misc)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_report_model_created_date` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_report_model_seq_no` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_auto_delete_sub_models` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.sa_f5_x_sales_report_model_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1670_rpt_daily_sales_report_generate` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1671_rpt_daily_sales_report_clear` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1675_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1676_rpt_sample_button` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1680_rpt_customer_wise_invoices_generate` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1681_rpt_customer_wise_invoices_clear` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1709_srm_auto_populate_data` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1710_rpt_daily_sales_report_clear_test` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1711_srm_auto_populate_data_2` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1726_srm_auto_populate_data` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1727_srm_auto_populate_data_tau` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1730_srm_auto_populate_data_original` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1746_srm_auto_delete_sub_models` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1747_report_model_seq_no` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1759_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1760_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1761_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1762_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1763_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1764_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1765_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2102_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2116_project_gross_margin_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2126_report_model_created_date` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2127_project_gross_margin_delete_reports` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2128_project_gross_margin_report_management_purpose` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2129_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_2490_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`server action BugFix-Accounting.srv_sales_report_sample_button` (BugFix-Accounting)<br>`server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`window action BugFix-Accounting.action_1667_sales_report_model` (BugFix-Accounting)<br>`window action BugFix-Accounting.action_2115_gross_margin_reports` (BugFix-Accounting)<br>`pump_price_costing.sales_report_model_id` (BugFix-Accounting)<br>`rm_cust_invoice_s1.sales_report_model_id` (BugFix-Accounting)<br>`rm_customer_wise_inv.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s1.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s2.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s3.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_sales_repor.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_actu.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_comp.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_esti.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_invo.sales_report_model_id` (BugFix-Accounting)<br>`rm_none_moving.sales_report_model_id` (BugFix-Accounting)<br>`rm_prod_summary_spli.sales_report_model_id` (BugFix-Accounting)<br>`rm_production_orders.sales_report_model_id` (BugFix-Accounting)<br>`rm_production_varian.sales_report_model_id` (BugFix-Accounting)<br>`rm_sales_order_line.sales_report_model_id` (BugFix-Accounting)<br>`rm_sales_prod_purch.sales_report_model_id` (BugFix-Accounting)</details>
+Other repos that use this model: `access right BugFix-Accounting.access_sales_report_model_group_system` (BugFix-Accounting)<br>`access right BugFix-Accounting.access_sales_report_model_group_user` (BugFix-Accounting)<br>`access right BugFix-Accounting.access_sales_report_model_user` (BugFix-Accounting)<br>`access right Jinasena_Masterdata_Reporting.access_sales_report_model_user` (Jinasena_Masterdata_Reporting)<br>`automation BugFix-Accounting.automation_srm_auto_populate_data` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_auto_populate_data_tau` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_auto_populate_data_original` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_auto_delete_sub_models` (BugFix-Accounting)<details><summary>+83 more</summary>`automation BugFix-Accounting.automation_jin_report_model_seq_no` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_report_model_created_date` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`automation BugFix-Accounting.automation_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`automation BugFix-Accounting.base_automation_99_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`report BugFix-Studio-Misc.report_daily_sales_report` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_customer_invoice_details` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_sales_report_model_report` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_daily_sales_report_2` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_sales_details_for_incentive_calculation` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_production_order_wip` (BugFix-Studio-Misc)<br>`report BugFix-Studio-Misc.report_project_gross_margin` (BugFix-Studio-Misc)<br>`server action BugFix-Accounting.action_sales_report_model_report_model_created_date` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_report_model_seq_no` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_auto_delete_sub_models` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_sales_report_model_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_rpt_daily_sales_report_generate` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_rpt_daily_sales_report_clear` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_restrict_delete_in_sales_report_model` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_rpt_sample_button` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_rpt_customer_wise_invoices_generate` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_rpt_customer_wise_invoices_clear` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_populate_data` (BugFix-Accounting)<br>`server action BugFix-Accounting.server_action_1710_rpt_daily_sales_report_clear_test` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_populate_data_2_2` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_populate_data_2` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_populate_data_tau` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_populate_data_original` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_auto_delete_sub_models` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_report_model_seq_no` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_daily_sales_summary` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_sales_details_for_incentive_calc` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_production_overview_wip` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_slow_moving_items` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_sales_production_purchase_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_production_summary_split` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_production_job_variance` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_project_gross_margin` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_project_gross_margin_report` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_report_model_created_date` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_project_gross_margin_delete_reports` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_project_gross_margin_report_management_purpose` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_project_gross_margin_notify_users` (BugFix-Accounting)<br>`server action BugFix-Accounting.action_srm_rpt_costing_work_sheet` (BugFix-Accounting)<br>`server action BugFix-Accounting.srv_sales_report_sample_button` (BugFix-Accounting)<br>`server action BugFix-Studio-Misc.server_action_2799_mst_odoo_data_clean_up` (BugFix-Studio-Misc)<br>`window action BugFix-Accounting.action_sales_report_model` (BugFix-Accounting)<br>`window action BugFix-Accounting.action_gross_margin_reports` (BugFix-Accounting)<br>`pump_price_costing.sales_report_model_id` (BugFix-Accounting)<br>`rm_cust_invoice_s1.sales_report_model_id` (BugFix-Accounting)<br>`rm_customer_wise_inv.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s1.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s2.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_s3.sales_report_model_id` (BugFix-Accounting)<br>`rm_daily_sales_repor.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_actu.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_comp.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_esti.sales_report_model_id` (BugFix-Accounting)<br>`rm_gross_margin_invo.sales_report_model_id` (BugFix-Accounting)<br>`rm_none_moving.sales_report_model_id` (BugFix-Accounting)<br>`rm_prod_summary_spli.sales_report_model_id` (BugFix-Accounting)<br>`rm_production_orders.sales_report_model_id` (BugFix-Accounting)<br>`rm_production_varian.sales_report_model_id` (BugFix-Accounting)<br>`rm_sales_order_line.sales_report_model_id` (BugFix-Accounting)<br>`rm_sales_prod_purch.sales_report_model_id` (BugFix-Accounting)</details>
 
 **Summary:**
 
@@ -1081,16 +1081,16 @@ This repo adds no fields to the Sales Report Model, which is owned by Jinasena_M
 
 | Name | Record name | Type | What it changes | Function | Depends on | Used by |
 |---|---|---|---|---|---|---|
-| Default form view for sales_report_model | `ported_default_form_view_fo_d583be6a_921f_4205_94a7_603a2375ce6e` | form | full form layout with 2 fields | Base form view of a Sales Report Model record: Reference (name) as title, an Archived ribbon and empty groups for other modules' customizations to fill. | `sales_report_model.active` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.name` (Jinasena_Masterdata_Reporting) |  |
-| Default list view for sales_report_model | `ported_default_list_view_fo_8853c5be_dc14_48d4_82c4_f209d820d16a` | tree | full tree layout with 2 fields | Base list view of Sales Report Model records with a drag handle for ordering and the name. | `sales_report_model.name` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.sequence` (Jinasena_Masterdata_Reporting) | `view BugFix-Project.ported_odoo_studio_default__25244692_8d9f_4fba_9286_7f16ca6d45f1` |
-| Default search view for sales_report_model | `ported_default_search_view__36b50122_6852_4842_9718_7d6fbf0c90e3` | search | full search layout with 1 fields | Search view for Sales Report Model records: search by name and an Archived filter. | `sales_report_model.active` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.name` (Jinasena_Masterdata_Reporting) |  |
-| Odoo Studio: Default list view for sales_report_model customization | `ported_odoo_studio_default__25244692_8d9f_4fba_9286_7f16ca6d45f1` | tree | set default_order=name desc on `//tree[1]` | Sorts the Sales Report Model list by name, newest reference first (descending). | `view BugFix-Project.ported_default_list_view_fo_8853c5be_dc14_48d4_82c4_f209d820d16a` |  |
+| Default form view for sales_report_model | `view_sales_report_model_form` | form | full form layout with 2 fields | Base form view of a Sales Report Model record: Reference (name) as title, an Archived ribbon and empty groups for other modules' customizations to fill. | `sales_report_model.active` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.name` (Jinasena_Masterdata_Reporting) |  |
+| Default list view for sales_report_model | `view_sales_report_model_list` | tree | full tree layout with 2 fields | Base list view of Sales Report Model records with a drag handle for ordering and the name. | `sales_report_model.name` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.sequence` (Jinasena_Masterdata_Reporting) | `view BugFix-Project.view_default_list_view_for_sales_report_model_inherit` |
+| Default search view for sales_report_model | `view_sales_report_model_search` | search | full search layout with 1 fields | Search view for Sales Report Model records: search by name and an Archived filter. | `sales_report_model.active` (Jinasena_Masterdata_Reporting)<br>`sales_report_model.name` (Jinasena_Masterdata_Reporting) |  |
+| Odoo Studio: Default list view for sales_report_model customization | `view_default_list_view_for_sales_report_model_inherit` | tree | set default_order=name desc on `//tree[1]` | Sorts the Sales Report Model list by name, newest reference first (descending). | `view BugFix-Project.view_sales_report_model_list` |  |
 
 **Access rights (1):**
 
 | Name | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| sales_report_model user access | `access_x_sales_report_model_user` | Gives **User types / Internal User** read/write/create/delete access to Sales Report Model records. | `group base.group_user` (base)<br>`model sales_report_model` (Jinasena_Masterdata_Reporting) |  |
+| sales_report_model user access | `access_sales_report_model_user` | Gives **User types / Internal User** read/write/create/delete access to Sales Report Model records. | `group base.group_user` (base)<br>`model sales_report_model` (Jinasena_Masterdata_Reporting) |  |
 
 ## Menus
 
@@ -1098,16 +1098,16 @@ This repo adds no fields to the Sales Report Model, which is owned by Jinasena_M
 
 | Name | Record name | State | Function | Depends on | Used by |
 |---|---|---|---|---|---|
-| Project/Configuration/Project Category | `menu_f6_project_category` |  | Menu **Project/Configuration/Project Category** — opens _Project Category_. | `window action BugFix-Project.action_2026_project_category` |  |
-| Project/Configuration/Project Category | `menu_986_project_category` |  | Menu **Project/Configuration/Project Category** — opens _Project Category_. | `window action BugFix-Project.action_2026_project_category` |  |
-| Project/Configuration/Project Category Group | `menu_f6_project_category_group` |  | Menu **Project/Configuration/Project Category Group** — opens _Project Category Group_. | `window action BugFix-Project.act_window_2025_project_category_group` |  |
-| Project/Configuration/Project Category Group | `menu_985_project_category_group` |  | Menu **Project/Configuration/Project Category Group** — opens _Project Category Group_. | `window action BugFix-Project.act_window_2025_project_category_group` |  |
-| Project/Configuration/Project Groups | `menu_f6_project_groups` |  | Menu **Project/Configuration/Project Groups** — opens _Project Groups_. | `window action BugFix-Project.action_2027_project_groups` |  |
-| Project/Configuration/Project Groups | `menu_987_project_groups` |  | Menu **Project/Configuration/Project Groups** — opens _Project Groups_. | `window action BugFix-Project.action_2027_project_groups` |  |
-| Project/Projects/Projects (project.project) | `menu_f6_projects_project_project` |  | Menu **Project/Projects/Projects (project.project)** — opens _Projects (project.project)_. | `window action BugFix-Project.action_2877_projects_project_project` |  |
-| Project/Projects/project.project | `menu_f6_project_project` |  | Menu **Project/Projects/project.project** — opens _project.project_. | `window action BugFix-Project.aw_f4_project_project_project_project` |  |
-| Project/Projects/project.task | `menu_f6_project_task` |  | Menu **Project/Projects/project.task** — opens _project.task_. | `window action BugFix-Project.action_2802_project_task` |  |
-| Project/Projects/project.update | `menu_f6_project_update` |  | Menu **Project/Projects/project.update** — opens _project.update_. | `window action BugFix-Project.act_window_2803_project_update` |  |
+| Project/Configuration/Project Category | `menu_project_category` |  | Menu **Project/Configuration/Project Category** — opens _Project Category_. | `window action BugFix-Project.action_project_category` |  |
+| Project/Configuration/Project Category | `menu_project_category_2` |  | Menu **Project/Configuration/Project Category** — opens _Project Category_. | `window action BugFix-Project.action_project_category` |  |
+| Project/Configuration/Project Category Group | `menu_project_category_group` |  | Menu **Project/Configuration/Project Category Group** — opens _Project Category Group_. | `window action BugFix-Project.action_project_category_group` |  |
+| Project/Configuration/Project Category Group | `menu_project_category_group_2` |  | Menu **Project/Configuration/Project Category Group** — opens _Project Category Group_. | `window action BugFix-Project.action_project_category_group` |  |
+| Project/Configuration/Project Groups | `menu_project_groups` |  | Menu **Project/Configuration/Project Groups** — opens _Project Groups_. | `window action BugFix-Project.action_project_groups` |  |
+| Project/Configuration/Project Groups | `menu_project_groups_2` |  | Menu **Project/Configuration/Project Groups** — opens _Project Groups_. | `window action BugFix-Project.action_project_groups` |  |
+| Project/Projects/Projects (project.project) | `menu_projects_project_project` |  | Menu **Project/Projects/Projects (project.project)** — opens _Projects (project.project)_. | `window action BugFix-Project.action_projects_project_project` |  |
+| Project/Projects/project.project | `menu_project_project` |  | Menu **Project/Projects/project.project** — opens _project.project_. | `window action BugFix-Project.aw_f4_project_project_project_project` |  |
+| Project/Projects/project.task | `menu_project_task` |  | Menu **Project/Projects/project.task** — opens _project.task_. | `window action BugFix-Project.action_project_task` |  |
+| Project/Projects/project.update | `menu_project_update` |  | Menu **Project/Projects/project.update** — opens _project.update_. | `window action BugFix-Project.action_project_update_2` |  |
 
 ## Data records loaded (11)
 
@@ -1115,17 +1115,17 @@ Records this module creates on install (lookup values, sequences, defaults, comp
 
 | Type | Record name | Function | Depends on | Used by |
 |---|---|---|---|---|
-| `ir.default` | `default_14_x_departments_active` | Sets the default of **Active (Departments)** to `true`. | `departments.active` |  |
-| `ir.default` | `default_15_x_departments_sequence` | Sets the default of **Sequence (Departments)** to `10`. | `departments.sequence` |  |
-| `ir.default` | `default_302_x_project_category_gro_active` | Sets the default of **Active (Project Category Group)** to `true`. | `project_category_gro.active` |  |
-| `ir.default` | `default_303_x_project_category_gro_sequence` | Sets the default of **Sequence (Project Category Group)** to `10`. | `project_category_gro.sequence` |  |
-| `ir.default` | `default_304_x_project_category_active` | Sets the default of **Active (Project Category)** to `true`. | `project_category.active` |  |
-| `ir.default` | `default_305_x_project_category_sequence` | Sets the default of **Sequence (Project Category)** to `10`. | `project_category.sequence` |  |
-| `ir.default` | `default_306_x_project_groups_active` | Sets the default of **Active (Project Groups)** to `true`. | `project_groups.active` |  |
-| `ir.default` | `default_307_x_project_groups_sequence` | Sets the default of **Sequence (Project Groups)** to `10`. | `project_groups.sequence` |  |
-| `ir.default` | `default_316_x_project_category_claimability` | Sets the default of **Claimability (Project Category)** to `"None"`. | `project_category.claimability` |  |
-| `ir.default` | `default_326_project_update_selection_field_0zgmv` | Sets the default of **Project Update Status (Project Update)** to `"Pending"`. | `project.update.selection_field_0zgmv` |  |
-| `ir.default` | `default_169_project_task_custom_reports_priority` | Sets the default of **Priority (Task)** to `"Normal"`. | `project.task.custom_reports_priority` |  |
+| `ir.default` | `default_14_departments_active` | Sets the default of **Active (Departments)** to `true`. | `departments.active` |  |
+| `ir.default` | `default_15_departments_sequence` | Sets the default of **Sequence (Departments)** to `10`. | `departments.sequence` |  |
+| `ir.default` | `default_project_category_gro_active` | Sets the default of **Active (Project Category Group)** to `true`. | `project_category_gro.active` |  |
+| `ir.default` | `default_project_category_gro_sequence` | Sets the default of **Sequence (Project Category Group)** to `10`. | `project_category_gro.sequence` |  |
+| `ir.default` | `default_project_category_active` | Sets the default of **Active (Project Category)** to `true`. | `project_category.active` |  |
+| `ir.default` | `default_project_category_sequence` | Sets the default of **Sequence (Project Category)** to `10`. | `project_category.sequence` |  |
+| `ir.default` | `default_project_groups_active` | Sets the default of **Active (Project Groups)** to `true`. | `project_groups.active` |  |
+| `ir.default` | `default_project_groups_sequence` | Sets the default of **Sequence (Project Groups)** to `10`. | `project_groups.sequence` |  |
+| `ir.default` | `default_project_category_claimability` | Sets the default of **Claimability (Project Category)** to `"None"`. | `project_category.claimability` |  |
+| `ir.default` | `default_project_update_selection_field_0zgmv` | Sets the default of **Project Update Status (Project Update)** to `"Pending"`. | `project.update.selection_field_0zgmv` |  |
+| `ir.default` | `default_project_task_custom_reports_priority` | Sets the default of **Priority (Task)** to `"Normal"`. | `project.task.custom_reports_priority` |  |
 
 ## Install hooks (`hooks.py`)
 
@@ -1172,5 +1172,5 @@ This repo's attributes that other Jinasena repos rely on. Changing or removing o
 
 | Repo | Kind | Count | This repo's attributes they use |
 |---|---|---|---|
-| `BugFix-Studio-Misc` | Jinasena repo | 7 | window action BugFix-Project.act_window_2803_project_update, window action BugFix-Project.act_window_2805_project_milestone, window action BugFix-Project.act_window_2877_projects_project_project, window action BugFix-Project.act_window_2878_project_stage_project_project_stage, window action BugFix-Project.action_2879_project_category_project_category, window action BugFix-Project.aw_f4_project_project_project_project, window action BugFix-Project.aw_f4_project_task_project_task |
+| `BugFix-Studio-Misc` | Jinasena repo | 7 | window action BugFix-Project.action_project_update_2, window action BugFix-Project.action_project_milestone, window action BugFix-Project.action_projects_project_project_2, window action BugFix-Project.action_project_stage_project_project_stage, window action BugFix-Project.action_project_category_project_category, window action BugFix-Project.aw_f4_project_project_project_project, window action BugFix-Project.aw_f4_project_task_project_task |
 | `Fix-repair` | Jinasena repo | 14 | project.task.cancelled, project.task.created_date, project.task.end_quick_repair, project.task.material_availability, project.task.custom_reports_priority, project.task.quick_repair_status_1, project.task.quotation_type, project.task.related_information, project.task.repair_completed_stage_updated, project.task.repair_image_01, project.task.repair_image_02, project.task.repair_reason, project.task.valid_diagnosis, project.task.warranty_card |
