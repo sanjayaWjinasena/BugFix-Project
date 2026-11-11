@@ -5,22 +5,19 @@ class ProjectTask(models.Model):
     _inherit = "project.task"
 
     cancelled = fields.Boolean(string="Cancelled", readonly=True)
-    created_date = fields.Datetime(string="Created Date")
+    created_date = fields.Datetime()
     # TODO: diagnosis_ids = fields.One2many(...) -- Studio inverse name
     # unknown; port from Clear-DB manually.
-    end_quick_repair = fields.Boolean(string="End Quick Repair")
+    end_quick_repair = fields.Boolean()
     fully_invoiced_so = fields.Boolean(
         string="Fully Invoiced SO", readonly=True, store=False
     )
-    incomplete_delivery_available = fields.Boolean(
-        string="Incomplete Delivery Available", readonly=True, store=False
-    )
+    incomplete_delivery_available = fields.Boolean(readonly=True, store=False)
     material_availability = fields.Selection(
         [
             ("Material Not Ready", "Material Not Ready"),
             ("Material Ready", "Material Ready"),
         ],
-        string="Material Availability",
         readonly=True,
         store=False,
     )
@@ -50,16 +47,15 @@ class ProjectTask(models.Model):
     repair_completed_stage_updated = fields.Boolean(
         string="Repair Completed Stage Updated", readonly=True
     )
-    repair_image_01 = fields.Binary(string="Repair Image 01")
-    repair_image_02 = fields.Binary(string="Repair Image 02")
+    repair_image_01 = fields.Binary()
+    repair_image_02 = fields.Binary()
     repair_reason = fields.Many2many(
         "repair_reason",
         "project_task_x_studio_repair_reason_rel",
         "project_id",
         "x_repair_reason_id",
-        string="Repair Reason",
     )
-    starting_date = fields.Datetime(string="Starting Date")
+    starting_date = fields.Datetime()
     valid_confirm2_so = fields.Boolean(
         string="Valid Confirm2 SO", readonly=True, store=False
     )
@@ -70,9 +66,7 @@ class ProjectTask(models.Model):
         string="Valid Delivered SO", readonly=True, store=False
     )
     valid_delivered_so2 = fields.Boolean(string="Valid Delivered SO2")
-    valid_diagnosis = fields.Boolean(
-        string="Valid Diagnosis", readonly=True, store=False
-    )
+    valid_diagnosis = fields.Boolean(readonly=True, store=False)
     valid_invoiced_so = fields.Boolean(
         string="Valid Invoiced SO", readonly=True, store=False
     )

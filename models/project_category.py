@@ -9,24 +9,20 @@ class XProjectCategory(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Project Category"
 
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean()
     name = fields.Char(string="Category")
-    category_group = fields.Many2one(
-        "project_category_gro", string="Category Group"
-    )
-    category_name = fields.Char(string="Category Name")
+    category_group = fields.Many2one("project_category_gro")
+    category_name = fields.Char()
     claimability = fields.Selection(
         [
             ("None", "None"),
             ("Claimable", "Claimable"),
             ("Non-Claimable", "Non-Claimable"),
         ],
-        string="Claimability",
     )
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
     transaction_type = fields.Selection(
         [("Item", "Item"), ("Expense", "Expense"), ("Fee", "Fee"), ("Hour", "Hour")],
-        string="Transaction Type",
         readonly=True,
     )
 
@@ -35,5 +31,5 @@ class XProjectCategoryGap(models.Model):
     _inherit = "project_category"
     _rec_name = "name"  # Clear-DB Studio model: records are named by name
 
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean()
     name = fields.Char(string="Category")

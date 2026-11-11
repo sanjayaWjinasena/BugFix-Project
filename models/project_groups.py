@@ -9,15 +9,15 @@ class XProjectGroups(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Project Groups"
 
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean()
     name = fields.Char(string="Project Group")
     accounting_name = fields.Char(string="Name")
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
 
 
 class XProjectGroupsGap(models.Model):
     _inherit = "project_groups"
     _rec_name = "name"  # Clear-DB Studio model: records are named by name
 
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean()
     name = fields.Char(string="Project Group")

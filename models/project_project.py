@@ -4,21 +4,18 @@ from odoo import fields, models
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
-    document_1 = fields.Binary(string="Document 1")
-    document_2 = fields.Binary(string="Document 2")
-    document_3 = fields.Binary(string="Document 3")
-    image_1 = fields.Binary(string="Image 1")
-    image_2 = fields.Binary(string="Image 2")
-    image_3 = fields.Binary(string="Image 3")
-    project_group = fields.Many2one(
-        "project_groups", string="Project Group", readonly=True
-    )
+    document_1 = fields.Binary()
+    document_2 = fields.Binary()
+    document_3 = fields.Binary()
+    image_1 = fields.Binary()
+    image_2 = fields.Binary()
+    image_3 = fields.Binary()
+    project_group = fields.Many2one("project_groups", readonly=True)
     quotation_type = fields.Selection(
         [("Sales", "Sales"), ("Project", "Project"), ("Repair", "Repair")],
-        string="Quotation Type",
         readonly=True,
     )
-    repair_project = fields.Boolean(string="Repair Project")
+    repair_project = fields.Boolean()
     valid_gm = fields.Boolean(string="Valid GM", readonly=True, store=False)
     created_from_project_no_account_move_count = fields.Integer(
         string="Created From Project No count", store=False
