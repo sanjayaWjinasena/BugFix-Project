@@ -266,8 +266,8 @@
   </record>
   <record id="rule_271_test_users_records_only" model="ir.rule">
     <field name="name">test_users_records_only</field>
-    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
-    <field name="domain_force">[('x_studio_user_id', '=', user.id)]</field>
+    <field name="model_id" ref="BugFix-Project.model_departments"/>
+    <field name="domain_force">[('user_id', '=', user.id)]</field>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="True"/>
     <field name="perm_create" eval="True"/>

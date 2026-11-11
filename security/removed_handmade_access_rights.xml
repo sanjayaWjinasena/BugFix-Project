@@ -125,7 +125,7 @@
   <!--
   <record id="access_5580_proj__category" model="ir.model.access">
     <field name="name">Proj. Category</field>
-    <field name="model_id" ref="BugFix-Project.model_x_project_category"/>
+    <field name="model_id" ref="BugFix-Project.model_project_category"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="True"/>
@@ -137,7 +137,7 @@
   <!--
   <record id="access_5581_proj__category_group" model="ir.model.access">
     <field name="name">Proj. Category Group</field>
-    <field name="model_id" ref="BugFix-Project.model_x_project_category_gro"/>
+    <field name="model_id" ref="BugFix-Project.model_project_category_gro"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="False"/>
@@ -149,7 +149,7 @@
   <!--
   <record id="access_5582_proj__groups" model="ir.model.access">
     <field name="name">Proj. Groups</field>
-    <field name="model_id" ref="BugFix-Project.model_x_project_groups"/>
+    <field name="model_id" ref="BugFix-Project.model_project_groups"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="False"/>
@@ -161,7 +161,7 @@
   <!--
   <record id="access_1121_test_access_rights" model="ir.model.access">
     <field name="name">test_access_rights</field>
-    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
+    <field name="model_id" ref="BugFix-Project.model_departments"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_misc_test_department"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="False"/>
@@ -173,7 +173,7 @@
   <!--
   <record id="access_1122_test_access_rights_2" model="ir.model.access">
     <field name="name">test_access_rights_2</field>
-    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
+    <field name="model_id" ref="BugFix-Project.model_departments"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_misc_test_department_2"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="True"/>
@@ -185,7 +185,7 @@
   <!--
   <record id="access_5581_proj_category_group" model="ir.model.access">
     <field name="name">Proj. Category Group</field>
-    <field name="model_id" ref="BugFix-Project.model_x_project_category_gro"/>
+    <field name="model_id" ref="BugFix-Project.model_project_category_gro"/>
     <field name="group_id" ref="BugFix-Studio-Misc.group_g_accounting_jin_projectinvoice"/>
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="False"/>

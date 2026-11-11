@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-  <record id="model_x_departments" model="ir.model"><field name="name">x_departments</field><field name="model">x_departments</field></record>
-  <record id="model_x_project_category" model="ir.model"><field name="name">x_project_category</field><field name="model">x_project_category</field></record>
-  <record id="model_x_project_groups" model="ir.model"><field name="name">x_project_groups</field><field name="model">x_project_groups</field></record>
-  <record id="model_x_project_category_gro" model="ir.model"><field name="name">X Project Category Gro</field><field name="model">x_project_category_gro</field></record>
-  <record id="model_x_sales_report_model" model="ir.model"><field name="name">X Sales Report Model</field><field name="model">x_sales_report_model</field></record>
+  <record id="model_departments" model="ir.model"><field name="name">departments</field><field name="model">departments</field></record>
+  <record id="model_project_category" model="ir.model"><field name="name">project_category</field><field name="model">project_category</field></record>
+  <record id="model_project_groups" model="ir.model"><field name="name">project_groups</field><field name="model">project_groups</field></record>
+  <record id="model_project_category_gro" model="ir.model"><field name="name">X Project Category Gro</field><field name="model">project_category_gro</field></record>
+  <record id="model_sales_report_model" model="ir.model"><field name="name">X Sales Report Model</field><field name="model">sales_report_model</field></record>
 </odoo>

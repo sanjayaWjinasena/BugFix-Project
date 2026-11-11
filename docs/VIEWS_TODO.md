@@ -6,20 +6,20 @@ human review before commit.
 
 | # | Clear-DB view ID | Type | Target model | Name | Inherits |
 |---|---|---|---|---|---|
-| 1 | 2320 | form | `x_departments` | Default form view for x_departments | — |
-| 2 | 4740 | form | `x_project_category` | Default form view for x_project_category | — |
-| 3 | 4743 | form | `x_project_groups` | Default form view for x_project_groups | — |
+| 1 | 2320 | form | `departments` | Default form view for departments | — |
+| 2 | 4740 | form | `project_category` | Default form view for project_category | — |
+| 3 | 4743 | form | `project_groups` | Default form view for project_groups | — |
 | 4 | 4931 | gantt | `project.project` | Default gantt view for project.project | — |
-| 5 | 2319 | tree | `x_departments` | Default list view for x_departments | — |
-| 6 | 4739 | tree | `x_project_category` | Default list view for x_project_category | — |
-| 7 | 4742 | tree | `x_project_groups` | Default list view for x_project_groups | — |
-| 8 | 2321 | search | `x_departments` | Default search view for x_departments | — |
-| 9 | 4741 | search | `x_project_category` | Default search view for x_project_category | — |
-| 10 | 4744 | search | `x_project_groups` | Default search view for x_project_groups | — |
+| 5 | 2319 | tree | `departments` | Default list view for departments | — |
+| 6 | 4739 | tree | `project_category` | Default list view for project_category | — |
+| 7 | 4742 | tree | `project_groups` | Default list view for project_groups | — |
+| 8 | 2321 | search | `departments` | Default search view for departments | — |
+| 9 | 4741 | search | `project_category` | Default search view for project_category | — |
+| 10 | 4744 | search | `project_groups` | Default search view for project_groups | — |
 | 11 | 6068 | tree | `project.sale.line.employee.map` | Default tree view for ir.model(646,) | — |
-| 12 | 2322 | form | `x_departments` | Odoo Studio: Default form view for x_departments customization | Default form view for x_departments |
-| 13 | 4746 | tree | `x_project_category` | Odoo Studio: Default list view for x_project_category customization | Default list view for x_project_category |
-| 14 | 4747 | tree | `x_project_groups` | Odoo Studio: Default list view for x_project_groups customization | Default list view for x_project_groups |
+| 12 | 2322 | form | `departments` | Odoo Studio: Default form view for departments customization | Default form view for departments |
+| 13 | 4746 | tree | `project_category` | Odoo Studio: Default list view for project_category customization | Default list view for project_category |
+| 14 | 4747 | tree | `project_groups` | Odoo Studio: Default list view for project_groups customization | Default list view for project_groups |
 | 15 | 4748 | form | `project.project` | Odoo Studio: project.project.form customization | project.project.form |
 | 16 | 4895 | form | `project.project` | Odoo Studio: project.project.form-button | project.project.form |
 | 17 | 5899 | tree | `project.project.stage` | Odoo Studio: project.project.stage.view.tree customization | project.project.stage.view.tree |

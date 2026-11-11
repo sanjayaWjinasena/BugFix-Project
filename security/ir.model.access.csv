@@ -1,13 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_x_departments_user,x_departments user access,model_x_departments,base.group_user,1,1,1,1
-access_x_project_category_user,x_project_category user access,model_x_project_category,base.group_user,1,1,1,1
-access_x_project_groups_user,x_project_groups user access,model_x_project_groups,base.group_user,1,1,1,1
-access_x_project_category_gro_user,x_project_category_gro user access,model_x_project_category_gro,base.group_user,1,1,1,1
-access_x_sales_report_model_user,x_sales_report_model user access,model_x_sales_report_model,base.group_user,1,1,1,1
-access_1699_project_category_group_user,Project Category group_user,BugFix-Project.model_x_project_category,base.group_user,1,0,0,0
-access_1698_project_category_group_system,Project Category group_system,BugFix-Project.model_x_project_category,base.group_system,1,1,1,1
-access_1697_project_category_group_group_user,Project Category Group group_user,BugFix-Project.model_x_project_category_gro,base.group_user,1,0,0,0
-access_1696_project_category_group_group_system,Project Category Group group_system,BugFix-Project.model_x_project_category_gro,base.group_system,1,1,1,1
-access_1701_project_groups_group_user,Project Groups group_user,BugFix-Project.model_x_project_groups,base.group_user,1,0,0,0
-access_1700_project_groups_group_system,Project Groups group_system,BugFix-Project.model_x_project_groups,base.group_system,1,1,1,1
+access_x_departments_user,departments user access,model_departments,base.group_user,1,1,1,1
+access_x_project_category_user,project_category user access,model_project_category,base.group_user,1,1,1,1
+access_x_project_groups_user,project_groups user access,model_project_groups,base.group_user,1,1,1,1
+access_x_project_category_gro_user,project_category_gro user access,model_project_category_gro,base.group_user,1,1,1,1
+access_x_sales_report_model_user,sales_report_model user access,model_sales_report_model,base.group_user,1,1,1,1
+access_1699_project_category_group_user,Project Category group_user,BugFix-Project.model_project_category,base.group_user,1,0,0,0
+access_1698_project_category_group_system,Project Category group_system,BugFix-Project.model_project_category,base.group_system,1,1,1,1
+access_1697_project_category_group_group_user,Project Category Group group_user,BugFix-Project.model_project_category_gro,base.group_user,1,0,0,0
+access_1696_project_category_group_group_system,Project Category Group group_system,BugFix-Project.model_project_category_gro,base.group_system,1,1,1,1
+access_1701_project_groups_group_user,Project Groups group_user,BugFix-Project.model_project_groups,base.group_user,1,0,0,0
+access_1700_project_groups_group_system,Project Groups group_system,BugFix-Project.model_project_groups,base.group_system,1,1,1,1
 

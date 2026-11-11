@@ -18,5 +18,5 @@
             </field>
   </record>
   <!-- STRIPPED act_window_2806_project_sale_line_employee_map: model out-of-deps for BugFix-Project: project.sale.line.employee.map (owned by industry_fsm_sale) -->
-<!-- STRIPPED act_window_2014_worksheets: model x_project_task_worksheet_template_1 not on target -->
+<!-- STRIPPED act_window_2014_worksheets: model project_task_worksheet_template_1 not on target -->
 </odoo>

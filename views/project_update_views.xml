@@ -23,7 +23,7 @@
         <xpath expr="//form[1]/sheet[1]" position="before">
           <header>
             
-            <field widget="statusbar" name="x_studio_selection_field_0zgmv" string="Project Update Status" force_save="True" readonly="1"/>
+            <field widget="statusbar" name="selection_field_0zgmv" string="Project Update Status" force_save="True" readonly="1"/>
           </header>
         </xpath>
         <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]" position="before">
@@ -50,7 +50,7 @@
       <field name="mode">extension</field>
       <field name="arch" type="xml">
         <data>
-    <xpath expr="//form" position="inside"><field name="x_studio_selection_field_0zgmv" invisible="1"/></xpath><xpath expr="//header/field[@name='x_studio_selection_field_0zgmv']" position="before">
+    <xpath expr="//form" position="inside"><field name="selection_field_0zgmv" invisible="1"/></xpath><xpath expr="//header/field[@name='selection_field_0zgmv']" position="before">
       <!-- STRIPPED action button aid=2147 unresolvable -->
     </xpath>
   </data>
@@ -78,7 +78,7 @@
       <field name="arch" type="xml">
         <data>
   <xpath expr="//field[@name=&quot;date&quot;]" position="after">
-    <field name="x_studio_financial_progress" optional="show" widget="progressbar"/>
+    <field name="financial_progress" optional="show" widget="progressbar"/>
   </xpath>
 </data>
       </field>

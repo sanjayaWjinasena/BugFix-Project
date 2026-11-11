@@ -42,23 +42,23 @@
           <!-- STRIPPED unresolved action 2115 --><!-- STRIPPED unresolved action 2120 --><!-- STRIPPED unresolved action 2195 --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.cash_advance_bills_ede337ef-cba8-47a0-b --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.issued_cash_advances_9a201d06-6a75-465b --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.settled_cash_advance_b5700826-59c1-42b3 --><!-- STRIPPED unresolved studio_customization xmlid: studio_customization.all_journal_items_0de818f4-cc57-49cc-87 --></xpath>
         <xpath expr="//field[@name='allocated_hours']" position="after">
           <field name="activity_user_id"/>
-          <field name="x_studio_project_group" string="Project Group"/>
+          <field name="project_group" string="Project Group"/>
           <field name="quotation_type" string="Quotation Type"/>
-          <field name="x_studio_valid_gm" string="Valid GM" force_save="True" readonly="1" invisible="1"/>
-          <field name="x_studio_repair_project"/>
+          <field name="valid_gm" string="Valid GM" force_save="True" readonly="1" invisible="1"/>
+          <field name="repair_project"/>
         </xpath>
         <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
           <page string="Project Related Documents" name="studio_page_Q8cy1">
             <group name="studio_group_Q8cy1">
               <group name="studio_group_Q8cy1_left" string="Documents">
-                <field widget="binary" name="x_studio_document_1" string="Document 1"/>
-                <field widget="binary" name="x_studio_document_2" string="Document 2"/>
-                <field widget="binary" name="x_studio_document_3" string="Document 3"/>
+                <field widget="binary" name="document_1" string="Document 1"/>
+                <field widget="binary" name="document_2" string="Document 2"/>
+                <field widget="binary" name="document_3" string="Document 3"/>
               </group>
               <group name="studio_group_Q8cy1_right" string="Images">
-                <field widget="tablet_image" name="x_studio_image_1" string="Image 1"/>
-                <field widget="tablet_image" name="x_studio_image_2" string="Image 2"/>
-                <field widget="tablet_image" name="x_studio_image_3" string="Image 3"/>
+                <field widget="tablet_image" name="image_1" string="Image 1"/>
+                <field widget="tablet_image" name="image_2" string="Image 2"/>
+                <field widget="tablet_image" name="image_3" string="Image 3"/>
               </group>
             </group>
           </page>

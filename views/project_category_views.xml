@@ -2,17 +2,17 @@
 <odoo>
   <record id="action_2026_project_category" model="ir.actions.act_window">
     <field name="name">Project Category</field>
-    <field name="res_model">x_project_category</field>
+    <field name="res_model">project_category</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <record id="action_2879_project_category_x_project_category" model="ir.actions.act_window">
-    <field name="name">Project Category (x_project_category)</field>
-    <field name="res_model">x_project_category</field>
+  <record id="action_2879_project_category_project_category" model="ir.actions.act_window">
+    <field name="name">Project Category (project_category)</field>
+    <field name="res_model">project_category</field>
     <field name="view_mode">tree,form</field>
   </record>
   <record id="ported_default_form_view_fo_812ed9c2_8d16_424f_87f2_f0547b559de4" model="ir.ui.view">
-    <field name="name">Default form view for x_project_category</field>
-    <field name="model">x_project_category</field>
+    <field name="name">Default form view for project_category</field>
+    <field name="model">project_category</field>
     <field name="key">studio_customization.default_form_view_fo_812ed9c2-8d16-424f-87f2-f0547b559de4</field>
     <field name="type">form</field>
     <field name="priority">16</field>
@@ -38,8 +38,8 @@
     </field>
   </record>
   <record id="ported_default_list_view_fo_fe816227_617a_40c5_bd57_43e1393438be" model="ir.ui.view">
-    <field name="name">Default list view for x_project_category</field>
-    <field name="model">x_project_category</field>
+    <field name="name">Default list view for project_category</field>
+    <field name="model">project_category</field>
     <field name="key">studio_customization.default_list_view_fo_fe816227-617a-40c5-bd57-43e1393438be</field>
     <field name="type">tree</field>
     <field name="priority">16</field>
@@ -52,8 +52,8 @@
     </field>
   </record>
   <record id="ported_default_search_view__0109453b_5222_4c2f_86c8_68a69bf444de" model="ir.ui.view">
-    <field name="name">Default search view for x_project_category</field>
-    <field name="model">x_project_category</field>
+    <field name="name">Default search view for project_category</field>
+    <field name="model">project_category</field>
     <field name="key">studio_customization.default_search_view__0109453b-5222-4c2f-86c8-68a69bf444de</field>
     <field name="type">search</field>
     <field name="priority">16</field>
@@ -62,14 +62,14 @@
       <search>
         <field name="name"/>
         <separator/>
-        <filter string="Archived" name="archived_x_project_category" domain="[['active', '=', False]]"/>
+        <filter string="Archived" name="archived_project_category" domain="[['active', '=', False]]"/>
         <separator/>
       </search>
     </field>
   </record>
   <record id="ported_odoo_studio_default__1f20671c_d39c_4464_9e3c_0c77ab8f748b" model="ir.ui.view">
-    <field name="name">Odoo Studio: Default list view for x_project_category customization</field>
-    <field name="model">x_project_category</field>
+    <field name="name">Odoo Studio: Default list view for project_category customization</field>
+    <field name="model">project_category</field>
     <field name="key">studio_customization.odoo_studio_default__1f20671c-d39c-4464-9e3c-0c77ab8f748b</field>
     <field name="type">tree</field>
     <field name="priority">99</field>

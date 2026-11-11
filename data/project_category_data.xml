@@ -2,15 +2,15 @@
 <odoo>
     <data noupdate="1">
     <record id="default_304_x_project_category_active" model="ir.default">
-      <field name="field_id" ref="BugFix-Project.field_x_project_category__active"/>
+      <field name="field_id" ref="BugFix-Project.field_project_category__active"/>
       <field name="json_value">true</field>
     </record>
     <record id="default_305_x_project_category_sequence" model="ir.default">
-      <field name="field_id" ref="BugFix-Project.field_x_project_category__sequence"/>
+      <field name="field_id" ref="BugFix-Project.field_project_category__sequence"/>
       <field name="json_value">10</field>
     </record>
-    <record id="default_316_x_project_category_x_studio_claimability" model="ir.default">
-      <field name="field_id" ref="BugFix-Project.field_x_project_category__x_studio_claimability"/>
+    <record id="default_316_x_project_category_claimability" model="ir.default">
+      <field name="field_id" ref="BugFix-Project.field_project_category__claimability"/>
       <field name="json_value">"None"</field>
     </record>
     </data>

@@ -2,7 +2,7 @@
     # upgrade-testing branch: data files below are commented out - this branch installs
     # functions only, no data is seeded.
     "name": "Jinasena : Module : Project",
-    "version": "17.0.0.0.66",
+    "version": "17.0.0.0.67",
     "summary": "Studio-to-Python port for BugFix-Project",
     "author": "Jinasena Agricultural Machinery (Pvt) Ltd.",
     "category": "Services/Project",
@@ -21,7 +21,7 @@
     # exists at our application time regardless of our priority.
     # Only alternative: re-parent to 5435 (semantic change - risky).
     # Losing conditional FSM validate button visibility is UX-only.
-    # Now ships 3 views: 2 project.project + 1 x_departments.
+    # Now ships 3 views: 2 project.project + 1 departments.
     # v0.0.16: hotfix v0.0.15 - bump view 4620 priority to 1000.
     # v0.0.15 crashed with:
     #   Element '<xpath expr="//field[@name='fsm_done']">' cannot be
@@ -51,7 +51,7 @@
     # Losing 2 button hides is acceptable vs blocking install; the
     # buttons will remain visible but that's a UX-only degradation.
     # Ships 4 views: project.project form/tree customizations,
-    # project.task form (sale_timesheet inherit), x_departments form.
+    # project.task form (sale_timesheet inherit), departments form.
     # v0.0.14: hotfix v0.0.13 - cross-module xmlid refs stripped.
     # v0.0.13 view 4748 arch had 7 stat-buttons targeting actions
     # pinned to modules that DEPEND ON Project (BugFix-Accounting,
@@ -74,8 +74,8 @@
     # v0.0.13: close remaining Project migration gaps.
     #   Fields (8 gap -> 0):
     #     Added _inherit = ['mail.thread', 'mail.activity.mixin'] to
-    #     x_departments, x_project_category, x_project_category_gro,
-    #     x_project_groups. Odoo auto-creates the 8 activity_* fields
+    #     departments, project_category, project_category_gro,
+    #     project_groups. Odoo auto-creates the 8 activity_* fields
     #     matching CDB.
     #   Views (13/13 -> 18/20 shipped, 2 SKIPPED with all xpaths
     #     unresolvable on target after addon-stack drift):
@@ -83,7 +83,7 @@
     #       - project.project form (Studio button block)
     #       - project.project tree customization
     #       - project.task form customization
-    #       - x_departments form customization
+    #       - departments form customization
     #     * 2 SKIPPED (4895 project.project form-button and
     #       4775 project.task tree - all xpaths dropped by
     #       pre-flight validation against target's composed arch).
@@ -108,10 +108,10 @@
     #     28 verified TRUE dups skipped.
     # New files: data/server_actions_v2.xml + data/window_actions.xml.
     # v0.0.10: added Jinasena_Masterdata_Reporting to depends.
-    # x_sales_report_model.py was _name='x_sales_report_model' (duplicate
+    # sales_report_model.py was _name='sales_report_model' (duplicate
     # "owner" without dep on the real owner Jinasena_Masterdata_Reporting).
     # Same root cause as BugFix-Sales v54: competing _name declarations
-    # caused the registry KeyError on x_studio_journal_items_id.
+    # caused the registry KeyError on journal_items_id.
     # Converted to _inherit; Jinasena_Masterdata_Reporting added here.
     "depends": ["base_setup", "project", "Jinasena_Masterdata_Reporting"],
     "data": [
@@ -123,19 +123,19 @@
         "data/project_task_data.xml",
         "data/project_project_data.xml",
         "data/project_update_data.xml",
-        "data/x_departments_data.xml",
-        "data/x_project_category_data.xml",
-        "data/x_project_category_gro_data.xml",
-        "data/x_project_groups_data.xml",
+        "data/departments_data.xml",
+        "data/project_category_data.xml",
+        "data/project_category_gro_data.xml",
+        "data/project_groups_data.xml",
         "views/views_final.xml",
         "views/project_project_views.xml",
         "views/project_task_views.xml",
         "views/project_update_views.xml",
-        "views/x_departments_views.xml",
-        "views/x_project_category_views.xml",
-        "views/x_project_groups_views.xml",
-        "views/x_project_category_gro_views.xml",
-        "views/x_sales_report_model_views.xml",
+        "views/departments_views.xml",
+        "views/project_category_views.xml",
+        "views/project_groups_views.xml",
+        "views/project_category_gro_views.xml",
+        "views/sales_report_model_views.xml",
         "views/project_milestone_views.xml",
         "views/project_project_stage_views.xml",
         "views/bugfix_project_menus.xml",
