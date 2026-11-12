@@ -5,9 +5,9 @@ def migrate(cr, version):
     if not version:
         return
     data = [
-        ("project.task", "x_studio_priority", '"Normal"', ""),
-        ("x_project_category", "x_studio_claimability", '"None"', ""),
-        ("project.update", "x_studio_selection_field_0zgmv", '"Pending"', ""),
+        ("project.task", "custom_reports_priority", '"Normal"', ""),
+        ("project_category", "claimability", '"None"', ""),
+        ("project.update", "selection_field_0zgmv", '"Pending"', ""),
     ]
     for model, name, jval, cond in data:
         cr.execute(
