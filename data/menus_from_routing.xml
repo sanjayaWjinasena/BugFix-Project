@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- BugFix-Project: menu sweep from routing audit (3 candidates) --><!-- Uses <menuitem> shortcut with dev-verified parent + action refs --><odoo>
+
+  <menuitem id="menu_985_project_category_group" name="Project Category Group" parent="project.menu_project_config" action="BugFix-Project.act_window_2025_project_category_group" sequence="6"/>
+  <menuitem id="menu_986_project_category" name="Project Category" parent="project.menu_project_config" action="BugFix-Project.action_2026_project_category" sequence="7"/>
+  <menuitem id="menu_987_project_groups" name="Project Groups" parent="project.menu_project_config" action="BugFix-Project.action_2027_project_groups" sequence="8"/>
+
+</odoo>

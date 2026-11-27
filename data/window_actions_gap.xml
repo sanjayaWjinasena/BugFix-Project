@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project: 4 gap window actions -->
+<odoo>
+
+
+  <record id="act_window_2619_project_project" model="ir.actions.act_window">
+    <field name="name">project.project</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
+
+  <record id="act_window_2802_project_task" model="ir.actions.act_window">
+    <field name="name">project.task</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,map,pivot,graph,activity,cohort</field>
+  </record>
+
+  <record id="act_window_2803_project_update" model="ir.actions.act_window">
+    <field name="name">project.update</field>
+    <field name="res_model">project.update</field>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+
+  <record id="act_window_2877_projects_project_project" model="ir.actions.act_window">
+    <field name="name">Projects (project.project)</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">kanban,tree,form,gantt</field>
+  </record>
+
+</odoo>

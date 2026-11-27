@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BugFix-Project backlog: 20 record rules -->
+<odoo>
+
+  <record id="rule_407_project_milestone_multi_company" model="ir.rule">
+    <field name="name">Project/Milestone: multi-company</field>
+    <field name="model_id" ref="project.model_project_milestone"/>
+    <field name="domain_force">['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="rule_408_project_milestone_employees_follow_required_for_follower_onl" model="ir.rule">
+    <field name="name">Project/Milestone: employees: follow required for follower-only projects</field>
+    <field name="model_id" ref="project.model_project_milestone"/>
+    <field name="domain_force">[
+        '|',
+            ('project_id.privacy_visibility', '!=', 'followers'),
+            '|',
+                ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                ('project_id.user_id', '=', user.id),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+  </record>
+
+  <record id="rule_409_project_milestone_project_manager_can_see_all_project_milest" model="ir.rule">
+    <field name="name">Project/Milestone: Project manager can see all project milestones</field>
+    <field name="model_id" ref="project.model_project_milestone"/>
+    <field name="domain_force">[(1, '=', 1)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_manager')])]"/>
+  </record>
+
+  <record id="rule_688_project_milestone_portal_users_portal_user_can_read_with_pro" model="ir.rule">
+    <field name="name">Project/milestone portal users: portal user can read with project sharing feature</field>
+    <field name="model_id" ref="project.model_project_milestone"/>
+    <field name="domain_force">[
+            ('project_id.privacy_visibility', '=', 'portal'),
+            ('project_id.collaborator_ids.partner_id', 'in', [user.partner_id.id]),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_portal')])]"/>
+  </record>
+
+  <record id="rule_67_project_multi_company" model="ir.rule">
+    <field name="name">Project: multi-company</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="rule_68_project_project_manager_see_all" model="ir.rule">
+    <field name="name">Project: project manager: see all</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="domain_force">[(1, '=', 1)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_manager')])]"/>
+  </record>
+
+  <record id="rule_69_project_employees_following_required_for_follower_only_proje" model="ir.rule">
+    <field name="name">Project: employees: following required for follower-only projects</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="domain_force">['|',
+                                        ('privacy_visibility', '!=', 'followers'),
+                                        ('message_partner_ids', 'in', [user.partner_id.id])
+                                    ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+  </record>
+
+  <record id="rule_74_project_portal_users_portal_and_following" model="ir.rule">
+    <field name="name">Project: portal users: portal and following</field>
+    <field name="model_id" ref="BugFix-Project.model_project_project"/>
+    <field name="domain_force">[
+            '&amp;',
+                ('privacy_visibility', '=', 'portal'),
+                ('message_partner_ids', 'child_of', [user.partner_id.commercial_partner_id.id]),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_portal')])]"/>
+  </record>
+
+  <record id="rule_754_project_stage_multi_company" model="ir.rule">
+    <field name="name">Project Stage: multi-company</field>
+    <field name="model_id" ref="project.model_project_project_stage"/>
+    <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="rule_70_project_task_multi_company" model="ir.rule">
+    <field name="name">Project/Task: multi-company</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="rule_71_project_task_employees_follow_required_for_follower_only_pro" model="ir.rule">
+    <field name="name">Project/Task: employees: follow required for follower-only projects</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[
+            '|',
+                '&amp;',
+                    ('project_id', '!=', False),
+                    '|',
+                        ('project_id.privacy_visibility', '!=', 'followers'),
+                        ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                '|',
+                    ('message_partner_ids', 'in', [user.partner_id.id]),
+                    # to subscribe check access to the record, follower is not enough at creation
+                    ('user_ids', 'in', user.id)
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+  </record>
+
+  <record id="rule_72_project_task_project_manager_see_all_tasks_linked_to_a_proje" model="ir.rule">
+    <field name="name">Project/Task: project manager: see all tasks linked to a project or its own tasks</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[
+            '|', ('project_id', '!=', False),
+                 ('user_ids', 'in', user.id),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_manager')])]"/>
+  </record>
+
+  <record id="rule_75_project_task_portal_users_portal_and_following_project_or_po" model="ir.rule">
+    <field name="name">Project/Task: portal users: (portal and following project) or (portal and following task)</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[
+        ('project_id.privacy_visibility', '=', 'portal'),
+        ('active', '=', True),
+        '|',
+            ('project_id.message_partner_ids', 'child_of', [user.partner_id.commercial_partner_id.id]),
+            ('message_partner_ids', 'child_of', [user.partner_id.commercial_partner_id.id]),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_portal')])]"/>
+  </record>
+
+  <record id="rule_401_project_see_private_tasks" model="ir.rule">
+    <field name="name">Project: See private tasks</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[
+            ('project_id.privacy_visibility', '!=', 'followers'),
+            '|', '|', ('project_id', '!=', False),
+                      ('parent_id', '!=', False),
+                 ('user_ids', 'in', user.id),
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_user')])]"/>
+  </record>
+
+  <record id="rule_761_project_task_employees_full_access_to_own_private_task_only" model="ir.rule">
+    <field name="name">Project/Task: employees: Full access to own private task only</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[('project_id', '=', False), ('user_ids', 'in', user.id), ('parent_id', '=', False)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+  </record>
+
+  <record id="rule_762_project_task_project_users_follow_required_for_follower_only" model="ir.rule">
+    <field name="name">Project/Task: project users: follow required for follower-only projects</field>
+    <field name="model_id" ref="BugFix-Project.model_project_task"/>
+    <field name="domain_force">[
+            '|',
+                '&amp;',
+                    ('project_id', '!=', False),
+                    '|',
+                        ('project_id.privacy_visibility', '!=', 'followers'),
+                        ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                '|',
+                    ('message_partner_ids', 'in', [user.partner_id.id]),
+                    # to subscribe check access to the record, follower is not enough at creation
+                    ('user_ids', 'in', user.id)
+        ]</field>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_user')])]"/>
+  </record>
+
+  <record id="rule_404_project_updates_multi_company" model="ir.rule">
+    <field name="name">Project/Updates: multi-company</field>
+    <field name="model_id" ref="BugFix-Project.model_project_update"/>
+    <field name="domain_force">['|', ('project_id.company_id', 'in', company_ids), ('project_id.company_id', '=', False)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="rule_405_project_update_employees_follow_required_for_follower_only_p" model="ir.rule">
+    <field name="name">Project/Update: employees: follow required for follower-only projects</field>
+    <field name="model_id" ref="BugFix-Project.model_project_update"/>
+    <field name="domain_force">[
+        '|',
+            ('project_id.privacy_visibility', '!=', 'followers'),
+            '|',
+                ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                '|',
+                    ('user_id', '=', user.id),
+                    ('project_id.user_id', '=', user.id)
+        ]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+  </record>
+
+  <record id="rule_406_project_updates_project_user_can_see_all_project_updates" model="ir.rule">
+    <field name="name">Project updates : Project user can see all project updates</field>
+    <field name="model_id" ref="BugFix-Project.model_project_update"/>
+    <field name="domain_force">[(1, '=', 1)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+    <field name="groups" eval="[(6, 0, [ref('project.group_project_manager')])]"/>
+  </record>
+
+  <record id="rule_271_test_users_records_only" model="ir.rule">
+    <field name="name">test_users_records_only</field>
+    <field name="model_id" ref="BugFix-Project.model_x_departments"/>
+    <field name="domain_force">[('x_studio_user_id', '=', user.id)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="active" eval="True"/>
+  </record>
+
+</odoo>

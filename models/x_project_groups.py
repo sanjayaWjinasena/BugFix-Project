@@ -5,6 +5,7 @@ from odoo import fields, models
 class XProjectGroups(models.Model):
     """Studio-ported custom model x_project_groups."""
     _name = 'x_project_groups'
+    _rec_name = 'x_name'  # Clear-DB Studio model: records are named by x_name
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Project Groups'
 

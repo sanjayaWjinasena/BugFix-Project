@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 {
+    # upgrade-testing branch: data files below are commented out - this branch installs functions only, no data is seeded.
     'name': 'Jinasena : Module : Project',
-    'version': '17.0.0.0.17',
+    'version': '17.0.0.0.65',
     'summary': 'Studio-to-Python port for BugFix-Project',
     'author': 'Jinasena Agricultural Machinery (Pvt) Ltd.',
     'category': 'Services/Project',
@@ -114,8 +115,13 @@
     # Converted to _inherit; Jinasena_Masterdata_Reporting added here.
     'depends': ['base_setup', 'project', 'Jinasena_Masterdata_Reporting'],
     'data': [
+        'data/defaults_final.xml',
+        'views/views_final.xml',
+        'data/window_actions_f4.xml',
+        'data/defaults_f2.xml',
         'security/ir_model_pins.xml',
         'security/ir.model.access.csv',
+        'security/removed_handmade_access_rights.xml',
         'data/server_actions.xml',
         'data/server_actions_v2.xml',
         'data/automations.xml',
@@ -131,8 +137,22 @@
         'views/project_update_studio_ported.xml',
         'views/project_project_stage_studio_ported.xml',
         'views/studio_ported_7_views.xml',
-    ],
-    'installable': True,
+        'data/record_rules.xml',
+        'data/server_actions_backlog.xml',
+        'data/window_actions_backlog.xml',
+        'data/mail_templates_from_routing.xml',
+        'data/automations_gap.xml',
+        'data/window_actions_gap.xml',
+        'data/ir_defaults_gap.xml',  # upgrade-testing: form defaults shipped; record-specific ones commented inside
+        'data/ir_defaults_unblocked.xml',  # upgrade-testing: form defaults shipped; record-specific ones commented inside
+        'views/project_project_e_views.xml',
+        'views/project_task_e_views.xml',
+        'views/project_update_e_views.xml',
+        'data/menus_f6.xml',
+        'data/menus_from_routing.xml',
+],
+    'post_init_hook': 'post_init_hook',
+'installable': True,
     'auto_install': False,
     'application': True,
 }
